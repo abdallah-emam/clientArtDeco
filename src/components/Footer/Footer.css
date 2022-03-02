@@ -1,0 +1,197 @@
+/* .footer {
+  background-color: #086340;
+}
+
+.footer > hr {
+  margin-left: 60px;
+  width: 90%;
+  size: 1px;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__top--left {
+  display: flex;
+  flex-direction: column;
+  flex: 0.2;
+  padding: 20px;
+  margin-left: 60px;
+}
+
+.footer__top--left > img {
+  height: 130px;
+  width: 230px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.footer__top--left > p {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer__top--left > p > .MuiIcon-root {
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.footer__top--right {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 0.8;
+  padding: 20px;
+}
+
+.footer__top--right-one,
+.footer__top--right-two,
+.footer__top--right-three,
+.footer__top--right-four {
+  padding: 10px;
+}
+
+.footer__top--right-one > h4,
+.footer__top--right-two > h4,
+.footer__top--right-three > h4,
+.footer__top--right-four > h4 {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer__top--right-one > p,
+.footer__top--right-two > p,
+.footer__top--right-three > p {
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.footer__top--right-four > img {
+  height: 50px;
+  width: 180px;
+  margin-bottom: 15px;
+}
+
+.footer__top--right-four > p {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 35px;
+}
+
+.footer__bottom {
+  color: white;
+  justify-content: space-evenly;
+  display: flex;
+  margin: 15px, 25px;
+  padding: 20px;
+}
+
+.footer__bottom > h6 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer__bottom > p {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+} */
+
+.footer {
+    padding: 4rem 0;
+    background: #222222;
+    color: white;
+}
+
+.footer a {
+    color: #9b9c9f;
+    text-decoration: none;
+}
+
+.footer .fa-instagram,
+.footer .fa-facebook,
+.footer .fa-twitter {
+    color: #ffffff8a !important;
+    font-size: 22px;
+}
+
+.footer-title {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.footer-ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-ul li {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #ffffff8a;
+}
+
+.footer-other-text {
+    font-size: 15px;
+    color: #ffffff8a;
+}
+
+.fa-home {
+    font-size: 40px
+}
+
+.footer .fa-facebook,
+.footer .fa-twitter,
+.footer .fa-instagram-square {
+    font-size: 20px;
+}
+
+.inp-footer {
+    outline: 0;
+    border: 0;
+}
+
+.footer-social {
+    display: flex;
+}
+
+.footer-social-item {
+    width: 45px;
+    height: 45px;
+    background: #393a42;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.footer-info-item {
+    width: 25px;
+}
+
+
+/* .subscribe-area {
+    background-color: white;
+    padding: 5px 10px;
+    box-shadow: 0 10px 12px rgba(77, 60, 160, 0.1);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+} */

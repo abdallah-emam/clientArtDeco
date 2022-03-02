@@ -1,0 +1,202 @@
+.HomePage p,
+.whyArtDeco-section p,
+.delivery-models-client p,
+.delivery-models-contractor p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+/* section 1 */
+.HomePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.howWork h1 {
+  color: #ff8a00;
+}
+
+.howWork h1:first-child {
+  margin-bottom: 0;
+}
+
+.homWork-about {
+  width: 50%;
+  margin: 50px 0;
+}
+
+/* section 2 */
+
+.svg {
+  width: 100%;
+  overflow: hidden;
+}
+
+.YourSvg {
+  width: 10%;
+  height: 60%;
+}
+
+.why-us-container {
+  background-color: #f1f2f4;
+  padding: 50px 40px;
+}
+
+.whyItem {
+  margin: 25px 0;
+}
+
+/* Section delivery-models-client */
+
+.delivery-models-client {
+  margin: 50px 0;
+  color: #f7f7f7;
+}
+
+.delivery-models-client p,
+.delivery-models-client h2 {
+  color: #f7f7f7;
+}
+
+.models-client-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://www.homedecoreidea.com/wp-content/uploads/2019/09/DIY-home-decoration.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.container-edit-width {
+  padding: 50px;
+}
+
+.for-client-title p {
+  margin-bottom: 100px;
+  font-weight: 500;
+}
+
+.for-client-about p {
+  margin: 40px 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card-link {
+  display: inline-block;
+  background-color: #ff8a00;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  /* margin-top: 20px; */
+  text-align: start;
+}
+
+.card-link a {
+  color: #f7f7f7;
+  font-size: 20px;
+}
+
+/* delivery-models-contractor */
+
+.delivery-models-contractor {
+  margin: 50px 0;
+  border-radius: 10px;
+}
+
+.delivery-models-contractor p,
+.delivery-models-contractor h1 {
+  color: #f7f7f7;
+}
+
+.contractor-photo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://www.jimersonfirm.com/wp-content/uploads/2017/11/find-contractor.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.contractor-details {
+  background-color: #222222;
+}
+
+.container-edit-width-contractor {
+  padding: 30px;
+}
+
+.for-contractor-title p {
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+.for-contractor-about p,
+.for-clinet-offers p {
+  margin: 40px 0 100px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.for-clinet-offers p {
+  margin: 0;
+}
+
+.for-clinet-offers {
+  border-top: 1px solid #f7f7f7;
+  padding-top: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  /* section 3 */
+  p {
+    font-size: 17px;
+  }
+  h1 {
+    font-size: 60px;
+  }
+
+  .homWork-about {
+    width: 90%;
+    margin: 30px 0;
+  }
+  .for-contractor-about p,
+  .for-clinet-offers p {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 0) and (max-width: 480px) {
+  h1 {
+    font-size: 50px;
+  }
+  .HomePage {
+    height: 70vh;
+  }
+
+  .homWork-about {
+    width: 90%;
+    margin: 30px 0;
+  }
+  .select-type {
+    margin-top: 30px;
+  }
+
+  /* section 3 */
+  .container-edit-width {
+    padding: 20px;
+  }
+
+  .for-clinet-offers p {
+    font-size: 15px;
+  }
+}

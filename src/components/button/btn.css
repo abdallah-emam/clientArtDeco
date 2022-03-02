@@ -1,0 +1,50 @@
+a {
+  transition: all 0.2s ease;
+
+  text-decoration: none;
+  margin-right: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.Btn {
+  padding: 7px 25px;
+  text-transform: capitalize;
+  font-weight: 400;
+  border-radius: 50px;
+  line-height: 30px;
+  font-size: 16px;
+}
+
+.Btn.outline {
+  border: 1px solid #ff8a00;
+  background-color: transparent;
+  color: #ff8a00;
+}
+
+.Btn.outline:hover {
+  background-color: rgba(233, 233, 233, 0.342);
+}
+
+.Btn.defult {
+  color: #ffffff;
+  background-color: #ff8a00;
+  transition: all 0.5 ease;
+}
+
+.Btn.defult:hover {
+  color: #ffffff;
+  background-color: rgba(34, 34, 34, 1);
+}
+
+@media (min-width: 768px) and (max-width: 1279px) { 
+  .Btn {
+    padding: 5px 20px;
+  }
+ }
+
+@media (min-width: 0) and (max-width: 480px) {
+  .Btn {
+    padding: 5px 20px;
+  }
+}
