@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { validEmail, validPassword } from "./regex.js";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import BTN from "../../../components/button/btn";
 
 import {
   Grid,
   Paper,
   Avatar,
   TextField,
-  Button,
-  Typography,
+  Typography
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
@@ -115,8 +114,7 @@ const ContractorLogin = () => {
     width: 280,
     margin: "20px auto",
   };
-  const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const btnStyle = { margin: "8px 0" };
+  const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
     <div className="Login text-center">
       <Grid>
@@ -158,7 +156,14 @@ const ContractorLogin = () => {
                 {formValuesErrors.passErr}
               </div>
             )}
-            <Button
+            <div className="m-3 ">
+                <BTN
+                  URL="/Home"
+                  text="Sign in"
+                  type="defult"
+                />
+              </div>
+            {/* <Button
               type="submit"
               color="primary"
               variant="contained"
@@ -171,7 +176,7 @@ const ContractorLogin = () => {
               }
             >
               Sign in
-            </Button>
+            </Button> */}
           </form>
           <Typography>
             {" "}
@@ -181,10 +186,21 @@ const ContractorLogin = () => {
             </Link>
           </Typography>
           <br />
-          <Typography>
+          {/* <Typography>
             {" "}
             Do you have an account ? <br />
             <Link to={"/company_signup"}>Sign Up</Link>
+          </Typography> */}
+          <Typography>
+            {" "}
+            Do you have an account ? <br />
+            <div className="m-3 ">
+                <BTN
+                  URL="/ContractorSignUp"
+                  text="Sign Up"
+                  type="outline"
+                />
+              </div>
           </Typography>
         </Paper>
       </Grid>

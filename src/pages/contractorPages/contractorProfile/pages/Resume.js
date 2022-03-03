@@ -47,7 +47,7 @@ function Resume(props) {
           <Grid item xs={12} className='p_30 fixed-bottom opacity-75'>
             <Grid className='float-end'>
               <div onClick={e => goToSettings(e)}>
-                <Link to={`/contractorSettings`}>
+                <Link to={`/SettingsPage`}>
                   <CustomButton text={"Edit"} icon={<EditIcon />} />
                 </Link>
               </div>

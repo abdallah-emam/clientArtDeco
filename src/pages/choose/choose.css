@@ -1,0 +1,63 @@
+.Choose {
+    text-align: center;
+}
+
+.Choose .btn-1 {
+    background-color: rgb(188, 188, 192);
+    color: black;
+    font-size: 30px;
+    font-size: 4rem;
+    height: 300px;
+    width: 400px;
+    border: 2px white solid;
+}
+
+.Choose .btn-1:hover {
+    background-color: #fdb461;
+    color: white;
+}
+
+.Choose .btn-2 {
+    background-color: rgb(84, 87, 86);
+    color: white;
+    font-size: 30px;
+    font-size: 4rem;
+    height: 300px;
+    width: 400px;
+    border: 2px white solid;
+}
+
+.Choose .btn-2:hover {
+    background-color: #ff8a00;
+    color: rgb(0, 0, 0);
+}
+
+.btn-xxl a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    border-radius: 50px;
+}
+
+
+/* title  */
+
+
+/* If the screen size is 1200px wide or more, set the font-size to 80px */
+
+@media (min-width: 1200px) {
+    .responsive-font-example {
+        font-size: 80px;
+    }
+}
+
+
+/* If the screen size is smaller than 1200px, set the font-size to 80px */
+
+@media (max-width: 1199.98px) {
+    .responsive-font-example {
+        font-size: 30px;
+    }
+}

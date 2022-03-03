@@ -4,6 +4,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Grid } from "@mui/material";
 import Contact from "./components/Contact";
@@ -12,12 +13,7 @@ import { axiosInstace } from "../../../network/axiosConfig";
 import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProfileImage from "./components/ProfileImage";
-import PreviousWork from "./components/PreviousWork";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
-const MySwal = withReactContent(Swal);
-
+import PreviousWork from './components/PreviousWork';
 export function ContractorSettings(props) {
   const { children, value, index, ...other } = props;
 
@@ -69,10 +65,7 @@ export default function SettingsPage() {
         console.log("contractorDetails", contractorDetails);
         setIsLoading(false);
       })
-      .catch(err => {
-        console.log(err);
-        window.location.replace("http://localhost:3000/contractorLogin");
-      });
+      .catch(err => console.log(err));
   }, []);
 
   return (
