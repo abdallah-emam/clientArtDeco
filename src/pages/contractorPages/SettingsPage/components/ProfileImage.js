@@ -54,6 +54,7 @@ function ProfileImage(props) {
     // }
   };
 
+  console.log("photo",props.contractorDetails.photo)
   return (
     <div className='w-100'>
       <Box className='w-100' sx={{ display: "flex" }}>
@@ -62,7 +63,7 @@ function ProfileImage(props) {
             className='imageSettings'
             component='img'
             // height='194'
-            image='https://media.istockphoto.com/vectors/dentist-logo-vector-id1168571396?b=1&k=20&m=1168571396&s=612x612&w=0&h=I5Jm19L_NXbZHCbOYBLdMeyAwbR86XTT-L3GIVSdFVM='
+            image={props.contractorDetails.photo}
             alt='profile image'
           />
           <CardActions disableSpacing>

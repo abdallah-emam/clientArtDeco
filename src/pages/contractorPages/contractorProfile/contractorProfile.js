@@ -2,44 +2,63 @@ import React from "react";
 // import Footer from "../../";
 import "./contractorProfile.css";
 import Profile from "./components/Profile/Profile";
-import Header from "./components/Header/Header";
-// import Portfolio from "./components/Portfolio";
 import resume from "./utils/resume";
-// import {Container, Grid} from "@mui/core";
-// import { Grid } from "@mui/material";
-import { Container, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Resume from "./pages/Resume";
 import { axiosInstace } from "../../../network/axiosConfig";
 import { useState, useEffect } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
 
 export default function ContactorProfile() {
   const [contractorDetails, setContractorDetails] = useState([]);
-  
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    axiosInstace.get("contractors/getMe" , {})
-      .then((res) => {
+    axiosInstace
+      .get("contractors/getMe", {})
+      .then(res => {
         setContractorDetails(res.data.data.data);
-        console.log("res", res.data.data.data) 
-        console.log("contractorDetails",contractorDetails)
-        // setIsLoading(false); 
-      }) 
-      .catch((err) => console.log(err));
+        console.log("res", res.data.data.data);
+        console.log("contractorDetails", contractorDetails);
+        setIsLoading(false);
+      })
+      .catch(err => {
+        console.log(err);
+        window.location.replace("http://localhost:3000/contractorLogin");
+      });
   }, []);
 
   return (
     <>
       <div className='top_60 container'>
-        <Row className='row'>
-          <Col className='col-xl-3 col-lg-4 col-md-4 col-sm-12 mb-5'>
-            <Profile contractorDetails={contractorDetails} />
-          </Col>
-          <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
-            {/* <Header /> */}
-            <div className='content'>
-              <Resume contractorDetails={contractorDetails} {...resume} />
-            </div>
+        {isLoading ? (
+          <div className='w-100 position-relative'>
+            <Box
+              className='position-absolute top-0 start-50 translate-middle-x'
+              sx={{ display: "flex" }}
+            >
+              <CircularProgress className='m-5' />
+            </Box>
           </div>
-        </Row>
+        ) : (
+          <>
+            <Row className='row'>
+              <Col className='col-xl-3 col-lg-4 col-md-4 col-sm-12 mb-5'>
+                <Profile contractorDetails={contractorDetails} />
+              </Col>
+              <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
+                {/* <Header /> */}
+                <div className='content'>
+                  <Resume contractorDetails={contractorDetails} {...resume} />
+                </div>
+              </div>
+            </Row>
+          </>
+        )}
       </div>
 
       {/* <Footer /> */}
