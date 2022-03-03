@@ -57,7 +57,7 @@ function Navbar() {
             <Link to="/ContractorLogin" className={classes.link}>
               About
             </Link>
-            <Link to="/Blog" className={classes.link}>
+            <Link to="/clientsingup" className={classes.link}>
               Ads
             </Link>
             <Link to="/Userprofile" className={classes.link}>
