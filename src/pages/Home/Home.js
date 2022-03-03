@@ -27,7 +27,11 @@ function Home() {
                 <p>Right now. Right here.</p>
               </div>
               <div className="select-type d-flex">
-                <BTN URL="/contractorLogin" text="find contractor" type="defult" />
+                <BTN
+                  URL="/contractorLogin"
+                  text="find contractor"
+                  type="defult"
+                />
                 <BTN URL="/about" text="find Clinet" type="outline" />
               </div>
             </div>

@@ -1,0 +1,90 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 20;
+  background-color: #ffffff;
+  width: 100%;
+  z-index: 100;
+  padding: 10px;
+  margin: 20px, 30px;
+  color: black;
+}
+.header__logo {
+  object-fit: contain;
+  height: 65px;
+  margin-left: 30px;
+}
+.header__left,
+.header__right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+.header__left > h4 {
+  margin-left: 40px;
+  /* font-weight: 200; */
+  /* font-weight: bolder;*/
+}
+.header__left > h4 :hover {
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+
+.header__left > h4 > a {
+  text-decoration: none;
+  color: black;
+}
+
+.header__right > h4 {
+  margin-right: 25px;
+  /* font-weight: 200; */
+  /* font-weight: bolder;*/
+}
+
+.header__right > h4 > a {
+  text-decoration: none;
+  color: black;
+}
+
+.header__right > button {
+  background-color: #3ea70e;
+  border: solid 1px black;
+  border-radius: 5px;
+  color: white;
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  /* font-weight: bolder; */
+  margin-right: 25px;
+}
+.header__right > button > a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.header__right > button:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+/* .header__right :hover {
+  background-color: black;
+  color: white;
+} */
+
+.logo_name {
+  text-decoration: none;
+  font-size: 30px;
+
+  color: black;
+}
+
+.logo_name h4 {
+  font-weight: bolder;
+}

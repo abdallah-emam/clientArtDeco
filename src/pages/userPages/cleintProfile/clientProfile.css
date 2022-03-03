@@ -1,0 +1,109 @@
+body {
+  background-color: #f1f2f4;
+}
+
+.d-style {
+  width: 90% !important;
+  margin: auto !important;
+}
+.test {
+  width: 90% !important;
+  margin: auto !important;
+}
+.row {
+  display: flex;
+}
+.joblist .row div {
+  text-align: start;
+  /* margin-left: 5px; */
+  padding-right: 5px;
+}
+
+#btnjob {
+  background-color: #fdc236 !important;
+  color: white !important;
+  display: block;
+  border-radius: 20px !important;
+  border: 1px solid #fdc236;
+  text-align: center !important;
+}
+#btnjob1 {
+  background-color: #fdc236 !important;
+  color: white !important;
+  border-color: #fdc236 !important;
+  display: block;
+  border-radius: 20px !important;
+  text-align: center !important;
+}
+
+.cleintProfileEditWidth p {
+  font-weight: 500;
+}
+.profile-tile {
+  margin: 30px 0;
+}
+
+.clientJobs {
+  background-color: #f7f7f7;
+  border: 1px solid #dfdddd;
+  margin: 5px 10px;
+  color: rgba(12, 12, 12, 0.801);
+}
+.clientJobs h4 {
+  margin-bottom: 0;
+  padding: 13px 10px;
+}
+
+.jobTitle {
+  border-bottom: 1px solid #dfdddd;
+  padding: 10px 0px;
+}
+
+.jobslist {
+  /* padding: 10px 0px;
+  border-bottom: 1px solid #dfdddd; */
+}
+
+.job {
+    padding: 10px 20px;
+}
+
+.jobitem h5 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.jobitem p {
+  color: #858383;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 7px;
+}
+
+@media only screen and (max-width: 480px) {
+  #BTN {
+    display: none;
+  }
+  .d-style {
+    width: 100% !important;
+    margin: auto !important;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .cleintProfileEditWidth {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cleintProfileEditWidth {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .profile-tile {
+    margin: 50px 0;
+  }
+}
