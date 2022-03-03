@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./jobDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -30,21 +31,15 @@ export default function JobDetails() {
                 &nbsp;<span class="text-110">Molestie nunc non</span>
               </li>
             </ul>
-            <div class="col-12 col-md-4 text-center">
+            <div class="col-12 col-md-4 text-center ">
               <a
                 href="#"
-                class="f-n-hover btn btn-warning btn-raised px-4 py-25 w-75 text-600 m-3"
+                class="f-n-hover btn btn-back-color btn-raised px-4 py-25 w-75 text-600 m-3"
               >
-                Send a Proposal
+                <span>Send a Proposal</span> 
               </a>
 
-              <a
-                href="#"
-                class="f-n-hover btn btn-warning btn-raised px-4 py-25 w-75 text-600"
-              >
-                {" "}
-                Save the job
-              </a>
+
             </div>
             <div class="row align-items-center">
               <ul class="list-unstyled mb-0 col-12 col-md-8 text-dark-l1 text-90 text-left my-4 my-md-0">
@@ -108,28 +103,28 @@ export default function JobDetails() {
                       <span>
                         <span class="text-110">
                           {" "}
-                          <h4 class="pt-3 text-170 text-600 text-purple-d1 letter-spacing">
+                          <h4 class="pt-3 text-170 text-600 btn-back-color-d1 letter-spacing ">
                             skills and Expertise{" "}
                           </h4>
                         </span>
-                        <span class="badge rounded-pill bg-warning text-dark m-2">
+                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           {" "}
                           lorem
                         </span>{" "}
-                        <span class="badge rounded-pill bg-warning text-dark m-2">
+                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           Warning
                         </span>
-                        <span class="badge rounded-pill bg-warning text-dark m-2">
+                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           lorem
                         </span>
-                        <span class="badge rounded-pill bg-warning text-dark m-2">
+                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           {" "}
                           lorem
                         </span>{" "}
-                        <span class="badge rounded-pill bg-warning text-dark m-2">
+                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           Warning
                         </span>
-                        <span class="badge rounded-pill bg-warning text-dark m-2">
+                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           lorem
                         </span>
                       </span>

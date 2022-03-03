@@ -8,17 +8,16 @@ import {
   Paper,
   Avatar,
   TextField,
-  Button,
-  Typography,
+  Typography
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
+import BTN from "../../../components/button/btn";
 
 const MySwal = withReactContent(Swal);
 
 const ClientLogin = () => {
   const navigate = useNavigate();
-  // console.log(navigate);
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -75,7 +74,6 @@ const ClientLogin = () => {
         .then((response) => {
           console.log(response.data);
           navigate("/");
-          // console.log(response.data.data.user.name);
           MySwal.fire(
             `Logged-IN Successfully,Welcome ${response.data.data.user.name} , At Shatably.com`
           );
@@ -107,12 +105,11 @@ const ClientLogin = () => {
 
   const paperStyle = {
     padding: 20,
-    height: "70vh",
-    width: 280,
+    height: "60vh",
+    width: 310,
     margin: "20px auto",
   };
-  const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const btnStyle = { margin: "8px 0" };
+  const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
     <div className="Login text-center">
       <Grid>
@@ -154,7 +151,14 @@ const ClientLogin = () => {
                 {formValuesErrors.passErr}
               </div>
             )}
-            <Button
+              <div className="m-3 ">
+                <BTN
+                  URL="/company_signup"
+                  text="Sign in"
+                  type="defult"
+                />
+              </div>
+            {/* <Button
               type="submit"
               color="primary"
               variant="contained"
@@ -167,7 +171,7 @@ const ClientLogin = () => {
               }
             >
               Sign in
-            </Button>
+            </Button> */}
           </form>
           <Typography>
             {" "}
@@ -180,7 +184,14 @@ const ClientLogin = () => {
           <Typography>
             {" "}
             Do you have an account ? <br />
-            <Link to={"/user_signup"}>Sign Up</Link>
+            {/* <Link to={"/user_signup"}>Sign Up</Link> */}
+            <div className="m-3 ">
+                <BTN
+                  URL="/Home"
+                  text="Sign up"
+                  type="outline"
+                />
+              </div>
           </Typography>
         </Paper>
       </Grid>

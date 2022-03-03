@@ -4,14 +4,14 @@ import { validPassword } from "./regex.js";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { Grid, Paper, Avatar, TextField, Button } from "@material-ui/core";
+import { Grid, Paper, Avatar, TextField } from "@material-ui/core";
 import LockResetIcon from "@mui/icons-material/LockReset";
 import { axiosInstace } from "../../../network/axiosConfig";
+import BTN from "../../../components/button/btn";
 
 const MySwal = withReactContent(Swal);
 const ClientReset = () => {
   const params = useParams();
-  // console.log(params);
 
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
@@ -85,12 +85,11 @@ const ClientReset = () => {
 
   const paperStyle = {
     padding: 20,
-    height: "60vh",
+    height: "50vh",
     width: 280,
     margin: "20px auto",
   };
-  const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const btnStyle = { margin: "8px 0" };
+  const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
     <div className="text-center">
       <Grid>
@@ -132,8 +131,14 @@ const ClientReset = () => {
                 {formValuesErrors.passwordConfirmErr}
               </div>
             )}
-            <br /> <br />
-            <Button
+            <div className="m-5 ">
+                <BTN 
+                  URL="/company_signup"
+                  text="Reset"
+                  type="defult"
+                />
+            </div>
+            {/* <Button
               type="submit"
               color="primary"
               variant="contained"
@@ -146,7 +151,7 @@ const ClientReset = () => {
               }
             >
               Reset
-            </Button>
+            </Button> */}
           </form>
         </Paper>
       </Grid>

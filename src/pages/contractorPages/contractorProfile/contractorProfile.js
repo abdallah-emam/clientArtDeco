@@ -14,7 +14,6 @@ import { useState, useEffect } from "react";
 
 export default function ContactorProfile() {
   const [contractorDetails, setContractorDetails] = useState([]);
-  
   useEffect(() => {
     axiosInstace.get("contractors/getMe" , {})
       .then((res) => {

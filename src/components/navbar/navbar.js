@@ -13,23 +13,24 @@ import DrawerComponent from "./drawer";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
-    marginLeft: theme.spacing(80),
+    marginLeft: theme.spacing(50),
     display: "flex",
   },
   logo: {
     flexGrow: "1",
     cursor: "pointer",
-    color: "white",
+    color: '#ff8a00',
     height: "90px",
-    width: "120px",
+    width: "100px",
+    paddingTop:"5px"
   },
   link: {
     textDecoration: "none",
-    color: "white",
+    color: "black",
     fontSize: "20px",
     marginLeft: theme.spacing(4),
     "&:hover": {
-      color: "grey",
+      color: '#ff8a00',
       borderBottom: "1px solid white",
     },
   },
@@ -41,7 +42,7 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar color="primary" elevation={2} position="static">
+    <AppBar color=" navlinks.link" elevation={2} position="static">
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
@@ -54,24 +55,42 @@ function Navbar() {
             <Link to="/" className={classes.link}>
               Home
             </Link>
-            <Link to="/ContractorLogin" className={classes.link}>
+            <Link to="/about" className={classes.link}>
               About
             </Link>
-            <Link to="/clientsingup" className={classes.link}>
-              Ads
-            </Link>
-            <Link to="/Userprofile" className={classes.link}>
-              Client
-            </Link>
-            <Link to="/ClientFeed" className={classes.link}>
-              Feed
+            <Link to="/ClientProfile" className={classes.link}>
+            Client
             </Link>
             <Link to="/ContactorProfile" className={classes.link}>
-              Contractor
+            Contractor
+            </Link>
+            <Link to="/JobCreation" className={classes.link}>
+            Job
+            </Link>
+            <Link to="/JobProposal" className={classes.link}>
+            Proposal
+            </Link>
+            <Link to="/JobDetails" className={classes.link}>
+            Details
             </Link>
             <Link to="/Choose" className={classes.link}>
-              Account
+            Login/Register
             </Link>
+            {/* <Link to="/Choose" className={classes.link}>
+              Login/Register
+            </Link>
+            <Link to="/Choose" className={classes.link}>
+              Login/Register
+            </Link>
+            <Link to="/Choose" className={classes.link}>
+              Login/Register
+            </Link>
+            <Link to="/Choose" className={classes.link}>
+              Login/Register
+            </Link>
+            <Link to="/Choose" className={classes.link}>
+              Login/Register
+            </Link> */}
           </div>
         )}
       </Toolbar>

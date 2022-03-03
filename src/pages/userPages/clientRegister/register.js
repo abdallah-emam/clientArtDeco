@@ -12,11 +12,11 @@ import {
   Paper,
   Avatar,
   Typography,
-  TextField,
-  Button,
+  TextField
 } from "@material-ui/core";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
+import BTN from "../../../components/button/btn";
 
 const MySwal = withReactContent(Swal);
 
@@ -135,8 +135,7 @@ const ClientSignUp = () => {
   };
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
   const headerStyle = { margin: 0 };
-  const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const marginTop = { marginTop: 5 };
+  const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
     <div className="SignUp text-center">
       <Grid>
@@ -205,8 +204,7 @@ const ClientSignUp = () => {
                 {formValuesErrors.passConfirmationError}
               </div>
             )}
-            <br /> <br />
-            <Button
+            {/* <Button
               disabled={
                 formValuesErrors.emailErr ||
                 formValuesErrors.passErr ||
@@ -222,7 +220,14 @@ const ClientSignUp = () => {
               color="primary"
             >
               Sign up
-            </Button>
+            </Button> */}
+              <div className="m-3 ">
+                <BTN
+                  URL="/company_signup"
+                  text="Sign up"
+                  type="defult"
+                />
+              </div>
           </form>
         </Paper>
       </Grid>

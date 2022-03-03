@@ -15,14 +15,18 @@ import MenuIcon from "@material-ui/icons/Menu";
 const useStyles = makeStyles(() => ({
   link: {
     textDecoration: "none",
-    color: "black",
+    color: 'black',
     fontSize: "20px",
   },
   icon: {
-    color: "white",
+    color: '#ff8a00',
   },
   style: {
-    color: "purple",
+    color: '#ff8a00',
+    "&:hover": {
+      color: '#ff8a00',
+      borderBottom: "1px solid white",
+    },
   },
 }));
 
@@ -47,7 +51,7 @@ function DrawerComponent() {
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/About" className={classes.link}>
+              <Link to="/about" className={classes.link}>
                 About
               </Link>
             </ListItemText>
@@ -55,7 +59,7 @@ function DrawerComponent() {
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/Userprofile" className={classes.link}>
+              <Link to="/ClientProfile" className={classes.link}>
                 Client
               </Link>
             </ListItemText>
@@ -63,16 +67,32 @@ function DrawerComponent() {
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/ClientFeed" className={classes.link}>
-                ClientFeed
+              <Link to="/ContactorProfile" className={classes.link}>
+              Contractor
               </Link>
             </ListItemText>
           </ListItem>
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/ContactorProfile" className={classes.link}>
-                Contractor
+              <Link to="/JobCreation" className={classes.link}>
+              Job
+              </Link>
+            </ListItemText>
+          </ListItem>
+          <Divider />
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/JobProposal" className={classes.link}>
+              Proposal
+              </Link>
+            </ListItemText>
+          </ListItem>
+          <Divider />
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/JobDetails" className={classes.link}>
+              Details
               </Link>
             </ListItemText>
           </ListItem>
@@ -80,7 +100,7 @@ function DrawerComponent() {
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <Link to="/Choose" className={classes.link}>
-                Create Account
+              Login/Register
               </Link>
             </ListItemText>
           </ListItem>

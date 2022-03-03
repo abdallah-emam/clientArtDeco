@@ -11,13 +11,13 @@ import Footer from "../../components/Footer/Footer";
 function Home() {
   return (
     <>
-      {/* Sectio 1 */}
+      {/* Section 1 */}
       <section className="HomePage">
         <article className="howWork container">
           <div className="row svg ">
             <div className=" col-sm-12 col-md-6">
               <h1>
-                How Work <br /> should work
+                How we <br /> work?
               </h1>
               <div className="homWork-about  text-secondary">
                 <p>
@@ -133,7 +133,7 @@ function Home() {
             <div className="contractor-details col-sm-12 col-md-6">
               <div className="container-edit-width-contractor">
                 <div className="row for-contractor-title">
-                  <p>For client</p>
+                  <p>For contractor</p>
                 </div>
                 <div className="row for-contractor-about">
                   <div className="col-sm-12 col-md-10 col-lg-10 ">

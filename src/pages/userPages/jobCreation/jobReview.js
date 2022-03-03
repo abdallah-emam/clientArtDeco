@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 // import Footer from "../Footer/Footer";
 import "./jobReview.css";
@@ -75,7 +76,7 @@ export default function JobCreation() {
       <div className="MainDiv container">
         <div className="FirstWrapper">
           <div className="topLeft">
-            <span className="Sign-Page">Review</span>
+            <span className="Sign-Page">Creation</span>
           </div>
           <div className="topRight">
             <button
