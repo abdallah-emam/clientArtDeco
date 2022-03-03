@@ -4,7 +4,7 @@ import { validPassword } from "./regex.js";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { Grid, Paper, Avatar, TextField } from "@material-ui/core";
+import { Grid, Paper, Avatar, TextField, Button } from "@material-ui/core";
 import LockResetIcon from "@mui/icons-material/LockReset";
 import { axiosInstace } from "../../../network/axiosConfig";
 import BTN from "../../../components/button/btn";
@@ -37,8 +37,8 @@ const ClientReset = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validPassword.test(event.target.value) === false
-              ? "Password must be like that (Pass12345)"
-              : null,
+                ? "Password must be like that (Pass12345)"
+                : null,
         });
         break;
       case "passwordConfirm":
@@ -52,8 +52,8 @@ const ClientReset = () => {
             event.target.value.length === 0
               ? "This field is required"
               : (formValues.passwordConfirm === formValues.password) === true
-              ? "Password Confirm doesn't Match"
-              : null,
+                ? "Password Confirm doesn't Match"
+                : null,
         });
         break;
 
@@ -90,6 +90,7 @@ const ClientReset = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
+  const btnStyle = { margin: "8px 0" };
   return (
     <div className="text-center">
       <Grid>
@@ -131,14 +132,14 @@ const ClientReset = () => {
                 {formValuesErrors.passwordConfirmErr}
               </div>
             )}
-            <div className="m-5 ">
+            {/* <div className="m-5 ">
                 <BTN 
                   URL="/company_signup"
                   text="Reset"
                   type="defult"
                 />
-            </div>
-            {/* <Button
+            </div> */}
+            <Button
               type="submit"
               color="primary"
               variant="contained"
@@ -151,7 +152,7 @@ const ClientReset = () => {
               }
             >
               Reset
-            </Button> */}
+            </Button>
           </form>
         </Paper>
       </Grid>

@@ -12,7 +12,8 @@ import {
   Paper,
   Avatar,
   Typography,
-  TextField
+  TextField,
+  Button
 } from "@material-ui/core";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
@@ -49,8 +50,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : nameValidator.test(event.target.value) === false
-              ? "name must be in right format to be a real name"
-              : null,
+                ? "name must be in right format to be a real name"
+                : null,
         });
         break;
 
@@ -65,8 +66,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : emailValidator.test(event.target.value) === false
-              ? "Email must be like that (UUUUUWWWW@Example.com)"
-              : null,
+                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                : null,
         });
         break;
 
@@ -81,8 +82,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : passwordValidator.test(event.target.value) === false
-              ? "Password must be like that (Pass12345)"
-              : null,
+                ? "Password must be like that (Pass12345)"
+                : null,
         });
         break;
 
@@ -97,8 +98,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : (formValues.passwordConfirm === formValues.password) === true
-              ? "Password Confirm doesn't Match"
-              : null,
+                ? "Password Confirm doesn't Match"
+                : null,
         });
         break;
 
@@ -135,6 +136,7 @@ const ClientSignUp = () => {
   };
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
   const headerStyle = { margin: 0 };
+  const btnStyle = { margin: "15px 0", width: "200px" };
   const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
     <div className="SignUp text-center">
@@ -204,7 +206,7 @@ const ClientSignUp = () => {
                 {formValuesErrors.passConfirmationError}
               </div>
             )}
-            {/* <Button
+            <Button
               disabled={
                 formValuesErrors.emailErr ||
                 formValuesErrors.passErr ||
@@ -215,19 +217,19 @@ const ClientSignUp = () => {
                   formValues.password &&
                   formValues.passConfirmation) === ""
               }
+              style={btnStyle}
               type="submit"
               variant="contained"
-              color="primary"
             >
               Sign up
-            </Button> */}
-              <div className="m-3 ">
-                <BTN
-                  URL="/company_signup"
-                  text="Sign up"
-                  type="defult"
-                />
-              </div>
+            </Button>
+            {/* <div className="m-3 ">
+              <BTN
+                URL="/company_signup"
+                text="Sign up"
+                type="defult"
+              />
+            </div> */}
           </form>
         </Paper>
       </Grid>

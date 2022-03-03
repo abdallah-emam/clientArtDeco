@@ -10,8 +10,10 @@ import {
   Paper,
   Avatar,
   TextField,
-  Typography
+  Typography,
+  Button,
 } from "@material-ui/core";
+
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
 
@@ -43,8 +45,8 @@ const ContractorLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validEmail.test(event.target.value) === false
-              ? "Email must be like that (UUUUUWWWW@Example.com)"
-              : null,
+                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                : null,
         });
         break;
 
@@ -59,8 +61,8 @@ const ContractorLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validPassword.test(event.target.value) === false
-              ? "Password must be like that (Pass12345)"
-              : null,
+                ? "Password must be like that (Pass12345)"
+                : null,
         });
         break;
 
@@ -72,7 +74,7 @@ const ContractorLogin = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     if (!formValuesErrors.emailErr && !formValuesErrors.passErr) {
-        axiosInstace
+      axiosInstace
         .post("contractors/login", formValues)
         .then((response) => {
           console.log(response.data);
@@ -94,7 +96,7 @@ const ContractorLogin = () => {
   const foregetHandle = (e) => {
     e.preventDefault();
     if (!formValuesErrors.emailErr) {
-        axiosInstace
+      axiosInstace
         .post(
           "contractors/forgotPassword",
           formValues
@@ -115,6 +117,7 @@ const ContractorLogin = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
+  const btnStyle = { margin: "8px 0" };
   return (
     <div className="Login text-center">
       <Grid>
@@ -156,16 +159,15 @@ const ContractorLogin = () => {
                 {formValuesErrors.passErr}
               </div>
             )}
-            <div className="m-3 ">
-                <BTN
-                  URL="/Home"
-                  text="Sign in"
-                  type="defult"
-                />
-              </div>
-            {/* <Button
+            {/* <div className="m-3 ">
+              <BTN
+                URL="/Home"
+                text="Sign in"
+                type="defult"
+              />
+            </div> */}
+            <Button
               type="submit"
-              color="primary"
               variant="contained"
               style={btnStyle}
               fullWidth
@@ -176,7 +178,7 @@ const ContractorLogin = () => {
               }
             >
               Sign in
-            </Button> */}
+            </Button>
           </form>
           <Typography>
             {" "}
@@ -186,21 +188,16 @@ const ContractorLogin = () => {
             </Link>
           </Typography>
           <br />
-          {/* <Typography>
-            {" "}
-            Do you have an account ? <br />
-            <Link to={"/company_signup"}>Sign Up</Link>
-          </Typography> */}
           <Typography>
             {" "}
             Do you have an account ? <br />
             <div className="m-3 ">
-                <BTN
-                  URL="/ContractorSignUp"
-                  text="Sign Up"
-                  type="outline"
-                />
-              </div>
+              <BTN
+                URL="/ContractorSignUp"
+                text="Sign Up"
+                type="outline"
+              />
+            </div>
           </Typography>
         </Paper>
       </Grid>

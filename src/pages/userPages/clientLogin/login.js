@@ -8,7 +8,8 @@ import {
   Paper,
   Avatar,
   TextField,
-  Typography
+  Typography,
+  Button
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
@@ -41,8 +42,8 @@ const ClientLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validEmail.test(event.target.value) === false
-              ? "Email must be like that (UUUUUWWWW@Example.com)"
-              : null,
+                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                : null,
         });
         break;
 
@@ -57,8 +58,8 @@ const ClientLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validPassword.test(event.target.value) === false
-              ? "Password must be like that (Pass12345)"
-              : null,
+                ? "Password must be like that (Pass12345)"
+                : null,
         });
         break;
       default:
@@ -105,11 +106,12 @@ const ClientLogin = () => {
 
   const paperStyle = {
     padding: 20,
-    height: "60vh",
+    height: "65vh",
     width: 310,
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
+  const btnStyle = { margin: "8px 0" };
   return (
     <div className="Login text-center">
       <Grid>
@@ -151,16 +153,15 @@ const ClientLogin = () => {
                 {formValuesErrors.passErr}
               </div>
             )}
-              <div className="m-3 ">
-                <BTN
-                  URL="/company_signup"
-                  text="Sign in"
-                  type="defult"
-                />
-              </div>
-            {/* <Button
+            {/* <div className="m-3 ">
+              <BTN
+                URL="/company_signup"
+                text="Sign in"
+                type="defult"
+              />
+            </div> */}
+            <Button
               type="submit"
-              color="primary"
               variant="contained"
               style={btnStyle}
               fullWidth
@@ -171,7 +172,7 @@ const ClientLogin = () => {
               }
             >
               Sign in
-            </Button> */}
+            </Button>
           </form>
           <Typography>
             {" "}
@@ -186,12 +187,12 @@ const ClientLogin = () => {
             Do you have an account ? <br />
             {/* <Link to={"/user_signup"}>Sign Up</Link> */}
             <div className="m-3 ">
-                <BTN
-                  URL="/Home"
-                  text="Sign up"
-                  type="outline"
-                />
-              </div>
+              <BTN
+                URL="/ClientSignUp"
+                text="Sign up"
+                type="outline"
+              />
+            </div>
           </Typography>
         </Paper>
       </Grid>

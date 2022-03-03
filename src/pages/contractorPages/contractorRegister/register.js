@@ -12,7 +12,8 @@ import {
   Paper,
   Avatar,
   Typography,
-  TextField
+  TextField,
+  Button
 } from "@material-ui/core";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
@@ -49,8 +50,8 @@ const ContractorSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : nameValidator.test(event.target.value) === false
-              ? "name must be in right format to be a real name"
-              : null,
+                ? "name must be in right format to be a real name"
+                : null,
         });
         break;
 
@@ -65,8 +66,8 @@ const ContractorSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : emailValidator.test(event.target.value) === false
-              ? "Email must be like that (UUUUUWWWW@Example.com)"
-              : null,
+                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                : null,
         });
         break;
 
@@ -81,8 +82,8 @@ const ContractorSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : passwordValidator.test(event.target.value) === false
-              ? "Password must be like that (Pass12345)"
-              : null,
+                ? "Password must be like that (Pass12345)"
+                : null,
         });
         break;
 
@@ -97,8 +98,8 @@ const ContractorSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : (formValues.passwordConfirm === formValues.password) === true
-              ? "Password Confirm doesn't Match"
-              : null,
+                ? "Password Confirm doesn't Match"
+                : null,
         });
         break;
 
@@ -114,7 +115,7 @@ const ContractorSignUp = () => {
       !formValuesErrors.nameErr &&
       !formValuesErrors.passConfirmationError
     ) {
-        axiosInstace
+      axiosInstace
         .post("contractors/signup", formValues)
         .then((response) => {
           console.log(response.data);
@@ -134,6 +135,7 @@ const ContractorSignUp = () => {
   };
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
   const headerStyle = { margin: 0 };
+  const btnStyle = { margin: "20px 0", width: "200px" };
   const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
     <div className="SignUp text-center">
@@ -203,14 +205,15 @@ const ContractorSignUp = () => {
                 {formValuesErrors.passConfirmationError}
               </div>
             )}
-            <div className="m-3 ">
-                <BTN
-                  URL="/company_signup"
-                  text="Sign up"
-                  type="defult"
-                />
-              </div>
-            {/* <Button
+            {/* <div className="m-3 ">
+              <BTN
+                URL="/company_signup"
+                text="Sign up"
+                type="defult"
+              />
+            </div> */}
+
+            <Button
               disabled={
                 formValuesErrors.emailErr ||
                 formValuesErrors.passErr ||
@@ -221,12 +224,12 @@ const ContractorSignUp = () => {
                   formValues.password &&
                   formValues.passConfirmation) === ""
               }
+              style={btnStyle}
               type="submit"
               variant="contained"
-              color="primary"
             >
               Sign up
-            </Button> */}
+            </Button>
           </form>
         </Paper>
       </Grid>
