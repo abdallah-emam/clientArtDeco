@@ -139,7 +139,7 @@ const ContractorSignUp = () => {
   const btnStyle = { margin: "20px 0", width: "200px" };
   const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
-    <div className="SignUp text-center">
+    <div className="SignUp text-center m-5">
       <Grid>
         <Paper elevation={20} style={paperStyle}>
           <Grid align="center">

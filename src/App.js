@@ -18,7 +18,7 @@ import ContractorSettings from "./pages/contractorPages/SettingsPage/settingsPag
 import JobProposal from "./pages/contractorPages/JobPorposal/jobPorposal";
 import JobCreation from "./pages/userPages/jobCreation/jobReview";
 import SettingsPageUser from "./pages/contractorPages/SettingsPage/settingsPage";
-// import SettingsPageUser from "./pages/userPages/settingClenit/settingsClient";
+import JobUpdate from './pages/userPages/jobUpdate/jobUpdate'
 
 import Navbar from "./components/navbar/navbar";
 import JobsPage from './pages/Home/JobsPage/JobsPage';
@@ -27,7 +27,7 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path={"/"} exact element={<Home />}></Route>
         <Route path={"Home"} exact element={<Home />}></Route>
@@ -43,10 +43,10 @@ function App() {
         <Route path={"/JobDetails"} exact element={<JobDetails />}></Route>
         <Route path={"/ContactorProfile"} exact element={<ContactorProfile />}></Route>
         <Route path={"/ContractorSettings"} exact element={<ContractorSettings />}></Route>
-        <Route path={"/JobProposal"} exact element={<JobProposal />}></Route>
+        <Route path={"/JobProposal/:id"} exact element={<JobProposal />}></Route>
         <Route path={"/JobCreation"} exact element={<JobCreation />}></Route>
+        <Route path={"/JobUpdate/:id"} exact element={<JobUpdate />}></Route>
         <Route path={"/SettingsPageUser"} exact element={<SettingsPageUser />}></Route>
-        {/* <Route path={"/SettingsPageUser"} exact element={<SettingsPageUser />}></Route> */}
         <Route path={"/Choose"} exact element={<Choose />}></Route>
         <Route path={"/JobsPage"} exact element={<JobsPage />}></Route>
 

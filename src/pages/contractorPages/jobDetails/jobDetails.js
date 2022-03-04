@@ -2,22 +2,23 @@
 import React from "react";
 import "./jobDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 export default function JobDetails() {
   return (
     <div>
       <br></br>
       <br></br>
-      <div class="container">
+      <div className="container">
         <h1> Job Details </h1>
-        <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 py-3 shadow-sm">
-          <div class="row align-items-center">
-            <ul class="list-unstyled mb-0 col-12 col-md-8 text-dark-l1 text-90 text-left my-4 my-md-0">
+        <div className="d-style btn btn-brc-tp border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 py-3 shadow-sm">
+          <div className="row align-items-center">
+            <ul className="list-unstyled mb-0 col-12 col-md-8 text-dark-l1 text-90 text-left my-4 my-md-0">
               <li>
-                <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                <i className="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                 <span>
                   &nbsp;{" "}
-                  <span class="text-110">
+                  <span className="text-110">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s, when an unknown
@@ -26,28 +27,28 @@ export default function JobDetails() {
                   </span>
                 </span>
               </li>
-              <li class="mt-25">
-                <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
-                &nbsp;<span class="text-110">Molestie nunc non</span>
+              <li className="mt-25">
+                <i className="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                &nbsp;<span className="text-110">Molestie nunc non</span>
               </li>
             </ul>
-            <div class="col-12 col-md-4 text-center ">
-              <a
-                href="#"
-                class="f-n-hover btn btn-back-color btn-raised px-4 py-25 w-75 text-600 m-3"
+            <div className="col-12 col-md-4 text-center ">
+              <Link
+                to={"/JobProposal/622216d2cac0a0058f6d8dfa"}
+                className="f-n-hover btn btn-back-color btn-raised px-4 py-25 w-75 text-600 m-3"
               >
-                <span>Send a Proposal</span> 
-              </a>
+                <span>Send a Proposal</span>
+              </Link>
 
 
             </div>
-            <div class="row align-items-center">
-              <ul class="list-unstyled mb-0 col-12 col-md-8 text-dark-l1 text-90 text-left my-4 my-md-0">
+            <div className="row align-items-center">
+              <ul className="list-unstyled mb-0 col-12 col-md-8 text-dark-l1 text-90 text-left my-4 my-md-0">
                 <li>
-                  <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                  <i className="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                   <span>
                     &nbsp;{" "}
-                    <span class="text-110">
+                    <span className="text-110">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -58,35 +59,35 @@ export default function JobDetails() {
                   </span>
                 </li>
               </ul>
-              <div class="container p-4">
-                <div class="row">
-                  <div class="col">
-                    <div class="card" style={{ width: "18rem" }}>
-                      <img src={""} class="card-img-top" alt="..." />
-                      <div class="card-body">
-                        <p class="card-text">
+              <div className="container p-4">
+                <div className="row">
+                  <div className="col">
+                    <div className="card" style={{ width: "18rem" }}>
+                      <img src={""} className="card-img-top" alt="..." />
+                      <div className="card-body">
+                        <p className="card-text">
                           Some quick example text to build on the card title and
                           make up the bulk of the card's content.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="card" style={{ width: "18rem" }}>
-                      <img src={''} class="card-img-top" alt="..." />
-                      <div class="card-body">
-                        <p class="card-text">
+                  <div className="col">
+                    <div className="card" style={{ width: "18rem" }}>
+                      <img src={''} className="card-img-top" alt="..." />
+                      <div className="card-body">
+                        <p className="card-text">
                           Some quick example text to build on the card title and
                           make up the bulk of the card's content.
                         </p>
                       </div>
                     </div>{" "}
                   </div>
-                  <div class="col">
-                    <div class="card" style={{ width: "18rem" }}>
-                      <img src={''} class="card-img-top" alt="..." />
-                      <div class="card-body">
-                        <p class="card-text">
+                  <div className="col">
+                    <div className="card" style={{ width: "18rem" }}>
+                      <img src={''} className="card-img-top" alt="..." />
+                      <div className="card-body">
+                        <p className="card-text">
                           Some quick example text to build on the card title and
                           make up the bulk of the card's content.
                         </p>
@@ -95,58 +96,58 @@ export default function JobDetails() {
                   </div>
                 </div>
               </div>
-              <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 py-3 shadow-sm">
-                <div class="row align-items-center">
-                  <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+              <div className="d-style btn btn-brc-tp border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 py-3 shadow-sm">
+                <div className="row align-items-center">
+                  <ul className="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
                     <li>
-                      <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                      <i className="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                       <span>
-                        <span class="text-110">
+                        <span className="text-110">
                           {" "}
-                          <h4 class="pt-3 text-170 text-600 btn-back-color-d1 letter-spacing ">
+                          <h4 className="pt-3 text-170 text-600 btn-back-color-d1 letter-spacing ">
                             skills and Expertise{" "}
                           </h4>
                         </span>
-                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
+                        <span className="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           {" "}
                           lorem
                         </span>{" "}
-                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
+                        <span className="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           Warning
                         </span>
-                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
+                        <span className="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           lorem
                         </span>
-                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
+                        <span className="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           {" "}
                           lorem
                         </span>{" "}
-                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
+                        <span className="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           Warning
                         </span>
-                        <span class="badge rounded-pill btn-back-color text-dark m-2 text-white">
+                        <span className="badge rounded-pill btn-back-color text-dark m-2 text-white">
                           lorem
                         </span>
                       </span>
                     </li>
 
-                    <li class="mt-25">
-                      <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
-                      &nbsp;<span class="text-110">Molestie nunc non</span>
+                    <li className="mt-25">
+                      <i className="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                      &nbsp;<span className="text-110">Molestie nunc non</span>
                     </li>
                   </ul>
-                  <div class="col-3 col-md-4">
-                    <h4 class="pt-3 text-170 text-600 text-purple-d1 letter-spacing">
+                  <div className="col-3 col-md-4">
+                    <h4 className="pt-3 text-170 text-600 text-purple-d1 letter-spacing">
                       Plan
                     </h4>
-                    <div class="text-secondary-d1 text-120">
-                      <span class="ml-n15 align-text-bottom">$</span>
-                      <span class="text-180">50</span> / M
+                    <div className="text-secondary-d1 text-120">
+                      <span className="ml-n15 align-text-bottom">$</span>
+                      <span className="text-180">50</span> / M
                     </div>
                   </div>
 
-                  <div class="col-3 col-md-4 text-center">
-                    <h4 class="pt-3 text-170 text-600 text-purple-d1 letter-spacing">
+                  <div className="col-3 col-md-4 text-center">
+                    <h4 className="pt-3 text-170 text-600 text-purple-d1 letter-spacing">
                       Client{" "}
                     </h4>
                     <h5> Ahmed A.</h5>

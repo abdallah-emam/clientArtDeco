@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#ff8a00',
     height: "90px",
     width: "100px",
-    paddingTop:"5px"
+    paddingTop: "5px"
   },
   link: {
     textDecoration: "none",
@@ -59,22 +59,22 @@ function Navbar() {
               About
             </Link>
             <Link to="/ClientProfile" className={classes.link}>
-            Client
+              Client
             </Link>
             <Link to="/ContactorProfile" className={classes.link}>
-            Contractor
+              Contractor
             </Link>
             <Link to="/JobCreation" className={classes.link}>
-            Job
+              Job
             </Link>
-            <Link to="/JobProposal" className={classes.link}>
-            Proposal
+            <Link to="/JobUpdate/622216d2cac0a0058f6d8dfa" className={classes.link}>
+              UpdateJob
             </Link>
             <Link to="/JobDetails" className={classes.link}>
-            Details
+              Details
             </Link>
             <Link to="/Choose" className={classes.link}>
-            Login/Register
+              Login/Register
             </Link>
             {/* <Link to="/Choose" className={classes.link}>
               Login/Register
