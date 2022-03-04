@@ -21,6 +21,8 @@ import SettingsPageUser from "./pages/contractorPages/SettingsPage/settingsPage"
 // import SettingsPageUser from "./pages/userPages/settingClenit/settingsClient";
 
 import Navbar from "./components/navbar/navbar";
+import JobsPage from './pages/Home/JobsPage/JobsPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -46,9 +48,14 @@ function App() {
         <Route path={"/SettingsPageUser"} exact element={<SettingsPageUser />}></Route>
         {/* <Route path={"/SettingsPageUser"} exact element={<SettingsPageUser />}></Route> */}
         <Route path={"/Choose"} exact element={<Choose />}></Route>
+        <Route path={"/JobsPage"} exact element={<JobsPage />}></Route>
+
 
       </Routes>
+      <Footer />
+
     </BrowserRouter>
+    
   );
 }
 

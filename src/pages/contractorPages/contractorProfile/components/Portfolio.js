@@ -27,14 +27,14 @@ const Portfolio = props => {
 
       <Grid item xs={12} className=''>
         <Grid container spacing={2} className=''>
-          {props.Jobs.map(job => (
-            <Grid key={job.title} item lg={4} md={6} sm={12} xs={12}>
+          {props.contractorDetails.gallery.map(img => (
+            <Grid key={img} item lg={4} md={6} sm={12} xs={12}>
               <Card className='job-card'>
                 <CardActionArea>
                   <figure className='card_image'>
-                    <img src={`${job.image}`} alt='' />
+                    <img src={img} crossOrigin="anonymous" alt='' />
                   </figure>
-                  <CardContent>
+                  {/* <CardContent>
                     <Typography variant='h6' className='job-card-title fw-bold'>
                         {job.title}
                     </Typography>
@@ -44,7 +44,7 @@ const Portfolio = props => {
                     >
                       {job.description}
                     </Typography>
-                  </CardContent>
+                  </CardContent> */}
                 </CardActionArea>
               </Card>
             </Grid>

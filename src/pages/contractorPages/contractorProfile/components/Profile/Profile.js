@@ -18,7 +18,7 @@ const Profile = (props) => {
       </div>
 
       <figure className="profile_image">
-        <img src={`${displayImage}`} alt="" />
+        <img src={props.contractorDetails.photo} crossOrigin="anonymous" alt="" />
       </figure>
 
       <ul className="profile_information">
