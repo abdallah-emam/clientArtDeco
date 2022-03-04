@@ -6,7 +6,6 @@ import { ReactComponent as YourSvg } from "../../images/svg/undraw_certificate_r
 import "bootstrap/dist/css/bootstrap.min.css";
 import BTN from "../../components/button/btn";
 import "./Home.css";
-import Footer from "../../components/Footer/Footer";
 
 function Home() {
   return (
@@ -183,7 +182,6 @@ function Home() {
         </div>
       </section>
       {/* footer */}
-      <Footer />
     </>
   );
 }
