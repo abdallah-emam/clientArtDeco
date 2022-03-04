@@ -13,31 +13,33 @@ function Home() {
     <>
       {/* Section 1 */}
       <section className="HomePage">
-        <article className="howWork container">
-          <div className="row svg ">
-            <div className=" col-sm-12 col-md-6">
-              <h1>
-                How we <br /> work?
-              </h1>
-              <div className="homWork-about  text-secondary">
-                <p>
-                  Forget the old rules. You can choose the best contractor to
-                  make your Home fantasric
-                </p>
-                <p>Right now. Right here.</p>
+        <article className="container">
+          <div className="conriner container-edit-width">
+            <div className="row">
+              <div className="col-12 col-md-6">
+                <h1>
+                  How we <br /> work?
+                </h1>
+                <div className="home-about  text-secondary">
+                  <p>
+                    Forget the old rules. You can choose the best contractor to
+                    make your Home fantasric
+                  </p>
+                  <p>Right now. Right here.</p>
+                </div>
+                <div className="select-type d-flex">
+                  <BTN
+                    URL="/contractorLogin"
+                    text="find contractor"
+                    type="defult"
+                  />
+                  <BTN URL="/about" text="find Clinet" type="outline" />
+                </div>
               </div>
-              <div className="select-type d-flex">
-                <BTN
-                  URL="/contractorLogin"
-                  text="find contractor"
-                  type="defult"
-                />
-                <BTN URL="/about" text="find Clinet" type="outline" />
-              </div>
-            </div>
-            <div className=" d-none d-md-block  col-md-6">
-              <div className="svg">
-                <YourSvg height="100%" width="60%" />
+              <div className=" d-none d-md-block text-align-center col-md-6">
+                <div className="svg">
+                  <YourSvg height="100%" width="60%" />
+                </div>
               </div>
             </div>
           </div>
@@ -46,29 +48,33 @@ function Home() {
       {/* Sectio 2 */}
       <section className="whyArtDeco-section">
         <div className="container why-us-container">
-          <div className="row">
-            <div className="col-sm-12 col-md-8">
-              <h1>Why ArtDeco..?</h1>
-              <div className="row whyItem">
-                <h3>Proof of quality</h3>
-                <p>
-                  Check any pro’s work samples, client reviews, and identity
-                  verification.
-                </p>
-              </div>
-              <div className="row whyItem">
-                <h3>No cost until you hire</h3>
-                <p>
-                  Interview potential fits for your job, negotiate rates, and
-                  only pay for work you approve.
-                </p>
-              </div>
-              <div className=" row whyItem">
-                <h3>Safe and secure</h3>
-                <p>
-                  Focus on your work knowing we help protect your data and
-                  privacy. We’re here with 24/7 support if you need it.
-                </p>
+          <div className="container container-edit-width">
+            <div className="row">
+              <div className="col-sm-12 col-md-8">
+                <div className="row">
+                  <h1>Why ArtDeco..?</h1>
+                </div>
+                <div className="row whyItem">
+                  <h3>Proof of quality</h3>
+                  <p className="text-secondary">
+                    Check any pro’s work samples, client reviews, and identity
+                    verification.
+                  </p>
+                </div>
+                <div className="row whyItem">
+                  <h3>No cost until you hire</h3>
+                  <p className="text-secondary">
+                    Interview potential fits for your job, negotiate rates, and
+                    only pay for work you approve.
+                  </p>
+                </div>
+                <div className=" row whyItem">
+                  <h3>Safe and secure</h3>
+                  <p className="text-secondary">
+                    Focus on your work knowing we help protect your data and
+                    privacy. We’re here with 24/7 support if you need it.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -131,7 +137,7 @@ function Home() {
           <div className="row">
             <div className="contractor-photo col-sm-12 col-md-6"></div>
             <div className="contractor-details col-sm-12 col-md-6">
-              <div className="container-edit-width-contractor">
+              <div className="container-edit-width">
                 <div className="row for-contractor-title">
                   <p>For contractor</p>
                 </div>
