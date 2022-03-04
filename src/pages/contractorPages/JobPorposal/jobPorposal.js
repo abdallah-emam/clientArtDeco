@@ -12,6 +12,7 @@ const MySwal = withReactContent(Swal);
 export default function JobProposal() {
   const navigate = useNavigate();
   const params = useParams();
+  // console.log(params.id);
 
   const [formValues, setFormValues] = useState({
     coverLetter: "",
@@ -48,15 +49,15 @@ export default function JobProposal() {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     axiosInstace
-      .post(`job/$/proposal`, formValues)
+      .post(`job/${params.id}/proposal`, formValues)
       .then((response) => {
         console.log(response.data);
-        // navigate('/');
-        MySwal.fire(``);
+        navigate('/');
+        MySwal.fire(`Proposal Sent To the Job Owner , Thanks For Working With Us`);
       })
       .catch((err) => {
         console.log(err);
-        MySwal.fire(``);
+        MySwal.fire(` Can't Send This Proposal, Please Check again before add Proposal`);
       });
   };
 

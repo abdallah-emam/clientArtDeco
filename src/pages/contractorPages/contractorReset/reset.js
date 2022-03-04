@@ -96,7 +96,7 @@ const ContractorReset = () => {
   const avatarStyle = { backgroundColor: "#ff8a00" };
   const btnStyle = { margin: "8px 0" };
   return (
-    <div className="text-center">
+    <div className="text-center m-5">
       <Grid>
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">

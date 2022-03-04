@@ -107,14 +107,14 @@ const ClientLogin = () => {
 
   const paperStyle = {
     padding: 20,
-    height: "65vh",
-    width: 310,
+    height: "70vh",
+    width: 280,
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
   const btnStyle = { margin: "8px 0" };
   return (
-    <div className="Login text-center">
+    <div className="Login text-center m-5">
       <Grid>
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">

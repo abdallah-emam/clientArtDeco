@@ -1,17 +1,19 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-// import Footer from "../Footer/Footer";
-import "./jobReview.css";
+import React, { useState, useEffect } from "react";
+import "./jobUpdate.css";
 import PaidIcon from "@mui/icons-material/Paid";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { axiosInstace } from "../../../network/axiosConfig";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const MySwal = withReactContent(Swal);
 
-export default function JobCreation() {
+export default function JobUpdate() {
   const navigate = useNavigate();
+  const params = useParams();
+  // console.log(params.id);
+
+  const [job, setJob] = useState([]);
 
   const [formValues, setFormValues] = useState({
     headLine: "",
@@ -54,19 +56,37 @@ export default function JobCreation() {
         break;
     }
   };
+
+  //Get Specific Job 
+  const GetSpecificJob = () => {
+    axiosInstace
+      .get(`job/${params.id}`)
+      .then((response) => {
+        // console.log(response.data.data.job);
+        const myJob = response.data.data.job;
+        setJob(myJob);
+      })
+      .catch((err) => {
+        console.log(err);
+        MySwal.fire(`Can't Get This Job`);
+      });
+  };
+  useEffect(() => GetSpecificJob(), [])
+
+
+  // Update With BAckEND 
   const handleSubmitForm = (e) => {
     e.preventDefault();
     console.log(formValues);
     axiosInstace
-      .post("job", formValues)
+      .patch(`job/${params.id}`, formValues)
       .then((response) => {
         console.log(response.data);
-        MySwal.fire(`Job Added Successfully`);
-        navigate('/ClientProfile')
+        MySwal.fire(`Job Updateed Successfully`);
       })
       .catch((err) => {
         console.log(err);
-        MySwal.fire(`Can't Add This Job`);
+        MySwal.fire(`Can't Update This Job`);
       });
   };
 
@@ -77,7 +97,7 @@ export default function JobCreation() {
       <div className="MainDiv container">
         <div className="FirstWrapper">
           <div className="topLeft">
-            <span className="Sign-Page">Creation</span>
+            <span className="Sign-Page">Job Update</span>
           </div>
           <div className="topRight">
             <button
@@ -85,22 +105,22 @@ export default function JobCreation() {
               type="button"
               className="btn"
             >
-              Save Job Post
+              Update Job
             </button>
           </div>
         </div>
         <hr />
         <div className="SecondWrapper">
           <div className="topLeft">
-            <div className="form-group">
+            <div className="form-group m-2">
               <label>HeadLine</label>
               <input
                 type="text"
                 className="form-control"
                 name="headLine"
                 value={formValues.headLine}
+                placeholder={job.headLine}
                 onChange={(e) => handleFormChange(e)}
-                placeholder="Enter a Descriptive HeadLine"
               ></input>
             </div>
             <small>
@@ -113,23 +133,13 @@ export default function JobCreation() {
         <div className="ThirdWrapper">
           <div className="topLeft">
             <h5>Describe Your Job</h5>
-            <h6>
-              This is how companies will figure out what you need and why they
-              should make an offer to you.
-            </h6>
-            <h6>
-              Include your expectations about what you want , what you are
-              looking for in work relationship , and any thing or details
-              related to what you need or instructions to the company.
-              <span>Here are several examples</span> that illustrate best
-              practices for effective job posts.
-            </h6>
-            <div className="form-group">
+            <div className="form-group m-2">
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
                 rows="10"
                 name="description"
+                placeholder={job.description}
                 value={formValues.description}
                 onChange={(e) => handleFormChange(e)}
               ></textarea>
@@ -149,7 +159,7 @@ export default function JobCreation() {
             <h5>Details</h5>
             <div className="form-group">
               <label>Budget</label>
-              <div className="input-group mb-3">
+              <div className="input-group mb-3 ">
                 <span className="input-group-text">
                   <PaidIcon />
                 </span>
@@ -159,6 +169,7 @@ export default function JobCreation() {
                   name="budget"
                   value={formValues.budget}
                   onChange={(e) => handleFormChange(e)}
+                  placeholder={job.budget}
                   className="form-control"
                   aria-label="Amount (to the nearest dollar)"
                 ></input>
@@ -172,6 +183,7 @@ export default function JobCreation() {
                   className="form-control"
                   aria-label="Amount (to the nearest dollar)"
                   name="estimatedTime"
+                  placeholder={job.estimatedTime}
                   value={formValues.estimatedTime}
                   onChange={(e) => handleFormChange(e)}
                 ></input>
@@ -181,29 +193,14 @@ export default function JobCreation() {
           <div className="topRight">
             <div className="Special container">
               <h6>
-                Enter The Details Of Your Work To make It Clear To the Companies
+                Enter The Details Of Your Work To be Updated to make It Clear To the Companies
                 to know everything you need to finish your work in right way.
               </h6>
             </div>
           </div>
         </div>
-        <hr />
-        <div className="FirstWrapper">
-          <div className="topLeft"></div>
-          <div className="topRight">
-            <button
-              onClick={(e) => handleSubmitForm(e)}
-              type="button"
-              className="btn"
-            >
-              Save Job Post
-            </button>
-          </div>
-        </div>
       </div>
       <br />
-      <br />
-      {/* <Footer /> */}
     </>
   );
 }

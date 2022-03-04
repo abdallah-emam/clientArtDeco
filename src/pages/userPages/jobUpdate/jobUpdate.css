@@ -1,0 +1,459 @@
+.MainDiv {
+  width: 65%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(179, 170, 170);
+}
+
+.FirstWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Sign-Page {
+  font-weight: 400;
+  font-size: 40px;
+  color: rgb(44, 44, 48);
+  margin-left: 30px;
+  padding: 20px;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  padding: 30px;
+}
+
+.topRight .btn {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 40px;
+  background: #ff8a00;
+  transition: all 0.3s ease 0s;
+  width: 200px;
+  height: 50px;
+}
+
+.topRight .btn:hover {
+  color: #ff8a00;
+  background: transparent;
+  font-weight: bold;
+  border: 2px solid rgba(5, 12, 17, 0.75);
+}
+
+/* SecondWrapper */
+
+.SecondWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between;
+}
+
+.SecondWrapper .topLeft .form-group label {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.SecondWrapper .topLeft .form-group input {
+  width: 450px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid black;
+}
+
+.SecondWrapper .topLeft small {
+  color: rgb(231, 160, 26);
+}
+
+/* ThirdWrapper */
+
+.ThirdWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between;
+}
+
+.ThirdWrapper .topLeft h5 {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.ThirdWrapper .topLeft h6 {
+  padding: 5px;
+}
+
+.ThirdWrapper .topLeft h6 span {
+  color: #ff8a00;
+  font-weight: bold;
+}
+
+.ThirdWrapper .topLeft .form-group textarea {
+  resize: none;
+  width: 600px;
+  border: 1px solid black;
+}
+
+.ThirdWrapper .topLeft .form-group .file-Attach {
+  width: 500px;
+}
+
+/* ForthWrapper */
+
+.ForthWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between;
+}
+
+.ForthWrapper .topRight .Special {
+  border: 1px solid black;
+  width: 400px;
+  height: 100px;
+  background-color: rgb(255, 255, 255);
+}
+
+.ForthWrapper .topRight .Special h6 {
+  padding: 15px;
+}
+
+/*RESPONSIVE*/
+
+/* @media (max-width: 1104px) {
+} */
+
+@media (max-width: 991px) {
+  .MainDiv {
+    width: 100%;
+    height: 100%;
+  }
+  .topRight {
+    display: block;
+    font-size: 18px;
+  }
+  .FirstWrapper {
+    display: block;
+    align-items: center;
+  }
+  .Sign-Page {
+    font-size: 28px;
+  }
+  .topRight .btn {
+    font-size: 18px;
+  }
+  .ThirdWrapper {
+    height: 100%;
+    display: block;
+    align-items: center;
+  }
+  .ThirdWrapper .topLeft h5 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .ThirdWrapper .topLeft .form-group textarea {
+    resize: none;
+    width: 300px;
+    border: 1px solid black;
+  }
+  .ThirdWrapper .topLeft .form-group .file-Attach {
+    width: 300px;
+  }
+  .ForthWrapper {
+    height: 100%;
+    padding: 0px 20px;
+    display: block;
+    align-items: center;
+  }
+  .ForthWrapper .topRight .Special {
+    border: 1px solid black;
+    width: 400px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+  }
+  .ForthWrapper .topRight .Special h6 {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 947px) {
+  .MainDiv {
+    width: 100%;
+    height: 100%;
+  }
+  .topRight {
+    display: block;
+    font-size: 14px;
+  }
+  .FirstWrapper {
+    display: block;
+    align-items: center;
+  }
+  .Sign-Page {
+    font-size: 20px;
+  }
+  .topRight .btn {
+    font-size: 18px;
+  }
+  .SecondWrapper {
+    display: block;
+    align-items: center;
+  }
+  .SecondWrapper .topLeft .form-group label {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .SecondWrapper .topLeft .form-group input {
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1px solid black;
+  }
+  .ThirdWrapper {
+    height: 100%;
+    display: block;
+    align-items: center;
+  }
+  .ThirdWrapper .topLeft h5 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .ThirdWrapper .topLeft .form-group textarea {
+    resize: none;
+    width: 300px;
+    border: 1px solid black;
+  }
+  .ThirdWrapper .topLeft .form-group .file-Attach {
+    width: 300px;
+  }
+  .ForthWrapper {
+    height: 100%;
+    padding: 0px 20px;
+    display: block;
+    align-items: center;
+  }
+
+  .ForthWrapper .topRight .Special h6 {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .MainDiv {
+    width: 100%;
+    height: 100%;
+  }
+  .topRight {
+    display: block;
+    font-size: 14px;
+  }
+  .FirstWrapper {
+    display: block;
+    align-items: center;
+  }
+  .Sign-Page {
+    font-size: 20px;
+  }
+  .topRight .btn {
+    font-size: 18px;
+  }
+  .SecondWrapper {
+    display: block;
+    align-items: center;
+  }
+  .SecondWrapper .topLeft .form-group label {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .SecondWrapper .topLeft .form-group input {
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1px solid black;
+  }
+  .ThirdWrapper {
+    height: 100%;
+    display: block;
+    align-items: center;
+  }
+  .ThirdWrapper .topLeft h5 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .ThirdWrapper .topLeft .form-group textarea {
+    resize: none;
+    width: 300px;
+    border: 1px solid black;
+  }
+  .ThirdWrapper .topLeft .form-group .file-Attach {
+    width: 300px;
+  }
+  .ForthWrapper {
+    height: 100%;
+    padding: 0px 20px;
+    display: block;
+    align-items: center;
+  }
+  .ForthWrapper .topRight .Special {
+    border: 1px solid black;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+  }
+  .ForthWrapper .topRight .Special h6 {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 690px) {
+  .MainDiv {
+    width: 100%;
+    height: 100%;
+  }
+  .topRight {
+    display: block;
+    font-size: 14px;
+  }
+  .FirstWrapper {
+    display: block;
+    align-items: center;
+  }
+  .Sign-Page {
+    font-size: 20px;
+  }
+  .topRight .btn {
+    font-size: 18px;
+  }
+  .SecondWrapper {
+    display: block;
+    align-items: center;
+  }
+  .SecondWrapper .topLeft .form-group label {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .SecondWrapper .topLeft .form-group input {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1px solid black;
+  }
+  .ThirdWrapper {
+    height: 100%;
+    display: block;
+    align-items: center;
+  }
+  .ThirdWrapper .topLeft h5 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .ThirdWrapper .topLeft .form-group textarea {
+    resize: none;
+    width: 300px;
+    border: 1px solid black;
+  }
+  .ThirdWrapper .topLeft .form-group .file-Attach {
+    width: 300px;
+  }
+  .ForthWrapper {
+    height: 100%;
+    padding: 0px 20px;
+    display: block;
+    align-items: center;
+  }
+  .ForthWrapper .topRight .Special {
+    border: 1px solid black;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+  }
+  .ForthWrapper .topRight .Special h6 {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .MainDiv {
+    width: 100%;
+    height: 100%;
+  }
+  .topRight {
+    display: block;
+    font-size: 14px;
+  }
+  .FirstWrapper {
+    display: block;
+    align-items: center;
+  }
+  .Sign-Page {
+    font-size: 20px;
+  }
+  .topRight .btn {
+    font-size: 18px;
+  }
+  .SecondWrapper {
+    display: block;
+    align-items: center;
+  }
+  .SecondWrapper .topLeft .form-group label {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .SecondWrapper .topLeft .form-group input {
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1px solid black;
+  }
+  .ThirdWrapper {
+    height: 100%;
+    display: block;
+    align-items: center;
+  }
+  .ThirdWrapper .topLeft h5 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .ThirdWrapper .topLeft .form-group textarea {
+    resize: none;
+    width: 300px;
+    border: 1px solid black;
+  }
+  .ThirdWrapper .topLeft .form-group .file-Attach {
+    width: 300px;
+  }
+  .ForthWrapper {
+    height: 100%;
+    padding: 0px 20px;
+    display: block;
+    align-items: center;
+  }
+  .ForthWrapper .topRight .Special {
+    border: 1px solid black;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+  }
+  .ForthWrapper .topRight .Special h6 {
+    padding: 15px;
+  }
+}
