@@ -1,14 +1,10 @@
-.HomePage p,
-.whyArtDeco-section p,
-.delivery-models-client p,
-.delivery-models-contractor p {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 30px;
+.container-edit-width {
+  padding: 10px;
 }
 
-h1 {
-  font-size: 70px;
+.HomePage h1,
+.whyArtDeco-section h1 {
+  font-size: 50px;
 }
 
 /* section 1 */
@@ -16,23 +12,25 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
 }
 
-.howWork h1 {
+.HomePage h1 {
   color: #ff8a00;
 }
 
-.howWork h1:first-child {
+.HomePage h1:first-child {
   margin-bottom: 0;
 }
 
-.homWork-about {
-  width: 50%;
-  margin: 50px 0;
+.home-about {
+  margin: 20px 0;
 }
 
-/* section 2 */
+.home-about p {
+  font-size: 17px;
+  font-weight: 500;
+}
 
 .svg {
   width: 100%;
@@ -44,13 +42,23 @@ h1 {
   height: 60%;
 }
 
+/* section 2 */
+
+.whyArtDeco-section {
+  margin: 10px 0;
+}
+
 .why-us-container {
+  padding: 20px 0;
   background-color: #f1f2f4;
-  padding: 50px 40px;
 }
 
 .whyItem {
   margin: 25px 0;
+}
+
+.whyItem p {
+  margin-top: 7px;
 }
 
 /* Section delivery-models-client */
@@ -71,19 +79,20 @@ h1 {
   background-size: cover;
   background-position: center;
 }
-.container-edit-width {
-  padding: 50px;
-}
 
-.for-client-title p {
-  margin-bottom: 100px;
+.for-client-title p, .for-contractor-title p  {
+  margin: 30px 0;
   font-weight: 500;
 }
 
-.for-client-about p {
-  margin: 40px 0;
+.for-client-about p, .for-contractor-about p{
+  margin: 30px 0;
   font-size: 18px;
   font-weight: 500;
+}
+
+.for-client-go-to {
+  margin: 0px 0 10px 0;
 }
 
 .card-link {
@@ -93,20 +102,28 @@ h1 {
   width: 100%;
   padding: 15px;
   border-radius: 10px;
-  /* margin-top: 20px; */
   text-align: start;
+}
+
+.card-link h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .card-link a {
   color: #f7f7f7;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 /* delivery-models-contractor */
 
+.container-edit-width {
+  margin-bottom: 20px;
+}
+
 .delivery-models-contractor {
-  margin: 50px 0;
   border-radius: 10px;
+  margin: 50px 0;
 }
 
 .delivery-models-contractor p,
@@ -125,21 +142,11 @@ h1 {
   background-color: #222222;
 }
 
-.container-edit-width-contractor {
-  padding: 30px;
-}
-
 .for-contractor-title p {
-  margin-bottom: 50px;
+  margin: 30px 0;
   font-weight: 500;
 }
 
-.for-contractor-about p,
-.for-clinet-offers p {
-  margin: 40px 0 100px;
-  font-size: 18px;
-  font-weight: 500;
-}
 
 .for-clinet-offers p {
   margin: 0;
@@ -150,53 +157,64 @@ h1 {
   padding-top: 10px;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
-  /* section 3 */
-  p {
-    font-size: 17px;
-  }
-  h1 {
-    font-size: 60px;
+@media (min-width: 1297px) {
+  /* section 1 */
+  .container-edit-width {
+    padding: 30px;
   }
 
-  .homWork-about {
-    width: 90%;
-    margin: 30px 0;
-  }
-  .for-contractor-about p,
-  .for-clinet-offers p {
-    font-size: 17px;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 768px) {
-  h1 {
-    font-size: 60px;
-  }
-}
-
-@media (min-width: 0) and (max-width: 480px) {
-  h1 {
-    font-size: 50px;
-  }
   .HomePage {
     height: 70vh;
   }
 
-  .homWork-about {
-    width: 90%;
-    margin: 30px 0;
-  }
-  .select-type {
-    margin-top: 30px;
+  .HomePage h1,
+  .whyArtDeco-section h1 {
+    font-size: 80px;
   }
 
+  .home-about {
+    margin: 40px 0;
+  }
+
+  .home-about p {
+    font-size: 19px;
+    font-weight: 500;
+  }
+  /* section 2 */
+  .whyItem h3 {
+    font-size: 33px;
+  }
+  .whyItem p {
+    font-size: 19px;
+  }
   /* section 3 */
-  .container-edit-width {
-    padding: 20px;
+}
+
+@media (min-width: 768px) {
+  /* .container-edit-width {
+    padding: 10px;
+  } */
+  /* section 3 */
+  .for-client-title p, for-contractor-title p  {
+    margin: 30px 0;
+    font-weight: 500;
+    font-size: 19px;
+  }
+  .for-client-about h1 {
+    font-size: 50px;
+  }
+  .for-client-go-to {
+    margin: 0px 0 30px 0;
+  }
+  /* section 3 */
+  .for-contractor-about p {
+    margin: 30px 0 70px;
   }
 
   .for-clinet-offers p {
-    font-size: 15px;
+    font-size: 17px;
   }
+}
+
+@media (min-width: 0) and (max-width: 480px) {
 }
