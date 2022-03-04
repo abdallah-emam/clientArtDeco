@@ -11,6 +11,7 @@ import {
   Typography,
   Button
 } from "@material-ui/core";
+import './login.css'
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
 import BTN from "../../../components/button/btn";
@@ -160,7 +161,21 @@ const ClientLogin = () => {
                 type="defult"
               />
             </div> */}
-            <Button
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="submit"
+                className="btn"
+                disabled={
+                  formValuesErrors.emailErr ||
+                  formValuesErrors.passErr ||
+                  (formValues.email && formValues.password) === ""
+                }
+              >
+                Sign in
+              </button>
+            </div>
+            {/* <Button
               type="submit"
               variant="contained"
               style={btnStyle}
@@ -172,7 +187,7 @@ const ClientLogin = () => {
               }
             >
               Sign in
-            </Button>
+            </Button> */}
           </form>
           <Typography>
             {" "}

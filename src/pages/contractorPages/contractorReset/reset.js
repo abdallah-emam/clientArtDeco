@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validPassword } from "./regex.js";
 import { useParams } from "react-router-dom";
-
+import './reset.css'
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -136,14 +136,21 @@ const ContractorReset = () => {
                 {formValuesErrors.passwordConfirmErr}
               </div>
             )}
-            <div className="m-5 ">
-              <BTN
-                URL="/company_signup"
-                text="Reset"
-                type="defult"
-              />
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="submit"
+                className="btn"
+                disabled={
+                  formValuesErrors.passErr ||
+                  formValuesErrors.passwordConfirmErr ||
+                  (formValues.password && formValues.passwordConfirm) === ""
+                }
+              >
+                Reset
+              </button>
             </div>
-            <Button
+            {/* <Button
               type="submit"
               variant="contained"
               style={btnStyle}
@@ -155,7 +162,7 @@ const ContractorReset = () => {
               }
             >
               Reset
-            </Button>
+            </Button> */}
           </form>
         </Paper>
       </Grid>

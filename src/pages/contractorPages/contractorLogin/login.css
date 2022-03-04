@@ -5,3 +5,22 @@
 /* .Special_BTN {
   background-color: #ff8a00;
 } */
+.topRight .btn {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 40px;
+  background: #ff8a00;
+  transition: all 0.3s ease 0s;
+  width: 200px;
+  height: 50px;
+}
+
+.topRight .btn:hover {
+  color: #ff8a00;
+  background: transparent;
+  font-weight: bold;
+  border: 2px solid rgba(5, 12, 17, 0.75);
+}
