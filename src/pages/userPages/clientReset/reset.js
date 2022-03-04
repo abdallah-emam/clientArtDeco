@@ -139,7 +139,21 @@ const ClientReset = () => {
                   type="defult"
                 />
             </div> */}
-            <Button
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="submit"
+                className="btn"
+                disabled={
+                  formValuesErrors.passErr ||
+                  formValuesErrors.passwordConfirmErr ||
+                  (formValues.password && formValues.passwordConfirm) === ""
+                }
+              >
+                Reset
+              </button>
+            </div>
+            {/* <Button
               type="submit"
               color="primary"
               variant="contained"
@@ -152,7 +166,7 @@ const ClientReset = () => {
               }
             >
               Reset
-            </Button>
+            </Button> */}
           </form>
         </Paper>
       </Grid>

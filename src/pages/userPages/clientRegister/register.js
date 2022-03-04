@@ -206,7 +206,7 @@ const ClientSignUp = () => {
                 {formValuesErrors.passConfirmationError}
               </div>
             )}
-            <Button
+            {/* <Button
               disabled={
                 formValuesErrors.emailErr ||
                 formValuesErrors.passErr ||
@@ -222,7 +222,26 @@ const ClientSignUp = () => {
               variant="contained"
             >
               Sign up
-            </Button>
+            </Button> */}
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="submit"
+                className="btn"
+                disabled={
+                  formValuesErrors.emailErr ||
+                  formValuesErrors.passErr ||
+                  formValuesErrors.nameErr ||
+                  formValuesErrors.passConfirmationError ||
+                  (formValues.email &&
+                    formValues.name &&
+                    formValues.password &&
+                    formValues.passConfirmation) === ""
+                }
+              >
+                Sign up
+              </button>
+            </div>
             {/* <div className="m-3 ">
               <BTN
                 URL="/company_signup"

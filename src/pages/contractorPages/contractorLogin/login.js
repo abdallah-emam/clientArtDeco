@@ -166,7 +166,21 @@ const ContractorLogin = () => {
                 type="defult"
               />
             </div> */}
-            <Button
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="submit"
+                className="btn"
+                disabled={
+                  formValuesErrors.emailErr ||
+                  formValuesErrors.passErr ||
+                  (formValues.email && formValues.password) === ""
+                }
+              >
+                Sign in
+              </button>
+            </div>
+            {/* <Button
               type="submit"
               variant="contained"
               style={btnStyle}
@@ -178,7 +192,7 @@ const ContractorLogin = () => {
               }
             >
               Sign in
-            </Button>
+            </Button> */}
           </form>
           <Typography>
             {" "}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './register.css';
 import {
   emailValidator,
   passwordValidator,
@@ -212,8 +213,26 @@ const ContractorSignUp = () => {
                 type="defult"
               />
             </div> */}
-
-            <Button
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="submit"
+                className="btn"
+                disabled={
+                  formValuesErrors.emailErr ||
+                  formValuesErrors.passErr ||
+                  formValuesErrors.nameErr ||
+                  formValuesErrors.passConfirmationError ||
+                  (formValues.email &&
+                    formValues.name &&
+                    formValues.password &&
+                    formValues.passConfirmation) === ""
+                }
+              >
+                Sign up
+              </button>
+            </div>
+            {/* <Button
               disabled={
                 formValuesErrors.emailErr ||
                 formValuesErrors.passErr ||
@@ -229,7 +248,7 @@ const ContractorSignUp = () => {
               variant="contained"
             >
               Sign up
-            </Button>
+            </Button> */}
           </form>
         </Paper>
       </Grid>
