@@ -2,6 +2,9 @@
 * {
   margin: 0;
 }
+.contractor-Profile-Container {
+  min-height: 300px;
+}
 .container {
 }
 html,

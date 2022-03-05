@@ -16,8 +16,18 @@ const MySwal = withReactContent(Swal);
 export default function ContactorProfile() {
   const [contractorDetails, setContractorDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [inProgressJobs, setinProgressJobs] = useState([]);
 
   useEffect(() => {
+    axiosInstace
+    .get("contractors/MyAllJobs", {})
+    .then(res => {
+      setinProgressJobs(res.data.data.jobs);
+      console.log("inProgressJobs", res.data.data.jobs);
+    })
+    .catch(err => {
+    });
+
     axiosInstace
       .get("contractors/getMe", {})
       .then(res => {
@@ -30,11 +40,13 @@ export default function ContactorProfile() {
         console.log(err);
         window.location.replace("http://localhost:3000/contractorLogin");
       });
+
+      
   }, []);
 
   return (
     <>
-      <div className='top_60 container'>
+      <div className='top_60 container contractor-Profile-Container'>
         {isLoading ? (
           <div className='w-100 position-relative'>
             <Box
@@ -53,7 +65,7 @@ export default function ContactorProfile() {
               <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
                 {/* <Header /> */}
                 <div className='content'>
-                  <Resume contractorDetails={contractorDetails} {...resume} />
+                  <Resume contractorDetails={contractorDetails} inProgressJobs={inProgressJobs} {...resume} />
                 </div>
               </div>
             </Row>

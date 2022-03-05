@@ -6,30 +6,15 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import Portfolio from "../components/Portfolio";
-import {
-  Paper,
-  Typography,
-  Icon,
-  Rating,
-  TextField,
-  Button,
-} from "@mui/material";
-import {
-  SchoolRounded,
-  WorkRounded,
-  Facebook,
-  Twitter,
-  LinkedIn,
-  GitHub,
-} from "@mui/icons-material/";
+import { Typography, Rating } from "@mui/material";
 import DoneOutlineRoundedIcon from "@mui/icons-material/DoneOutlineRounded";
 import HandymanRoundedIcon from "@mui/icons-material/HandymanRounded";
-
-// import "../contractorProfile.css";
 import { Grid } from "@mui/material";
 import CustomButton from "../components/Button/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function Resume(props) {
   const goToSettings = e => {
@@ -63,7 +48,7 @@ function Resume(props) {
           </Grid>
         </Grid>
 
-        {/*Experiences + Education*/}
+        {/*Experiences */}
         <Grid container className='section'>
           <Grid item className='section_title top_30'>
             <span></span>
@@ -121,7 +106,7 @@ function Resume(props) {
                 ))}
               </Timeline>
             </Grid>
-            {/*Experiences*/}
+            {/*inProgressJobs*/}
             <Grid item md={6} className='experience pb_30'>
               <Timeline className='timeline'>
                 <TimelineItem>
@@ -133,49 +118,59 @@ function Resume(props) {
                   </TimelineSeparator>
                   <TimelineContent>
                     <Typography variant='h6' className='timeline_header'>
-                      In progress (4)
+                      In progress ({props.inProgressJobs.length})
                     </Typography>
                   </TimelineContent>
                 </TimelineItem>
-                {props.education.map(education => (
-                  <TimelineItem>
-                    <TimelineSeparator className='separator_padding'>
-                      <TimelineDot
-                        variant='outlined'
-                        className='timeline_dot'
-                      />
-                      <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent className='timeline_content'>
-                      <Typography className='timeline_title'>
-                        {education.title}
-                      </Typography>
-                      <Typography variant='caption' className='timeline_date'>
-                        {education.date}
-                      </Typography>
-                      <Typography
-                        variant='body2'
-                        className='timeline_description'
-                      >
-                        {education.description}
-                      </Typography>
-                    </TimelineContent>
-                  </TimelineItem>
-                ))}
+                {props.inProgressJobs.length <= 0 ? (
+                  <h6>No Jobs at the moment !</h6>
+                ) : (
+                  <>
+                    {props.inProgressJobs.map(job => (
+                      <TimelineItem>
+                        <TimelineSeparator className='separator_padding'>
+                          <TimelineDot
+                            variant='outlined'
+                            className='timeline_dot'
+                          />
+                          <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent className='timeline_content'>
+                          <Typography className='timeline_title'>
+                            {job.headLine}HeadLine
+                          </Typography>
+                          <Typography
+                            variant='body3'
+                            className='timeline_title'
+                          >
+                            <FontAwesomeIcon icon={faLocationDot} />
+                            &nbsp;{job.location}Cairo
+                          </Typography>
+                          <Typography
+                            variant='body2'
+                            className='timeline_description'
+                          >
+                            {job.description}
+                          </Typography>
+                        </TimelineContent>
+                      </TimelineItem>
+                    ))}
+                  </>
+                )}
               </Timeline>
             </Grid>
           </Grid>
         </Grid>
 
         {/*Services*/}
-        <Grid container className='section p_50 pb_50'>
+        {/* <Grid container className='section p_50 pb_50'>
           <Grid item className='section_title mb_45'>
             <span></span>
             <h2>Our Services</h2>
           </Grid>
           <Grid container spacing={3} justify='space-around'>
             {props.services.map(service => (
-              <Grid key={service.title} item lg={3} md={6} sm={6} xs={12} >
+              <Grid key={service.title} item lg={3} md={6} sm={6} xs={12}>
                 <Paper elevation={0} className='service'>
                   <Icon className='service_icon'>{service.icon}</Icon>
                   <Typography variant='h6' className='service_title'>
@@ -188,10 +183,10 @@ function Resume(props) {
               </Grid>
             ))}
           </Grid>
-        </Grid>
+        </Grid> */}
         <Portfolio {...props} />
         {/*Skills*/}
-        <Grid container className='section graybg p_50 pb_50'>
+        {/* <Grid container className='section graybg p_50 pb_50'>
           <Grid container spacing={3} justify={"space-between"}>
             {props.skills.map(skill => (
               <Grid key={skill.title} item lg={4} md={6} sm={12} xs={12}>
@@ -212,10 +207,10 @@ function Resume(props) {
               </Grid>
             ))}
           </Grid>
-        </Grid>
+        </Grid> */}
 
         {/*Contact*/}
-        <Grid container className='section p_50 pb_50' spacing='10'>
+        {/* <Grid container className='section p_50 pb_50' spacing='10'>
           <Grid item xs={12} lg={12}>
             <Grid container>
               <Grid item className='section_title top_30'>
@@ -241,7 +236,7 @@ function Resume(props) {
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Grid>
   );

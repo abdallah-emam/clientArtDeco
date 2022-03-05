@@ -13,10 +13,7 @@ import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProfileImage from "./components/ProfileImage";
 import PreviousWork from "./components/PreviousWork";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 
-const MySwal = withReactContent(Swal);
 
 export function ContractorSettings(props) {
   const { children, value, index, ...other } = props;

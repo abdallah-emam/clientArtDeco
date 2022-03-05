@@ -17,7 +17,7 @@ import {
 // import { Grid } from "@mui/core";
 
 const Portfolio = props => {
-  console.log(props.contractorDetails.gallery);
+  console.log(props.contractorDetails.gallery.length);
   return (
     <Grid container className='section pb_45 pt_45'>
       <Grid item className='section_title mb-4'>
@@ -26,6 +26,10 @@ const Portfolio = props => {
       </Grid>
 
       <Grid item xs={12} className=''>
+        {props.contractorDetails.gallery.length <= 0 ? (
+          <h6>No Gallery Added Yet !</h6>
+        ) : (
+
         <Grid container spacing={2} className=''>
           {props.contractorDetails.gallery.map(img => (
             <Grid key={img} item lg={4} md={6} sm={12} xs={12}>
@@ -50,6 +54,7 @@ const Portfolio = props => {
             </Grid>
           ))}
         </Grid>
+        )}
       </Grid>
     </Grid>
   );

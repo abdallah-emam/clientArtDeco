@@ -14,7 +14,7 @@ const Profile = (props) => {
     <div className="profile container_shadow">
       <div className="profile_name">
         <Typography className="name">{props.contractorDetails.name}</Typography>
-        <Typography className="title">{title}</Typography>
+        {/* <Typography className="title">{title}</Typography> */}
       </div>
 
       <figure className="profile_image">
@@ -28,7 +28,7 @@ const Profile = (props) => {
             <span>Name:</span> {props.contractorDetails.name}{" "}
           </p>
         </li>
-        <li>
+        {/* <li>
           <p>
             <span>Founded in:</span> {birthday}
           </p>
@@ -37,22 +37,22 @@ const Profile = (props) => {
           <p>
             <span>Specialization:</span> {title}
           </p>
-        </li>
+        </li> */}
         <li>
           <p>
             <span>Email:</span> {props.contractorDetails.email}
           </p>
         </li>
-        {Object.keys(socials).map((key) => (
-          <li>
-            <p>
-              <span>{key}: </span>{" "}
-              <a href={socials[key].link} target="_blank">
-                {socials[key].text}
-              </a>
-            </p>
-          </li>
-        ))}
+        <li>
+          <p>
+            <span>Phone:</span> {props.contractorDetails.phone}
+          </p>
+        </li>
+        <li>
+          <p>
+            <span>Address:</span> {props.contractorDetails.address}
+          </p>
+        </li>
       </ul>
 
       <Grid xs={12} className="button_container">
