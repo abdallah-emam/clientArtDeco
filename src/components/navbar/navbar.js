@@ -46,7 +46,7 @@ function Navbar() {
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-          <img src="./logo.png" alt="" srcset="" className={classes.logo} />
+          <img src="./logo.png" alt="" srcSet="" className={classes.logo} />
         </Typography>
         {isMobile ? (
           <DrawerComponent />
