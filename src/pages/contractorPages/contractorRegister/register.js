@@ -120,10 +120,13 @@ const ContractorSignUp = () => {
         .post("contractors/signup", formValues)
         .then((response) => {
           console.log(response.data);
-          navigate("/");
           MySwal.fire(
             `Signed-Up Successfully , Welcome ${response.data.data.contractor.name} , At Shatably.com`
-          );
+          ).then(result => {
+            if (result.isConfirmed) {
+              window.location.replace('/');
+            }
+          });
           localStorage.setItem("company_token", response.data.token);
         })
         .catch((err) => {

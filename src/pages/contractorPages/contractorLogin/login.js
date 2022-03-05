@@ -78,11 +78,13 @@ const ContractorLogin = () => {
         .post("contractors/login", formValues)
         .then((response) => {
           console.log(response.data);
-          navigate("/");
-          // console.log(response.data.data.user.name);
           MySwal.fire(
             `Logged-IN Successfully,Welcome ${response.data.data.contractor.name} , At Shatably.com`
-          );
+          ).then(result => {
+            if (result.isConfirmed) {
+              window.location.replace('/');
+            }
+          });
           localStorage.setItem("company_token", response.data.token);
         })
         .catch((err) => {
