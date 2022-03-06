@@ -40,7 +40,7 @@ function App() {
         <Route path={"/ContractorLogin"} exact element={<ContractorLogin />}></Route>
         <Route path={"/ContractorSignUp"} exact element={<ContractorSignUp />}></Route>
         <Route path={"/ContractorReset"} exact element={<ContractorReset />}></Route>
-        <Route path={"/JobDetails"} exact element={<JobDetails />}></Route>
+        <Route path={"/JobDetails/:id"} exact element={<JobDetails />}></Route>
         <Route path={"/ContactorProfile"} exact element={<ContactorProfile />}></Route>
         <Route path={"/ContractorSettings"} exact element={<ContractorSettings />}></Route>
         <Route path={"/JobProposal/:id"} exact element={<JobProposal />}></Route>

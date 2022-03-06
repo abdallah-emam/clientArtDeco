@@ -122,7 +122,7 @@ export default function ClientProfile() {
         <div class="d-flex justify-content-center">
           <div class="d-flex justify-content-center align-items-center col-12 col-md-4">
             <div className="my-3">
-              <BTN URL="/" text="Post a Job" type="defult" />
+              <BTN URL="/JobCreation" text="Post a Job" type="defult" />
               <br />
               <br />
             </div>

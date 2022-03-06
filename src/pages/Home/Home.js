@@ -17,7 +17,7 @@ function Home() {
             <div className="row">
               <div className="col-12 col-md-6">
                 <h1>
-                  How we <br /> work?
+                  How we  work?
                 </h1>
                 <div className="home-about  text-secondary">
                   <p>

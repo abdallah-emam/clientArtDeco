@@ -4,29 +4,50 @@ import "./jobDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import BTN from "../../../components/button/btn";
+import {useParams} from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { axiosInstace } from "../../../network/axiosConfig";
 
 export default function JobDetails() {
+  const params = useParams()
+  const [jobDetails, setJobDetails] = useState([]);
+  useEffect(() => {
+    axiosInstace
+      .get(`job/contractor/${params.id}`)
+      .then(res => {
+        setJobDetails(res.data.data.job);
+        console.log("result", res.data.data.job);
+      })
+      .catch(err => console.log(err));
+  }, []);
   return (
     <div>
      
       <div className="container my-5">
         <h2 className="mx-2"> Job Details </h2>
-       
         <div className=" border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 p-3 shadow-sm">
-        <div className="row my-4">
+          <div className="row">
+            <h4>{jobDetails.headLine} </h4>
+
+          </div>
+        <div className="row my-4 jobDetailsContent">
             <div className='col-12 col-md-6'>
               <div className="row"> 
-              <div className="col-4">
+              <div className="col-6 col-md-3">
                 <h5> Client</h5>
                 <p>Doaa. A</p>
               </div>
-              <div className="col-4">
+              <div className="col-6 col-md-3">
                 <h5> Duration</h5>
-                <p> 20</p>
+                <p> Not Specified</p>
               </div>
-              <div className="col-4">
+              <div className="col-6 col-md-3 mt-2 mt-md-0">
                 <h5> Budget</h5>
-                <p>50</p>
+                <p>{jobDetails.budget}</p>
+              </div>
+              <div className="col-6 col-md-3 mt-2 mt-md-0">
+                <h5> Proposals</h5>
+                <p>{jobDetails.totalProposal}</p>
               </div>
               
 
@@ -43,17 +64,13 @@ export default function JobDetails() {
                 <i className=" text-success-m2 text-110 mr-2 mt-1"></i>
                 <span>
                   <span className="text-110">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries
+                {jobDetails.description}
                   </span>
                 </span>
               </li>
             </ul>
-            <div className="col-12 col-md-4 text-center my-3 my-md-0 ">
-              <BTN URL="/JobProposal/622216d2cac0a0058f6d8dfa" text="Send a Proposal" type="defult" />
+            <div className="col-12 col-md-4 text-center my-3 my-md-0 jobDetailsBtn ">
+              <BTN URL={`/JobProposal/${jobDetails.id}`} text="Send a Proposal" type="defult" />
             </div>
             <div className="row align-items-center">
                  
