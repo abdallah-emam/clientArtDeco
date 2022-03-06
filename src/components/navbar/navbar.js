@@ -12,7 +12,6 @@ import { useNavigate, Link } from "react-router-dom";
 import DrawerComponent from "./drawer";
 
 const useStyles = makeStyles((theme) => ({
-
   navlinks: {
     marginLeft: theme.spacing(50),
     display: "flex",
@@ -46,76 +45,88 @@ function Navbar() {
   const LogOUTContractor = (e) => {
     e.preventDefault();
     localStorage.clear();
-    navigate('/');
-  }
+    navigate("/");
+  };
   const LogOUTClient = (e) => {
     e.preventDefault();
     localStorage.clear();
-    navigate('/');
-  }
+    navigate("/");
+  };
   return (
     <AppBar color=" navlinks.link" elevation={2} position="static">
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-          <img src="./logo.png" alt="" srcSet="" className={classes.logo} />
+          <Link to="/">
+            <img src="./logo.png" alt="" srcSet="" className={classes.logo} />
+          </Link>
         </Typography>
         {isMobile ? (
           <DrawerComponent />
         ) : (
           <div className={classes.navlinks}>
             {/* Protected Routes for Contractor(Company) */}
-            {
-              localStorage.getItem('company_token') ?
-                <>
-                  {/* Private */}
-                  <Link to="/ContactorProfile" className={classes.link}>
-                    Profile
-                  </Link>
-                  {/* Private */}
-                  <Link to="/JobsPage" className={classes.link}>
-                    Browse Jobs
-                  </Link>
-                  {/* Private */}
-                  <Link to="" onClick={(e) => LogOUTContractor(e)} className={classes.link}>
-                    Logout
-                  </Link>
-                </>
-                : localStorage.getItem('user_token') ?
-                  <>
-                    {/* Private */}
-                    <Link to="/ClientProfile" className={classes.link}>
-                      Profile
-                    </Link>
-                    {/* Private */}
-                    <Link to="/JobCreation" className={classes.link}>
-                      Create a Job
-                    </Link>
-                    {/* Private */}
-                    <Link to="/JobUpdate/622216d2cac0a0058f6d8dfa" className={classes.link}>
-                      UpdateJob
-                    </Link>
-                    {/* Private */}
-                    <Link to="" onClick={(e) => LogOUTClient(e)} className={classes.link}>
-                      Logout
-                    </Link>
-                  </>
-                  :
-                  <>
-                    {/* public */}
-                    <Link to="/" className={classes.link}>
-                      Home
-                    </Link>
-                    {/* public */}
-                    <Link to="/about" className={classes.link}>
-                      About
-                    </Link>
-                    {/* public */}
-                    <Link to="/Choose" className={classes.link}>
-                      Login/Register
-                    </Link>
-                  </>
-            }
+            {localStorage.getItem("company_token") ? (
+              <>
+                {/* Private */}
+                <Link to="/ContactorProfile" className={classes.link}>
+                  Profile
+                </Link>
+                {/* Private */}
+                <Link to="/JobsPage" className={classes.link}>
+                  Browse Jobs
+                </Link>
+                {/* Private */}
+                <Link
+                  to=""
+                  onClick={(e) => LogOUTContractor(e)}
+                  className={classes.link}
+                >
+                  Logout
+                </Link>
+              </>
+            ) : localStorage.getItem("user_token") ? (
+              <>
+                {/* Private */}
+                <Link to="/ClientProfile" className={classes.link}>
+                  Profile
+                </Link>
+                {/* Private */}
+                <Link to="/JobCreation" className={classes.link}>
+                  Create a Job
+                </Link>
+                {/* Private */}
+                <Link
+                  to="/JobUpdate/622216d2cac0a0058f6d8dfa"
+                  className={classes.link}
+                >
+                  UpdateJob
+                </Link>
+                {/* Private */}
+                <Link
+                  to=""
+                  onClick={(e) => LogOUTClient(e)}
+                  className={classes.link}
+                >
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <>
+                {/* public */}
+                <Link to="/" className={classes.link}>
+                  Home
+                </Link>
+                {/* public */}
+                <Link to="/about" className={classes.link}>
+                  About
+                </Link>
+                {/* public */}
+                <Link to="/Choose" className={classes.link}>
+                  Login/Register
+                </Link>
+              </>
+            )}
           </div>
         )}
       </Toolbar>

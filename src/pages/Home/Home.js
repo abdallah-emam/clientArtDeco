@@ -17,22 +17,22 @@ function Home() {
             <div className="row">
               <div className="col-12 col-md-6">
                 <h1>
-                  How we  work?
+                  How we <br /> work?
                 </h1>
                 <div className="home-about  text-secondary">
                   <p>
                     Forget the old rules. You can choose the best contractor to
-                    make your Home fantasric
+                    make your Home fantastic
                   </p>
                   <p>Right now. Right here.</p>
                 </div>
                 <div className="select-type d-flex">
                   <BTN
-                    URL="/contractorLogin"
-                    text="find contractor"
+                    URL="/ContractorSignUp"
+                    text="Be a Contractor"
                     type="defult"
                   />
-                  <BTN URL="/about" text="find Clinet" type="outline" />
+                  <BTN URL="/ClientSignUp" text="Be a Client" type="outline" />
                 </div>
               </div>
               <div className=" d-none d-md-block text-align-center col-md-6">
@@ -44,7 +44,7 @@ function Home() {
           </div>
         </article>
       </section>
-      {/* Sectio 2 */}
+      {/* Section 2 */}
       <section className="whyArtDeco-section">
         <div className="container why-us-container">
           <div className="container container-edit-width">
@@ -79,7 +79,7 @@ function Home() {
           </div>
         </div>
       </section>
-      {/* Sectio 3 */}
+      {/* Section 3 */}
       <section className="delivery-models-client">
         <div className="container models-client-container py-15 py-md-30">
           <div className="container container-edit-width">
