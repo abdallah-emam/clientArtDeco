@@ -16,9 +16,8 @@ import ContactorProfile from "./pages/contractorPages/contractorProfile/contract
 import ContractorSettings from "./pages/contractorPages/SettingsPage/settingsPage";
 import JobProposal from "./pages/contractorPages/JobPorposal/jobPorposal";
 import JobCreation from "./pages/userPages/jobCreation/jobReview";
-import SettingsPageUser from "./pages/contractorPages/SettingsPage/settingsPage";
+import SettingsPageUser from "./pages/userPages/settingClenit/settingsClient";
 import JobUpdate from './pages/userPages/jobUpdate/jobUpdate'
-
 import Navbar from "./components/navbar/navbar";
 import JobsPage from './pages/Home/JobsPage/JobsPage';
 import Footer from './components/Footer/Footer';

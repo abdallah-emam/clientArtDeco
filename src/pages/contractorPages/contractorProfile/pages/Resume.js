@@ -17,9 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function Resume(props) {
-  const goToSettings = e => {
-    console.log(e);
-  };
+
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -29,16 +27,6 @@ function Resume(props) {
             <span></span>
             <h2>About Us</h2>
           </Grid>
-          <Grid item xs={12} className='p_30 fixed-bottom opacity-75'>
-            <Grid className='float-end'>
-              <div onClick={e => goToSettings(e)}>
-                <Link to={`/contractorSettings`}>
-                  <CustomButton text={"Edit"} icon={<EditIcon />} />
-                </Link>
-              </div>
-            </Grid>
-          </Grid>
-
           <Grid container className='top_30'>
             <Grid item>
               <Typography variant='body2' className='aboutme_text'>

@@ -78,7 +78,9 @@ body {
   font-weight: 100;
   line-height: 7px;
 }
-
+.dashboardContainer .defult {
+  margin-right: 0 !important;
+}
 @media only screen and (max-width: 480px) {
   #BTN {
     display: none;
@@ -106,4 +108,90 @@ body {
   .profile-tile {
     margin: 50px 0;
   }
+}
+
+
+/* .dashboardContainer h5 {
+  font-family: "Neue Montreal", "Helvetica Neue", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+} */
+.dashboardContainer .icon {
+  color: rgb(255, 255, 255);
+  background-color: var(--main-color);
+}
+.dashboardContainer .icon:hover {
+  background-color: rgb(255, 255, 255);
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+
+
+
+.dashboardContainer .Proposals p {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.dashboardContainer .Proposals span {
+  color: black;
+}
+.dashboardContainer .jobInfoLine span {
+  color: rgba(0, 0, 0, 0.7);
+}
+.dashboardContainer .jobsSection {
+  border-bottom-width: 0.5px;
+}
+.dashboardContainer a {
+    color: rgba(0, 0, 0, 0.9);
+    margin: 0 !important;
+}
+
+.jobsSection {
+  position: relative;
+}
+.jobDeleteIcon {
+  position: absolute;
+  right: -27px;
+  top: 40%;
+}
+@media (max-width: 992px) {
+  /* .dashboardContainer {
+    max-width: 90% !important;
+  } */
+}
+@media (max-width: 768px) {
+  .dashboardContainer {
+    max-width: 95% !important;
+    margin-top: 20px;
+  }
+  .dashboardContainer .fa-xl {
+    font-size: 1rem !important;
+    margin-left: 10px !important;
+  }
+  .jobDeleteIcon {
+    position: absolute;
+    right: -16px;
+    top: 42%;
+  }
+}
+@media (max-width: 576px) {
+  .dashboardContainer {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+    .dashboardContainer .jobsSection {
+    padding: 0.5rem;
+  }
+  .dashboardContainer .fa-xl {
+    font-size: 0.8rem !important;
+    margin-left: 5px !important;
+  }
+  .dashboardContainer h5{
+      font-size: 1rem !important;
+  }
+  .pagination {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+  }
+
 }

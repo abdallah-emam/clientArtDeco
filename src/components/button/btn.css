@@ -1,8 +1,7 @@
 a {
   transition: all 0.2s ease;
-
   text-decoration: none;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   cursor: pointer;
   display: inline-block;
 }

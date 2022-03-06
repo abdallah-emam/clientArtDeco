@@ -40,7 +40,7 @@ export default function UpdatePassword(props) {
     axiosInstace
       .patch("contractors/updateMyPassword", formValues)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         localStorage.setItem("company_token", res.data.token);
         MySwal.fire(`Data changed Successfully`).then((result) => {
           if (result.isConfirmed) {
