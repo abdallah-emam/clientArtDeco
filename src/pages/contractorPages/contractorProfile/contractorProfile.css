@@ -618,3 +618,6 @@ ul.profile_information li:first-child:after {
   box-sizing: border-box;
   object-fit: cover;
 }
+.profile_image img:hover{
+  cursor: pointer;
+}

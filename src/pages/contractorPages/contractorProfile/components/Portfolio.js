@@ -14,10 +14,23 @@ import {
   TextField,
   Button,
 } from "@mui/material";
-// import { Grid } from "@mui/core";
+import Swal from "sweetalert2";
+
 
 const Portfolio = props => {
   console.log(props.contractorDetails.gallery.length);
+
+  const openImg = event => {
+    console.log(event.target.currentSrc);
+    Swal.fire({
+      html:
+        `<img src="${event.target.currentSrc}" style="width:100%" crossOrigin="anonymous" alt='image' /> `,
+      showCloseButton: true,
+      width: 600,
+
+    })
+  }
+
   return (
     <Grid container className='section pb_45 pt_45'>
       <Grid item className='section_title mb-4'>
@@ -36,7 +49,7 @@ const Portfolio = props => {
               <Card className='job-card'>
                 <CardActionArea>
                   <figure className='card_image'>
-                    <img src={img} crossOrigin="anonymous" alt='' />
+                    <img onClick={e => openImg(e)} src={img} crossOrigin="anonymous" alt='' />
                   </figure>
                   {/* <CardContent>
                     <Typography variant='h6' className='job-card-title fw-bold'>

@@ -5,10 +5,22 @@ import { Button, Grid, Icon, Typography } from "@mui/material";
 import resume from "../../utils/resume";
 import MessageIcon from '@mui/icons-material/Message';
 import CustomButton from "../Button/Button";
+import Swal from "sweetalert2";
 
 const Profile = (props) => {
   const { name, title, displayImage, birthday, email, socials } = resume;
   console.log("props",props.contractorDetails)
+
+  const openImg = event => {
+    console.log(event.target.currentSrc);
+    Swal.fire({
+      html:
+        `<img src="${event.target.currentSrc}" style="width:100%" crossOrigin="anonymous" alt='image' /> `,
+      showCloseButton: true,
+      width: 600,
+
+    })
+  }
 
   return (
     <div className="profile container_shadow">
@@ -18,7 +30,7 @@ const Profile = (props) => {
       </div>
 
       <figure className="profile_image">
-        <img src={props.contractorDetails.photo} crossOrigin="anonymous" alt="" />
+        <img onClick={e => openImg(e)} src={props.contractorDetails.photo} crossOrigin="anonymous" alt="" />
       </figure>
 
       <ul className="profile_information">

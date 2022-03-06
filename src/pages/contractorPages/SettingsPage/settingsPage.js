@@ -68,7 +68,7 @@ export default function SettingsPage() {
       })
       .catch(err => {
         console.log(err);
-        window.location.replace("http://localhost:3000/contractorLogin");
+        window.location.replace("/contractorLogin");
       });
   }, []);
 
