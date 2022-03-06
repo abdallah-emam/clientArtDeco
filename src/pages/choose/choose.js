@@ -9,11 +9,6 @@ export default function Choose() {
     return (
         <>
             <div className="Choose m-5">
-                <div className="col-lg-12">
-                    <hr />
-                    <h5 className="text-center responsive-font-example">Are you a Client or a Contractor?</h5>
-                    <hr />
-                </div>
                 <Link to={'/ClientLogin'}>
                     <Button className='btn-1 m-5 ' >
                         <FaUserAlt></FaUserAlt> <br />

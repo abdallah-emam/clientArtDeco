@@ -116,6 +116,7 @@ export default function JobUpdate() {
               <label>HeadLine</label>
               <input
                 type="text"
+                maxLength={100}
                 className="form-control"
                 name="headLine"
                 value={formValues.headLine}
@@ -133,6 +134,10 @@ export default function JobUpdate() {
         <div className="ThirdWrapper">
           <div className="topLeft">
             <h5>Describe Your Job</h5>
+            <h6>
+              This is how companies will figure out what you need and why they
+              should make an offer to you.
+            </h6>
             <div className="form-group m-2">
               <textarea
                 className="form-control"
@@ -144,12 +149,7 @@ export default function JobUpdate() {
                 onChange={(e) => handleFormChange(e)}
               ></textarea>
               <br />
-              <input
-                className="form-control file-Attach"
-                type="file"
-                id="formFileMultiple"
-                multiple
-              />
+
             </div>
           </div>
         </div>
