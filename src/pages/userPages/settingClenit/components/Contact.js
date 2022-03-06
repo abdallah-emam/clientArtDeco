@@ -143,21 +143,6 @@ const Contact = (props) => {
                     </FormControl>
                   </Box>
                 </Grid>
-                <Grid item className="section_title top_30">
-                  <span></span>
-                  <h2>About Me :</h2>
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    name="aboutMe"
-                    label="About Me"
-                    placeholder={props.UserDetails.aboutMe}
-                    multiline
-                    rows={4}
-                    onChange={(e) => handleFormChange(e)}
-                  />
-                </Grid>
                 <Grid item xs={12}>
                   <Button
                     onClick={() => handleSubmitForm(formValues)}

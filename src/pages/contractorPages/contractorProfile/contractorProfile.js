@@ -62,7 +62,6 @@ export default function ContactorProfile() {
                 <Profile contractorDetails={contractorDetails} />
               </Col>
               <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
-                {/* <Header /> */}
                 <div className='content'>
                   <Resume contractorDetails={contractorDetails} inProgressJobs={inProgressJobs} {...resume} />
                 </div>
@@ -71,8 +70,6 @@ export default function ContactorProfile() {
           </>
         )}
       </div>
-
-      {/* <Footer /> */}
     </>
   );
 }

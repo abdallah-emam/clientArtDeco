@@ -18,23 +18,19 @@ function JobsPage() {
   const [allJobsDetails, setallJobsDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1)
-  const [totalCount, setTotalCount] = useState()
+  const [pagesCount, setPagesCount] = useState()
   useEffect(() => {
     axiosInstace
       .get(`job?page=${currentPage}&limit=10`, {})
       .then(res => {
-        console.log(res.data.data.jobs);
-        console.log(currentPage);
         setallJobsDetails(res.data.data.jobs);
-        // setTotalCount(res.headers.get('Content-Length'))
-        console.log(res.headers['content-length']);
-        // console.log(res.headers['x-total-count']);
-        // console.log('totalCount',totalCount);
+        setPagesCount(Math.ceil(res.data.fullLength/10))
+        window.scrollTo(0, 0)
         setIsLoading(false);
       })
       .catch(err => {
         console.log(err);
-        // window.location.replace("http://localhost:3000/contractorLogin");
+        window.location.replace("http://localhost:3000/contractorLogin");
       });
   }, [currentPage]);
 
@@ -143,14 +139,14 @@ function JobsPage() {
             </div>
 
             {/* pagination */}
-            <div className='pagination p-sm-4'>
+            <div className='pagination d-flex justify-content-center p-sm-4'>
               <ReactPaginate 
               previousLabel="< previous"
               nextLabel="next >"
               breakLabel="..."
               onPageChange={handlePageClick}
               pageRangeDisplayed={3}
-              pageCount={10}
+              pageCount={pagesCount}
               marginPagesDisplayed={2}
               renderOnZeroPageCount={null}
               containerClassName={'pagination justify-content-center'}

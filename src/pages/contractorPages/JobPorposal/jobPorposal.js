@@ -14,9 +14,15 @@ export default function JobProposal() {
   const params = useParams();
   // console.log(params.id);
 
+  const [Times, setTimes] = useState([
+    "one month",
+    "two months",
+    "three months",
+    "more than three months",
+  ]);
   const [formValues, setFormValues] = useState({
     coverLetter: "",
-    budget: "",
+    financialOffer: "",
     estimatedTime: "",
   });
   const handleFormChange = (event) => {
@@ -28,10 +34,10 @@ export default function JobProposal() {
         });
         break;
 
-      case "budget":
+      case "financialOffer":
         setFormValues({
           ...formValues,
-          budget: event.target.value,
+          financialOffer: event.target.value,
         });
         break;
 
@@ -51,9 +57,13 @@ export default function JobProposal() {
     axiosInstace
       .post(`job/${params.id}/proposal`, formValues)
       .then((response) => {
+        console.log(formValues);
         console.log(response.data);
-        navigate('/');
-        MySwal.fire(`Proposal Sent To the Job Owner , Thanks For Working With Us`);
+        MySwal.fire(`Proposal Sent To the Job Owner , Thanks For Working With Us`).then(result => {
+          if (result.isConfirmed) {
+            window.location.replace(`/JobDetails/${params.id}`);
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -85,18 +95,12 @@ export default function JobProposal() {
           <div className="Proposal topLeft">
             <h5>Cover Letter</h5>
             <h6>
-              This is how companies will take to the user to offer them what
-              they can do according to the data they have from the info of user
-            </h6>
-            <h6>
-              Include your abilities about what you can do , what you are
-              looking for in work relationship , and any thing or details
-              related to what you what you can do or Questions to the user.
-              <span>Here are several examples</span> that illustrate best
-              practices for effective job proposal.
+              This is how companies will send to the user an offer that show what
+              they can do according to the data they have from the details of user.
             </h6>
             <div class="form-group">
               <textarea
+                placeholder="Enter Your Cover Letter"
                 name="coverLetter"
                 value={formValues.coverLetter}
                 onChange={(e) => handleFormChange(e)}
@@ -105,12 +109,7 @@ export default function JobProposal() {
                 rows="10"
               ></textarea>
               <br />
-              <input
-                class="form-control file-Attach"
-                type="file"
-                id="formFileMultiple"
-                multiple
-              />
+
             </div>
           </div>
         </div>
@@ -125,8 +124,8 @@ export default function JobProposal() {
                   <PaidIcon />
                 </span>
                 <input
-                  name="budget"
-                  value={formValues.budget}
+                  name="financialOffer"
+                  value={formValues.financialOffer}
                   onChange={(e) => handleFormChange(e)}
                   type="number"
                   min={0}
@@ -135,18 +134,18 @@ export default function JobProposal() {
                 ></input>
               </div>
             </div>
-            <div class="form-group">
-              <label>Estimated Date</label>
-              <div class="input-group mb-3">
-                <input
-                  name="estimatedTime"
-                  value={formValues.estimatedTime}
-                  onChange={(e) => handleFormChange(e)}
-                  type="date"
-                  class="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                ></input>
-              </div>
+            <div className="form-group">
+              <label>Estimated Time</label>
+              <select
+                name="estimatedTime"
+                value={formValues.estimatedTime}
+                onChange={(e) => handleFormChange(e)}
+                class="form-select"
+              >
+                {Times.map((item) => (
+                  <option value={item}>{item}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="topRight">
