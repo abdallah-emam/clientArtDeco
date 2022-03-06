@@ -18,9 +18,10 @@ import JobProposal from "./pages/contractorPages/JobPorposal/jobPorposal";
 import JobCreation from "./pages/userPages/jobCreation/jobReview";
 import SettingsPageUser from "./pages/contractorPages/SettingsPage/settingsPage";
 import JobUpdate from './pages/userPages/jobUpdate/jobUpdate'
-
+import OnGoingJob from './pages/userPages/onGoingJob/onGoingJob'
 import Navbar from "./components/navbar/navbar";
 import JobsPage from './pages/Home/JobsPage/JobsPage';
+import JobRate from "./pages/userPages/onGoingJob/JobRate";
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
         <Route path={"/SettingsPageUser"} exact element={<SettingsPageUser />}></Route>
         <Route path={"/Choose"} exact element={<Choose />}></Route>
         <Route path={"/JobsPage"} exact element={<JobsPage />}></Route>
+        <Route path={"/onGoingJob"} exact element={<OnGoingJob />}></Route>
+        <Route path={"/jobRate"} exact element={<JobRate />}></Route>
+
+
 
 
       </Routes>
