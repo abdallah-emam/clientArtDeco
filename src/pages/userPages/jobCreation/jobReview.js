@@ -97,18 +97,20 @@ export default function JobCreation() {
   };
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(formValues);
-    console.log(formValues.estimatedTime)
+
     axiosInstace
       .post("job", formValues)
       .then((response) => {
         console.log(response.data);
-        MySwal.fire(`Job Added Successfully`);
-        navigate("/ClientProfile");
+        MySwal.fire(`Job Added Successfully`).then(result => {
+          if (result.isConfirmed) {
+            window.location.replace('/ClientProfile');
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
-        MySwal.fire(`Can't Add This Job`);
+        MySwal.fire(`Can't Add This Job , Enter All The Date`);
       });
   };
 
@@ -213,6 +215,7 @@ export default function JobCreation() {
             <div className="form-group">
               <label>Estimated Time</label>
               <select
+                required
                 name="estimatedTime"
                 value={formValues.estimatedTime}
                 onChange={(e) => handleFormChange(e)}
@@ -233,19 +236,6 @@ export default function JobCreation() {
             </div>
           </div>
         </div>
-        {/* <hr />
-        <div className="FirstWrapper">
-          <div className="topLeft"></div>
-          <div className="topRight">
-            <button
-              onClick={(e) => handleSubmitForm(e)}
-              type="button"
-              className="btn"
-            >
-              SUbmit Job
-            </button>
-          </div>
-        </div> */}
       </div>
       <br />
       <br />

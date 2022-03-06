@@ -43,7 +43,7 @@ const ClientLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validEmail.test(event.target.value) === false
-                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                ? "Email must be like that (uuuuwwwwaaa@example.com)"
                 : null,
         });
         break;
@@ -75,7 +75,7 @@ const ClientLogin = () => {
         .post("users/login", formValues)
         .then((response) => {
           console.log(response.data);
-          MySwal.fire(`Logged-IN Successfully,Welcome ${response.data.data.user.name} , At Shatably.com`).then(result => {
+          MySwal.fire(`Logged-IN Successfully , Welcome ${response.data.data.user.name} , at ArtDeco.com`).then(result => {
             if (result.isConfirmed) {
               window.location.replace('/');
             }
@@ -102,6 +102,7 @@ const ClientLogin = () => {
         })
         .catch((err) => {
           console.log(err);
+          MySwal.fire(`Can't Find This Email , Please Right Your Email In Right Way`);
         });
     }
   };

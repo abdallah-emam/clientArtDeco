@@ -47,13 +47,11 @@ function App() {
         <Route path={"/SettingsPageUser"} exact element={<SettingsPageUser />}></Route>
         <Route path={"/Choose"} exact element={<Choose />}></Route>
         <Route path={"/JobsPage"} exact element={<JobsPage />}></Route>
-
-
       </Routes>
       <Footer />
 
     </BrowserRouter>
-    
+
   );
 }
 

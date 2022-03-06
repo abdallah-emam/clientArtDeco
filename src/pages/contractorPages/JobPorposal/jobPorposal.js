@@ -59,8 +59,11 @@ export default function JobProposal() {
       .then((response) => {
         console.log(formValues);
         console.log(response.data);
-        navigate('/');
-        MySwal.fire(`Proposal Sent To the Job Owner , Thanks For Working With Us`);
+        MySwal.fire(`Proposal Sent To the Job Owner , Thanks For Working With Us`).then(result => {
+          if (result.isConfirmed) {
+            window.location.replace(`/JobDetails/${params.id}`);
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
