@@ -21,15 +21,15 @@ export default function ClientProfile() {
     axiosInstace
       .get("users/getMe")
       .then(res => {
-        setUserDetails(res.data.data.data);
-        setJobs(res.data.data.data.jobs)
+        setUserDetails(res.data.data.user);
+        setJobs(res.data.data.user.jobs)
         console.log("result", res.data.data.data);
-        console.log("jobs", res.data.data.data.jobs);
+        console.log("jobs", res.data.data.user.jobs);
         setIsLoading(false)
       })
       .catch(err => {
         console.log(err);
-        // window.location.replace("/clientLogin");        
+        window.location.replace("/clientLogin");        
       });
   }, []);
 
