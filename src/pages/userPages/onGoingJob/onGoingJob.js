@@ -30,6 +30,7 @@ export default function OnGoingJob() {
     const params = useParams();
 
     const [jobDetails, setJobDetails] = useState([]);
+    // const [ProposalDetails, setProposalDetails] = useState([]);
 
     useEffect(() => {
         axiosInstace
@@ -57,25 +58,28 @@ export default function OnGoingJob() {
                     <div className="row mt-5">
                         <h4 className="m-2"> Accepted Proposal</h4>
                         <hr className='w-50' />
-                        <h4>
+                        <h5>
                             {jobDetails.proposals[0].coverLetter}
-                        </h4>
-                        {/* <h4>{jobDetails.headLine} </h4> */}
+                        </h5>
                     </div>
-                    <div className="row my-4 jobDetailsContent">
+                    <hr />
+                    <div className="row my-4 jobDetailsContent onGoing-H6">
                         <div className='col-12 col-md-6'>
                             <div className="row">
                                 <div className="col-6 col-md-3">
                                     <h5> Contractor Name</h5>
-                                    <p>Doaa. A</p>
+                                    <hr />
+                                    <h6>ItI Company</h6>
                                 </div>
                                 <div className="col-6 col-md-3">
                                     <h5> Duration</h5>
-                                    <p> Not Specified</p>
+                                    <hr />
+                                    <h6>  {jobDetails.proposals[0].estimatedTime}</h6>
                                 </div>
                                 <div className="col-6 col-md-3 mt-2 mt-md-0">
                                     <h5> Budget</h5>
-                                    {/* <p>{jobDetails.budget}</p> */}
+                                    <hr />
+                                    <h6>{jobDetails.proposals[0].financialOffer}</h6>
                                 </div>
                             </div>
                         </div>
