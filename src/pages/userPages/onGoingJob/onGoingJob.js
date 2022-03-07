@@ -30,7 +30,7 @@ export default function OnGoingJob() {
     const params = useParams();
 
     const [jobDetails, setJobDetails] = useState([]);
-    // const [ProposalDetails, setProposalDetails] = useState([]);
+    const [ProposalDetails, setProposalDetails] = useState([]);
 
     useEffect(() => {
         axiosInstace
@@ -39,6 +39,7 @@ export default function OnGoingJob() {
                 console.log(res);
                 setJobDetails(res.data.data.currentJob);
                 console.log("result", res.data.data.currentJob);
+                setProposalDetails(res.data.data.currentJob.proposals[0]);
             })
             .catch(err => console.log(err));
     }, []);
@@ -59,7 +60,7 @@ export default function OnGoingJob() {
                         <h4 className="m-2"> Accepted Proposal</h4>
                         <hr className='w-50' />
                         <h5>
-                            {jobDetails.proposals[0].coverLetter}
+                            {ProposalDetails.coverLetter}
                         </h5>
                     </div>
                     <hr />
@@ -74,12 +75,12 @@ export default function OnGoingJob() {
                                 <div className="col-6 col-md-3">
                                     <h5> Duration</h5>
                                     <hr />
-                                    <h6>  {jobDetails.proposals[0].estimatedTime}</h6>
+                                    <h6>  {ProposalDetails.estimatedTime}</h6>
                                 </div>
                                 <div className="col-6 col-md-3 mt-2 mt-md-0">
                                     <h5> Budget</h5>
                                     <hr />
-                                    <h6>{jobDetails.proposals[0].financialOffer}</h6>
+                                    <h6>{ProposalDetails.financialOffer}</h6>
                                 </div>
                             </div>
                         </div>
