@@ -2,7 +2,13 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./about.css";
 import FAQ from "../contact/FAQ";
+import { useEffect } from "react";
+
 export default function NavBar() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div>

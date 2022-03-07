@@ -2,8 +2,13 @@ import React from "react";
 import "./Contact.scss";
 import contact from "./contact-image.png";
 import "./AnaSayfa.css";
+import { useEffect } from "react";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <section className="Material-contact-section section-dark mt-3">
       <br />
