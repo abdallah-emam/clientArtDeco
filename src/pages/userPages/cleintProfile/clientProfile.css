@@ -149,10 +149,10 @@ body {
 .jobsSection {
   position: relative;
 }
-.jobDeleteIcon {
+.jobIcons {
   position: absolute;
   right: -27px;
-  top: 40%;
+  top: 30%;
 }
 @media (max-width: 992px) {
   /* .dashboardContainer {
@@ -168,7 +168,7 @@ body {
     font-size: 1rem !important;
     margin-left: 10px !important;
   }
-  .jobDeleteIcon {
+  .jobIcons {
     position: absolute;
     right: -16px;
     top: 42%;

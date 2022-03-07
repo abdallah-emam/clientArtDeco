@@ -8,7 +8,7 @@ import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
@@ -62,6 +62,11 @@ export default function ClientDashboard() {
     });
   };
 
+  const editJob = function (id) {
+    window.location.replace(`/JobUpdate/${id}`);
+    
+  }
+
   return (
     <div>
       <div className='container my-5 dashboardContainer'>
@@ -105,10 +110,15 @@ export default function ClientDashboard() {
                 <div className='d-flex justify-content-between'>
                   <h5 className='d-inline-block  w-auto'>{job.headLine}</h5>
                 </div>
-                <div className='jobDeleteIcon d-inline-block w-auto float-end'>
+                <div className='jobIcons d-inline-block w-auto float-end'>
+                  <FontAwesomeIcon
+                    onClick={() => editJob(job.id)}
+                    className='fa-xl icon  mr-1 rounded-circle p-2 mx-md-2'
+                    icon={faPenToSquare}
+                  /><br />
                   <FontAwesomeIcon
                     onClick={() => deleteJob(job.id)}
-                    className='fa-xl icon mr-1 rounded-circle p-2 mx-md-2'
+                    className='fa-xl icon mt-3 mr-1 rounded-circle p-2 mx-md-2'
                     icon={faTrashCan}
                   />
                 </div>
@@ -121,7 +131,6 @@ export default function ClientDashboard() {
                   </span>
                   <span className='border-end border-warning border-3 px-3'>
                     Estimited Time:&nbsp;{job.estimitedTime}
-                    {}
                   </span>
                   <span className='px-3'>
                     <FontAwesomeIcon icon={faLocationDot} />
