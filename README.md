@@ -26,16 +26,17 @@ Frequently viewed docs:
 
 Technologies used:
 
-- Html, JSX
+- Html, jsx
 - Css, Bootrstrap, Material Ui, Tailwind css
-- Javascripy, ES6 
+- Javascript, ES6
 - React Js and many React libraries(router-dim, axious, toastify, etc..)
 - Node js for backend
-- No Sql mongo for database
-- postman for api testing
-- service control mainly github
-- package managers (Yarn and Npm)
-- Canva for illustrations, animations and logo design
+- No SQL mongo for database
+- Postman for API testing
+- Service control mainly GitHub
+- Package managers (Yarn and Npm)
+- Canva for illustrations, animations, and logo design
+
 
 ## [Project Structure]
 
