@@ -4,106 +4,175 @@ import "./onGoingJob.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import BTN from "../../../components/button/btn";
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { axiosInstace } from "../../../network/axiosConfig";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+// import "./jobDetails.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Grid } from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { Typography } from "@mui/material";
+import TimelineContent from "@mui/lab/TimelineContent";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineDot from "@mui/lab/TimelineDot";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineItem from "@mui/lab/TimelineItem";
+import Timeline from "@mui/lab/Timeline";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import { Button } from "react-bootstrap";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const MySwal = withReactContent(Swal);
 
-
-
 const HandleClick = () => {
-    MySwal.fire({
-        title: "End The Job!",
-        text: "Are You Sure To End This Job?",
-        type: "success",
-        showCancelButton: true,
-    }).then((result) => {
-        if (result.isConfirmed)
-            window.location = '/jobRate'
-    })
+  MySwal.fire({
+    title: "End The Job!",
+    text: "Are You Sure To End This Job?",
+    type: "success",
+    showCancelButton: true,
+  }).then(result => {
+    if (result.isConfirmed) window.location = "/jobRate";
+  });
 };
 export default function OnGoingJob() {
+  const params = useParams();
 
-    const params = useParams();
+  const [jobDetails, setJobDetails] = useState([]);
+  const [ProposalDetails, setProposalDetails] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    const [jobDetails, setJobDetails] = useState([]);
-    const [ProposalDetails, setProposalDetails] = useState([]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
 
-    useEffect(() => {
-        axiosInstace
-            .get(`users/getMyOngoingJobs/${params.id}`)
-            .then(res => {
-                console.log(res);
-                setJobDetails(res.data.data.currentJob);
-                console.log("result", res.data.data.currentJob);
-                setProposalDetails(res.data.data.currentJob.proposals[0]);
-            })
-            .catch(err => console.log(err));
-    }, []);
-    return (
-        <div>
-            <div className="container my-5 border border-2">
-                <h2 className="m-3"> Ongoing Job </h2>
-                <hr />
-                <div className=" border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 p-3 shadow-sm">
-                    <div className="row">
-                        <h3 className="m-2">Job Title</h3>
-                        <hr className="w-50" />
-                        <h4>
-                            {jobDetails.headLine}
-                        </h4>
-                    </div>
-                    <div className="row mt-5">
-                        <h4 className="m-2"> Accepted Proposal</h4>
-                        <hr className='w-50' />
-                        <h5>
-                            {ProposalDetails.coverLetter}
-                        </h5>
-                    </div>
-                    <hr />
-                    <div className="row my-4 jobDetailsContent onGoing-H6">
-                        <div className='col-12 col-md-6'>
-                            <div className="row">
-                                <div className="col-6 col-md-3">
-                                    <h5> Contractor Name</h5>
-                                    <hr />
-                                    <h6>ItI Company</h6>
-                                </div>
-                                <div className="col-6 col-md-3">
-                                    <h5> Duration</h5>
-                                    <hr />
-                                    <h6>  {ProposalDetails.estimatedTime}</h6>
-                                </div>
-                                <div className="col-6 col-md-3 mt-2 mt-md-0">
-                                    <h5> Budget</h5>
-                                    <hr />
-                                    <h6>{ProposalDetails.financialOffer}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row align-items-center">
-                        <ul className="list-unstyled mb-0 col-12 col-md-8 text-dark-l1 text-90 text-left my-4 my-md-0">
-                            <li>
-                                <i className=" text-success-m2 text-110 mr-2 mt-1"></i>
-                                <span>
-                                    <span className="text-110">
-                                        {/* {jobDetails.description} */}
-                                    </span>
-                                </span>
-                            </li>
-                        </ul>
-                        <div onClick={HandleClick} className="col-12 col-md-4 text-center my-3 my-md-0 jobDetailsBtn ">
-                            <BTN URL={``} text="End Job" type="defult" />
-                        </div>
-                        <div className="row align-items-center">
-                        </div>
-                    </div>
-                </div>
+    axiosInstace
+      .get(`users/getMyOngoingJobs/${params.id}`)
+      .then(res => {
+        console.log(res);
+        setJobDetails(res.data.data.currentJob);
+        console.log("result", res.data.data.currentJob);
+        setProposalDetails(res.data.data.currentJob.proposals[0]);
+        setIsLoading(false);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  return (
+    <div>
+      <div className='container m-md-5 JobsPage-container'>
+        {isLoading ? (
+          <div className='w-100 position-relative'>
+            <Box
+              className='position-absolute top-0 start-50 translate-middle-x'
+              sx={{ display: "flex" }}
+            >
+              <CircularProgress className='m-5' />
+            </Box>
+          </div>
+        ) : (
+          <section
+            key={jobDetails.id}
+            className='jobsSection border p-sm-3 p-xs-5 col-12'
+          >
+            <div className='d-flex justify-content-between'>
+              <h5 className='d-inline-block  w-auto'>{jobDetails.headLine}</h5>
             </div>
-        </div>
-    );
+            <div className='jobInfoLine my-2'>
+              <span className='border-end border-warning border-3 px-3'>
+                Budget:&nbsp;{jobDetails.budget}
+              </span>
+              <span className='border-end border-warning border-3 px-3'>
+                {new Date(Date.parse(jobDetails.createdAt)).toDateString()}
+              </span>
+              <span className='border-end border-warning border-3 px-3'>
+                Estimited Time:&nbsp;{jobDetails.estimatedTime}
+              </span>
+              <span className='px-3'>
+                <FontAwesomeIcon icon={faLocationDot} />
+                &nbsp;{jobDetails.location}
+              </span>
+            </div>
+            <div className='jobDescription my-3'>
+              <p>{jobDetails.description}</p>
+            </div>
+            <div className='Proposals my-3'>
+              <p>
+                Proposals :&nbsp;
+                <span className='jobKeyWord rounded-pill p-1 me-2'>
+                  {jobDetails.totalProposal}
+                </span>
+              </p>
+            </div>
+            <Grid item lg={6} md={12} className='experience pb_30 timeLineContainer'>
+              <Timeline className='timeline'>
+                <TimelineItem>
+                  <TimelineSeparator>
+                    <TimelineDot className='timeline_dot_header'>
+                      <LocalOfferIcon />
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <Typography variant='h6' className='timeline_header'>
+                      Contractors Proposals : ({jobDetails.proposals.length})
+                    </Typography>
+                  </TimelineContent>
+                </TimelineItem>
+                {jobDetails.proposals.map(proposal => (
+                  <TimelineItem  key={proposal.id}>
+                    <TimelineSeparator className='separator_padding'>
+                      <TimelineDot
+                        variant='outlined'
+                        className='timeline_dot'
+                      />
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent className='timeline_content'>
+                      <Typography className='timeline_title'>
+                        Financial Offer :&nbsp;
+                        {proposal.financialOffer}
+                      </Typography>
+                      <Typography
+                        variant='body2'
+                        className='timeline_description'
+                      >
+                        Estimated time :&nbsp;{proposal.estimatedTime}
+                      </Typography>
+                      <Typography
+                        variant='body2'
+                        className='timeline_description'
+                      >
+                        Cover letter :&nbsp;{proposal.coverLetter}
+                      </Typography>
+                      <Typography
+                        variant='body2'
+                        className='timeline_description'
+                      >
+                        Created at :&nbsp;
+                        {new Date(
+                          Date.parse(proposal.createdAt)
+                        ).toDateString()}
+                      </Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                ))}
+                <div className='w-100 text-center d-flex justify-content-center px-5 mt-4'>
+                  <Button
+                    onClick={HandleClick}
+                    className='endJobButton mt-2'
+                    variant='contained'
+                    color='success'
+                  >
+                    End Job
+                  </Button>
+                </div>
+              </Timeline>
+            </Grid>
+          </section>
+        )}
+      </div>
+    </div>
+  );
 }
