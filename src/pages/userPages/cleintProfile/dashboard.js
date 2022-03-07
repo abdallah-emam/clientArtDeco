@@ -93,7 +93,11 @@ export default function ClientDashboard() {
               "Confirmed!",
               `We will notify the contractor and contact you soon on ${UserDetails.email}`,
               "success"
-            );
+            ).then(result => {
+              if (result.isConfirmed) {
+                window.location.reload()
+              }
+            })
           })
           .catch(err => {
             console.log(err);

@@ -173,7 +173,7 @@ function JobsPage() {
                         {new Date(Date.parse(job.createdAt)).toDateString()}
                       </span>
                       <span className='border-end border-warning border-3 px-3'>
-                        Estimited Time:&nbsp;{job.estimitedTime}
+                        Estimited Time:&nbsp;{job.estimatedTime}
                         {}
                       </span>
                       <span className='px-3'>
