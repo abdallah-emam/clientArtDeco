@@ -19,7 +19,6 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import { Button } from "react-bootstrap";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import BTN from './../../../components/button/btn';
 
 export default function JobDetails() {
   const params = useParams();
@@ -147,9 +146,6 @@ export default function JobDetails() {
               )}
             </Timeline>
           </Grid>
-          <div className="col-12 text-center my-4 jobDetailsBtn ">
-              <BTN URL={`/JobProposal/${jobDetails.id}`} text="Send a Proposal" type="defult" />
-            </div>
         </section>
     
         )}
