@@ -57,23 +57,23 @@ function JobsPage() {
   useEffect(() => {
     axiosInstace
       .get(`job?page=${currentPage}&limit=10`, {})
-      .then(res => {
+      .then((res) => {
         setallJobsDetails(res.data.data.jobs);
         setPagesCount(Math.ceil(res.data.fullLength / 10));
         window.scrollTo(0, 0);
         setIsLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         window.location.replace("http://localhost:3000/contractorLogin");
       });
   }, [currentPage]);
 
-  const handlePageClick = data => {
+  const handlePageClick = (data) => {
     setCurrentPage(data.selected + 1);
   };
 
-  const handleFormChange = event => {
+  const handleFormChange = (event) => {
     switch (event.target.name) {
       case "name":
         setFormValues({
@@ -112,48 +112,61 @@ function JobsPage() {
 
   return (
     <>
-      <div className='container JobsPage-container p-md-5'>
+      <div className="container JobsPage-container p-md-5">
         {isLoading ? (
-          <div className='w-100 position-relative'>
+          <div className="w-100 position-relative">
             <Box
-              className='position-absolute top-0 start-50 translate-middle-x'
+              className="position-absolute top-0 start-50 translate-middle-x"
               sx={{ display: "flex" }}
             >
-              <CircularProgress className='m-5' />
+              <CircularProgress className="m-5" />
             </Box>
           </div>
         ) : (
           <>
             {/* Search bar */}
-            <Grid item xs={12} sm={12} className='mb-4'>
+            <div className="input-group d-flex justify-content-center mb-4 searchBar">
+              <div className="form-outline w-75">
+                <input
+                  placeholder="Search"
+                  type="search"
+                  id="form1"
+                  className="form-control"
+                />
+              </div>
+              <button type="button" className="btn">
+                <i className="fas fa-search"></i>
+              </button>
+            </div>
+            {/* <Grid item xs={12} sm={12} className='mb-4'>
               <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
-                  <InputLabel id='demo-simple-select-label'>
+                  <InputLabel id="demo-simple-select-label">
                     Location
                   </InputLabel>
                   <Select
-                    labelId='demo-simple-select-label'
-                    id='demo-simple-select'
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
                     value={formValues.address ? formValues.address : ""}
-                    name='address'
-                    label='Address'
-                    onChange={e => handleFormChange(e)}
+                    name="address"
+                    label="Address"
+                    onChange={(e) => handleFormChange(e)}
                   >
-                    {Governorates.map(item => (
+                    {Governorates.map((item) => (
                       <MenuItem value={item}>{item}</MenuItem>
                     ))}
                   </Select>
                 </FormControl>
               </Box>
-            </Grid>
+            </Grid> */}
 
             {/* Jobs */}
-            <div className='jobsContainer border-bottom row'>
-              {allJobsDetails.map(job => (
+            <div className="jobsContainer border-bottom row">
+              {allJobsDetails.map((job) => (
                 <Link key={job.id} to={`/JobDetails/${job.id}`}>
-                  <section className='jobsSection border p-sm-3 p-xs-5 col-12'>
-                    <div className='d-flex justify-content-between'>
-                      <h5 className='d-inline-block  w-auto'>{job.headLine}</h5>
+                  <section className="jobsSection border p-sm-3 p-xs-5 col-12">
+                    <div className="d-flex justify-content-between">
+                      <h5 className="d-inline-block  w-auto">{job.headLine}</h5>
                       {/* <div className='d-inline-block w-auto float-end'>
                         <FontAwesomeIcon
                           className='fa-xl icon mr-1 rounded-circle p-2 mx-md-2'
@@ -165,23 +178,23 @@ function JobsPage() {
                         />
                       </div> */}
                     </div>
-                    <div className='jobInfoLine my-2'>
-                      <span className='border-end border-warning border-3 px-3'>
+                    <div className="jobInfoLine my-2">
+                      <span className="border-end border-warning border-3 px-3">
                         Budget:&nbsp;{job.budget}
                       </span>
-                      <span className='border-end border-warning border-3 px-3'>
+                      <span className="border-end border-warning border-3 px-3">
                         {new Date(Date.parse(job.createdAt)).toDateString()}
                       </span>
-                      <span className='border-end border-warning border-3 px-3'>
+                      <span className="border-end border-warning border-3 px-3">
                         Estimited Time:&nbsp;{job.estimatedTime}
                         {}
                       </span>
-                      <span className='px-3'>
+                      <span className="px-3">
                         <FontAwesomeIcon icon={faLocationDot} />
                         &nbsp;{job.location}
                       </span>
                     </div>
-                    <div className='jobDescription my-3'>
+                    <div className="jobDescription my-3">
                       <p>{job.description}</p>
                     </div>
                     {/* <div className='jobKeyWords my-3'>
@@ -198,10 +211,10 @@ function JobsPage() {
                         {"Bootstrap"}
                       </span>
                     </div> */}
-                    <div className='Proposals my-3'>
+                    <div className="Proposals my-3">
                       <p>
                         Proposals :&nbsp;
-                        <span className='jobKeyWord rounded-pill p-1 me-2'>
+                        <span className="jobKeyWord rounded-pill p-1 me-2">
                           {job.totalProposal}
                         </span>
                       </p>
@@ -212,11 +225,11 @@ function JobsPage() {
             </div>
 
             {/* pagination */}
-            <div className='pagination d-flex justify-content-center p-sm-4'>
+            <div className="pagination d-flex justify-content-center p-sm-4">
               <ReactPaginate
-                previousLabel='< previous'
-                nextLabel='next >'
-                breakLabel='...'
+                previousLabel="< previous"
+                nextLabel="next >"
+                breakLabel="..."
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={3}
                 pageCount={pagesCount}

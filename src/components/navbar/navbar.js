@@ -58,7 +58,7 @@ function Navbar() {
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
           <Link to="/">
-            <img src="./logo.png" alt="" srcSet="" className={classes.logo} />
+            <img src="https://i.ibb.co/GCnMNC0/logo.png" alt="Logo" className={classes.logo} />
           </Link>
         </Typography>
         {isMobile ? (
@@ -120,6 +120,14 @@ function Navbar() {
                 {/* public */}
                 <Link to="/about" className={classes.link}>
                   About
+                </Link>
+                {/* public */}
+                <Link to="/AboutUs" className={classes.link}>
+                  How we work?
+                </Link>
+                {/* public */}
+                <Link to="/Contact" className={classes.link}>
+                  Contact Us
                 </Link>
                 {/* public */}
                 <Link to="/Choose" className={classes.link}>

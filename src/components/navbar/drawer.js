@@ -162,6 +162,24 @@ function DrawerComponent() {
               <ListItem onClick={() => setOpenDrawer(false)}>
                 <ListItemText>
                   {/* public */}
+                  <Link to="/AboutUs" className={classes.link}>
+                    How we work?
+                  </Link>
+                </ListItemText>
+              </ListItem>
+              <Divider />
+              <ListItem onClick={() => setOpenDrawer(false)}>
+                <ListItemText>
+                  {/* public */}
+                  <Link to="/Contact" className={classes.link}>
+                    Contact Us
+                  </Link>
+                </ListItemText>
+              </ListItem>
+              <Divider />
+              <ListItem onClick={() => setOpenDrawer(false)}>
+                <ListItemText>
+                  {/* public */}
                   <Link to="/Choose" className={classes.link}>
                     Login/Register
                   </Link>

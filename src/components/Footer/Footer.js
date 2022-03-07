@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./Footer.css";
 
 const Footer = () => {
@@ -30,33 +32,26 @@ const Footer = () => {
             </div>
             <div className="col-lg-3 col-md-6">
               <p className="footer-title">Menu</p>
+              <br />
               <ul className="footer-ul">
                 <li>
-                  <a href="">Home</a>
+                  <Link to="/Home">Home</Link>
                 </li>
                 <li>
-                  <a href="">Blog</a>
+                  <Link to="/about">About</Link>
                 </li>
                 <li>
-                  <a href="">About</a>
-                </li>
-                <li>
-                  <a href="">Contact</a>
+                  <Link to="/Contact">Contact Us</Link>{" "}
                 </li>
               </ul>
             </div>
             <div className="col-lg-3 col-md-6">
               <div>
-                <p className="footer-title">Categories</p>
+                <p className="footer-title">utilities</p>
+                <br />
                 <ul className="footer-ul">
                   <li>
-                    <a href="">Maintenance</a>
-                  </li>
-                  <li>
-                    <a href="">Vacancies</a>
-                  </li>
-                  <li>
-                    <a href="">Mentorship</a>
+                    <Link to="/AboutUs">How we work?</Link>{" "}
                   </li>
                 </ul>
               </div>
@@ -64,6 +59,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <p className="footer-title">Contact</p>
+              <br />
               <ul className="footer-ul">
                 <li className="d-flex">
                   <div className="footer-info-item">
