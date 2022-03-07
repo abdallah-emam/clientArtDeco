@@ -12,17 +12,46 @@ const MySwal = withReactContent(Swal);
 
 export default function JobCreation() {
   const navigate = useNavigate();
-
+  const [Governorates, setGovernorates] = useState([
+    "Cairo",
+    "Giza",
+    "Alexandria",
+    "Aswan",
+    "Asyut",
+    "Beheira",
+    "Beni Suef",
+    "Dakahlia",
+    "Damietta",
+    "Faiyum",
+    "Gharbia",
+    "Ismailia",
+    "Kafr El Sheikh",
+    "Matruh",
+    "Minya",
+    "Monufia",
+    "New Valley",
+    "North Sinai",
+    "Port Said",
+    "Qalyubia",
+    "Qena",
+    "Red Sea",
+    "Sharqia",
+    "Sohag",
+    "South Sinai",
+    "Suez",
+  ]);
+  const [Times, setTimes] = useState([
+    "one month",
+    "two months",
+    "three months",
+    "more than three months",
+  ]);
   const [formValues, setFormValues] = useState({
     headLine: "",
     description: "",
     budget: "",
-<<<<<<< HEAD
-    estimatedTime: "",
-=======
     estimatedTime: "one month",
     location: "Cairo",
->>>>>>> c03350906ce9287031c36892549892c6a9df22ef
   });
 
   const handleFormChange = (event) => {
@@ -55,23 +84,33 @@ export default function JobCreation() {
         });
         break;
 
+      case "location":
+        setFormValues({
+          ...formValues,
+          location: event.target.value,
+        });
+        break;
+
       default:
         break;
     }
   };
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(formValues);
+
     axiosInstace
       .post("job", formValues)
       .then((response) => {
         console.log(response.data);
-        MySwal.fire(`Job Added Successfully`);
-        navigate('/ClientProfile')
+        MySwal.fire(`Job Added Successfully`).then(result => {
+          if (result.isConfirmed) {
+            window.location.replace('/ClientProfile');
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
-        MySwal.fire(`Can't Add This Job`);
+        MySwal.fire(`Can't Add This Job , Enter All The Date`);
       });
   };
 
@@ -82,7 +121,7 @@ export default function JobCreation() {
       <div className="MainDiv container">
         <div className="FirstWrapper">
           <div className="topLeft">
-            <span className="Sign-Page">Creation</span>
+            <span className="Sign-Page">Create a Job</span>
           </div>
           <div className="topRight">
             <button
@@ -90,11 +129,7 @@ export default function JobCreation() {
               type="button"
               className="btn"
             >
-<<<<<<< HEAD
-              Save Job Post
-=======
               Submit Job
->>>>>>> c03350906ce9287031c36892549892c6a9df22ef
             </button>
           </div>
         </div>
@@ -104,6 +139,8 @@ export default function JobCreation() {
             <div className="form-group">
               <label>HeadLine</label>
               <input
+                required
+                maxLength={100}
                 type="text"
                 className="form-control"
                 name="headLine"
@@ -126,30 +163,31 @@ export default function JobCreation() {
               This is how companies will figure out what you need and why they
               should make an offer to you.
             </h6>
-            <h6>
-              Include your expectations about what you want , what you are
-              looking for in work relationship , and any thing or details
-              related to what you need or instructions to the company.
-              <span>Here are several examples</span> that illustrate best
-              practices for effective job posts.
-            </h6>
             <div className="form-group">
               <textarea
+                required
                 className="form-control"
                 id="exampleFormControlTextarea1"
                 rows="10"
                 name="description"
+                placeholder="Enter a Description for your Job"
                 value={formValues.description}
                 onChange={(e) => handleFormChange(e)}
               ></textarea>
-              <br />
-              <input
-                className="form-control file-Attach"
-                type="file"
-                id="formFileMultiple"
-                multiple
-              />
             </div>
+            <br />
+            <h5>Location</h5>
+            <select
+              name="location"
+              value={formValues.location}
+              onChange={(e) => handleFormChange(e)}
+              class="form-select"
+              aria-label="Default select example"
+            >
+              {Governorates.map((item) => (
+                <option value={item}>{item}</option>
+              ))}
+            </select>
           </div>
         </div>
         <hr />
@@ -163,6 +201,7 @@ export default function JobCreation() {
                   <PaidIcon />
                 </span>
                 <input
+                  required
                   type="number"
                   min={0}
                   name="budget"
@@ -174,17 +213,18 @@ export default function JobCreation() {
               </div>
             </div>
             <div className="form-group">
-              <label>Estimated Date</label>
-              <div className="input-group mb-3">
-                <input
-                  type="date"
-                  className="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                  name="estimatedTime"
-                  value={formValues.estimatedTime}
-                  onChange={(e) => handleFormChange(e)}
-                ></input>
-              </div>
+              <label>Estimated Time</label>
+              <select
+                required
+                name="estimatedTime"
+                value={formValues.estimatedTime}
+                onChange={(e) => handleFormChange(e)}
+                class="form-select"
+              >
+                {Times.map((item) => (
+                  <option value={item}>{item}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="topRight">
@@ -194,19 +234,6 @@ export default function JobCreation() {
                 to know everything you need to finish your work in right way.
               </h6>
             </div>
-          </div>
-        </div>
-        <hr />
-        <div className="FirstWrapper">
-          <div className="topLeft"></div>
-          <div className="topRight">
-            <button
-              onClick={(e) => handleSubmitForm(e)}
-              type="button"
-              className="btn"
-            >
-              Save Job Post
-            </button>
           </div>
         </div>
       </div>
