@@ -45,7 +45,6 @@ export default function JobUpdate() {
     "more than three months",
   ]);
   const params = useParams();
-  // console.log(params.id);
 
   const [job, setJob] = useState([]);
 
@@ -235,7 +234,6 @@ export default function JobUpdate() {
             <div className="form-group">
               <label>Estimated Time</label>
               <select
-                required
                 name="estimatedTime"
                 value={formValues.estimatedTime}
                 placeholder={job.estimatedTime}

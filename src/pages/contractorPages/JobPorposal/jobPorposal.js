@@ -23,7 +23,7 @@ export default function JobProposal() {
   const [formValues, setFormValues] = useState({
     coverLetter: "",
     financialOffer: "",
-    estimatedTime: "",
+    estimatedTime: "one month",
   });
   const handleFormChange = (event) => {
     switch (event.target.name) {
