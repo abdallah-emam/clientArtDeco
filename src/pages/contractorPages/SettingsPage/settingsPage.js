@@ -68,7 +68,7 @@ export default function SettingsPage() {
       })
       .catch(err => {
         console.log(err);
-        window.location.replace("http://localhost:3000/contractorLogin");
+        window.location.replace("/contractorLogin");
       });
   }, []);
 
@@ -101,9 +101,6 @@ export default function SettingsPage() {
                         <Tab label='Change Password' {...a11yProps(1)} />
                         <Tab label='Profile Image' {...a11yProps(2)} />
                         <Tab label='Previous Work' {...a11yProps(3)} />
-                        <Tab label='Item Five' {...a11yProps(4)} />
-                        <Tab label='Item Six' {...a11yProps(5)} />
-                        <Tab label='Item Seven' {...a11yProps(6)} />
                       </Tabs>
                     </Grid>
                   </Grid>
@@ -135,15 +132,6 @@ export default function SettingsPage() {
                   </ContractorSettings>
                   <ContractorSettings value={value} index={3}>
                     <PreviousWork contractorDetails={contractorDetails} />
-                  </ContractorSettings>
-                  <ContractorSettings value={value} index={4}>
-                    Item Five
-                  </ContractorSettings>
-                  <ContractorSettings value={value} index={5}>
-                    Item Six
-                  </ContractorSettings>
-                  <ContractorSettings value={value} index={6}>
-                    Item Seven
                   </ContractorSettings>
                 </>
               )}

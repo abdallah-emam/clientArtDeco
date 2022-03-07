@@ -8,3 +8,9 @@
 .imageSettings {
     
 }
+.imageSettings {
+    border-radius: 0 !important;
+}
+.swal2-confirm {
+    background-color: var(--main-color) !important;
+}

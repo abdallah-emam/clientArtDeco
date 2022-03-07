@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home/Home";
 import About from "./pages/about/about";
 import "./App.css";
@@ -17,12 +16,14 @@ import ContactorProfile from "./pages/contractorPages/contractorProfile/contract
 import ContractorSettings from "./pages/contractorPages/SettingsPage/settingsPage";
 import JobProposal from "./pages/contractorPages/JobPorposal/jobPorposal";
 import JobCreation from "./pages/userPages/jobCreation/jobReview";
-import SettingsPageUser from "./pages/contractorPages/SettingsPage/settingsPage";
-import JobUpdate from './pages/userPages/jobUpdate/jobUpdate'
+import SettingsPageUser from "./pages/userPages/settingClenit/settingsClient";
+import JobUpdate from "./pages/userPages/jobUpdate/jobUpdate";
+import Contact from "./pages/contact/Contact";
 
 import Navbar from "./components/navbar/navbar";
-import JobsPage from './pages/Home/JobsPage/JobsPage';
-import Footer from './components/Footer/Footer';
+import AboutUs from "./pages/about/about-us";
+import JobsPage from "./pages/Home/JobsPage/JobsPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -35,27 +36,61 @@ function App() {
         <Route path={"/clientLogin"} exact element={<ClientLogin />}></Route>
         <Route path={"/ClientSignUp"} exact element={<ClientSignUp />}></Route>
         <Route path={"/ClientReset"} exact element={<ClientReset />}></Route>
-        <Route path={"/ClientProfile"} exact element={<ClientProfile />}></Route>
-        <Route path={"/ClientSetting"} exact element={<ClientSetting />}></Route>
-        <Route path={"/ContractorLogin"} exact element={<ContractorLogin />}></Route>
-        <Route path={"/ContractorSignUp"} exact element={<ContractorSignUp />}></Route>
-        <Route path={"/ContractorReset"} exact element={<ContractorReset />}></Route>
+        <Route
+          path={"/ClientProfile"}
+          exact
+          element={<ClientProfile />}
+        ></Route>
+        <Route
+          path={"/ClientSetting"}
+          exact
+          element={<ClientSetting />}
+        ></Route>
+        <Route
+          path={"/ContractorLogin"}
+          exact
+          element={<ContractorLogin />}
+        ></Route>
+        <Route
+          path={"/ContractorSignUp"}
+          exact
+          element={<ContractorSignUp />}
+        ></Route>
+        <Route
+          path={"/ContractorReset"}
+          exact
+          element={<ContractorReset />}
+        ></Route>
         <Route path={"/JobDetails/:id"} exact element={<JobDetails />}></Route>
-        <Route path={"/ContactorProfile"} exact element={<ContactorProfile />}></Route>
-        <Route path={"/ContractorSettings"} exact element={<ContractorSettings />}></Route>
-        <Route path={"/JobProposal/:id"} exact element={<JobProposal />}></Route>
+        <Route
+          path={"/ContactorProfile"}
+          exact
+          element={<ContactorProfile />}
+        ></Route>
+        <Route
+          path={"/ContractorSettings"}
+          exact
+          element={<ContractorSettings />}
+        ></Route>
+        <Route
+          path={"/JobProposal/:id"}
+          exact
+          element={<JobProposal />}
+        ></Route>
         <Route path={"/JobCreation"} exact element={<JobCreation />}></Route>
         <Route path={"/JobUpdate/:id"} exact element={<JobUpdate />}></Route>
-        <Route path={"/SettingsPageUser"} exact element={<SettingsPageUser />}></Route>
+        <Route
+          path={"/SettingsPageUser"}
+          exact
+          element={<SettingsPageUser />}
+        ></Route>
         <Route path={"/Choose"} exact element={<Choose />}></Route>
         <Route path={"/JobsPage"} exact element={<JobsPage />}></Route>
-
-
+        <Route path={"/Contact"} exact element={<Contact />}></Route>
+        <Route path={"/AboutUs"} exact element={<AboutUs />}></Route>
       </Routes>
       <Footer />
-
     </BrowserRouter>
-    
   );
 }
 

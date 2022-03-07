@@ -43,7 +43,7 @@ export default function UpdatePassword(props) {
       .patch("users/updateMyPassword", formValues)
       .then((res) => {
         console.log(res.data);
-        localStorage.setItem("company_token", res.data.token);
+        localStorage.setItem("user_token", res.data.token);
         MySwal.fire(`Data changed Successfully`).then((result) => {
           if (result.isConfirmed) {
             window.location.reload();

@@ -1,4 +1,4 @@
-.profile {
+/* .profile {
   background: #fff;
   border-radius: 6px;
   -moz-border-radius: 6px;
@@ -29,7 +29,6 @@
   -webkit-clip-path: polygon(0 9%, 100% 0, 100% 94%, 0% 100%);
   clip-path: polygon(0 9%, 100% 0, 100% 94%, 0% 100%);
 }
-
 .profile_image img {
   width: 100%;
 }
@@ -124,4 +123,4 @@ ul.profile_information li:first-child:after {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
-}
+} */
