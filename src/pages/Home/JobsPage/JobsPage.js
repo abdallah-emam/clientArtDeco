@@ -23,6 +23,7 @@ function JobsPage() {
     axiosInstace
       .get(`job?page=${currentPage}&limit=10`, {})
       .then(res => {
+        console.log(res.data.data.jobs)
         setallJobsDetails(res.data.data.jobs);
         setPagesCount(Math.ceil(res.data.fullLength/10))
         window.scrollTo(0, 0)
@@ -96,7 +97,7 @@ function JobsPage() {
                         {new Date(Date.parse(job.createdAt)).toDateString()}
                       </span>
                       <span className='border-end border-warning border-3 px-3'>
-                      Estimited Time:&nbsp;{job.estimitedTime}
+                      Estimited Time:&nbsp;{job.estimatedTime}
                       {
                         
                       }

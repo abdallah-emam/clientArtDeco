@@ -50,8 +50,8 @@ export default function JobCreation() {
     headLine: "",
     description: "",
     budget: "",
-    estimatedTime: "",
-    location: "",
+    estimatedTime: "one month",
+    location: "Cairo",
   });
 
   const handleFormChange = (event) => {
@@ -129,7 +129,7 @@ export default function JobCreation() {
               type="button"
               className="btn"
             >
-              SUbmit Job
+              Submit Job
             </button>
           </div>
         </div>

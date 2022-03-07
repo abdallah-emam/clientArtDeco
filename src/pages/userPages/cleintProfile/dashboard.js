@@ -8,7 +8,7 @@ import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
@@ -62,6 +62,11 @@ export default function ClientDashboard() {
     });
   };
 
+  const editJob = function (id) {
+    window.location.replace(`/JobUpdate/${id}`);
+    
+  }
+
   return (
     <div>
       <div className='container my-5 dashboardContainer'>
@@ -79,11 +84,11 @@ export default function ClientDashboard() {
         {/* secondsection */}
         {isLoading ? "loading..." : null}
 
-        {Jobs?.length == 0 ? (
+        {Jobs?.length === 0 ? (
           <div>
             <div className='container'>
               <div className='d-flex justify-content-center'>
-                <img src={fileimg} />
+                <img src={fileimg} alt={'no jops'}/>
               </div>
               <div className='d-flex justify-content-center'>
                 <p> You don't have a Posts Yet</p>
@@ -99,19 +104,26 @@ export default function ClientDashboard() {
           </div>
         ) : (
           Jobs?.length > 0 &&
-          Jobs.map(job => {
+          Jobs.slice(0).reverse().map(job => {
             return (
               <section className='jobsSection border p-sm-3 p-xs-5 col-12'>
                 <div className='d-flex justify-content-between'>
                   <h5 className='d-inline-block  w-auto'>{job.headLine}</h5>
                 </div>
-                <div className='jobDeleteIcon d-inline-block w-auto float-end'>
+                {job.status === "pending" ? (
+                <div className='jobIcons d-inline-block w-auto float-end'>
+                  <FontAwesomeIcon
+                    onClick={() => editJob(job.id)}
+                    className='fa-xl icon  mr-1 rounded-circle p-2 mx-md-2'
+                    icon={faPenToSquare}
+                  /><br />
                   <FontAwesomeIcon
                     onClick={() => deleteJob(job.id)}
-                    className='fa-xl icon mr-1 rounded-circle p-2 mx-md-2'
+                    className='fa-xl icon mt-3 mr-1 rounded-circle p-2 mx-md-2'
                     icon={faTrashCan}
                   />
                 </div>
+                ): null}
                 <div className='jobInfoLine my-2'>
                   <span className='border-end border-warning border-3 px-3'>
                     Budget:&nbsp;{job.budget}
@@ -120,8 +132,7 @@ export default function ClientDashboard() {
                     {new Date(Date.parse(job.createdAt)).toDateString()}
                   </span>
                   <span className='border-end border-warning border-3 px-3'>
-                    Estimited Time:&nbsp;{job.estimitedTime}
-                    {}
+                    Estimited Time:&nbsp;{job.estimatedTime}
                   </span>
                   <span className='px-3'>
                     <FontAwesomeIcon icon={faLocationDot} />
