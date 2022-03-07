@@ -11,7 +11,7 @@ export default function NavBar() {
   }, []);
   return (
     <>
-      <div>
+      <div className='aboutContainer'>
         <section className="about">
           <div className="page-top">
             <div className="container">

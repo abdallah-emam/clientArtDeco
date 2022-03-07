@@ -2,17 +2,17 @@
 # Sections
 --------------------------------------------------------------*/
 
-section {
+.faqContainer section {
     padding: 60px 0;
     overflow: hidden;
 }
 
-.section-header {
+.faqContainer .section-header {
     text-align: center;
     padding-bottom: 40px;
 }
 
-.section-header h2 {
+.faqContainer .section-header h2 {
     font-size: 13px;
     letter-spacing: 1px;
     font-weight: 700;
@@ -21,7 +21,7 @@ section {
     text-transform: uppercase;
 }
 
-.section-header p {
+.faqContainer .section-header p {
     margin: 10px 0 0 0;
     padding: 0;
     font-size: 38px;
@@ -31,7 +31,7 @@ section {
 }
 
 @media (max-width: 768px) {
-    .section-header p {
+    .faqContainer .section-header p {
         font-size: 28px;
         line-height: 32px;
     }
