@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { validPassword } from "./regex.js";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { Grid, Paper, Avatar, TextField, Button } from "@material-ui/core";
+import { Grid, Paper, Avatar, TextField} from "@material-ui/core";
 import LockResetIcon from "@mui/icons-material/LockReset";
 import { axiosInstace } from "../../../network/axiosConfig";
-import BTN from "../../../components/button/btn";
+
 
 const MySwal = withReactContent(Swal);
 const ClientReset = () => {
   const params = useParams();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     password: "",
     passwordConfirm: "",
@@ -69,15 +69,16 @@ const ClientReset = () => {
         .patch(`users/resetPassword/${params.resetToken}`, formValues)
         .then((response) => {
           console.log(response);
-          navigate("/user_login");
-          MySwal.fire(
-            `Password Rested Successfully,Please Login With Your New Password`
-          );
+          MySwal.fire(`Password Rested Successfully , Please Login With Your New Password`).then(result => {
+            if (result.isConfirmed) {
+              window.location.replace('/clientLogin');
+            }
+          });
         })
         .catch((err) => {
           console.log(err);
           MySwal.fire(
-            `Invalid Password , Please Enter Your Email and Password in Right Way`
+            `Invalid Password , Please Enter Your New Password in Right Way`
           );
         });
     }
@@ -90,7 +91,7 @@ const ClientReset = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
-  const btnStyle = { margin: "8px 0" };
+  // const btnStyle = { margin: "8px 0" };
   return (
     <div className="text-center m-5">
       <Grid>

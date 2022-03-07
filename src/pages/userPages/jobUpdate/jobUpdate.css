@@ -123,7 +123,7 @@
 }
 
 .ForthWrapper .topRight .Special {
-  border: 1px solid black;
+  border: 1px solid rgb(226, 217, 217);
   width: 400px;
   height: 100px;
   background-color: rgb(255, 255, 255);
@@ -135,8 +135,14 @@
 
 /*RESPONSIVE*/
 
-/* @media (max-width: 1104px) {
-} */
+@media (max-width: 1104px) {
+  .ThirdWrapper .topLeft .form-group textarea {
+    resize: none;
+    width: 300px;
+    font-size: 20px;
+    border: 1px solid black;
+  }
+}
 
 @media (max-width: 991px) {
   .MainDiv {
@@ -152,7 +158,7 @@
     align-items: center;
   }
   .Sign-Page {
-    font-size: 28px;
+    font-size: 40px;
   }
   .topRight .btn {
     font-size: 18px;
@@ -183,7 +189,7 @@
   .ForthWrapper .topRight .Special {
     border: 1px solid black;
     width: 400px;
-    height: 100px;
+    height: 150px;
     background-color: rgb(255, 255, 255);
   }
   .ForthWrapper .topRight .Special h6 {
@@ -205,7 +211,7 @@
     align-items: center;
   }
   .Sign-Page {
-    font-size: 20px;
+    font-size: 40px;
   }
   .topRight .btn {
     font-size: 18px;
@@ -219,8 +225,6 @@
     font-weight: 400;
   }
   .SecondWrapper .topLeft .form-group input {
-    width: 200px;
-    height: 60px;
     font-size: 20px;
     font-weight: 400;
     border: 1px solid black;
@@ -248,7 +252,12 @@
     display: block;
     align-items: center;
   }
-
+  .ForthWrapper .topRight .Special {
+    border: 1px solid black;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+  }
   .ForthWrapper .topRight .Special h6 {
     padding: 15px;
   }
@@ -268,7 +277,7 @@
     align-items: center;
   }
   .Sign-Page {
-    font-size: 20px;
+    font-size: 40px;
   }
   .topRight .btn {
     font-size: 18px;
@@ -282,8 +291,6 @@
     font-weight: 400;
   }
   .SecondWrapper .topLeft .form-group input {
-    width: 200px;
-    height: 60px;
     font-size: 20px;
     font-weight: 400;
     border: 1px solid black;
@@ -336,7 +343,7 @@
     align-items: center;
   }
   .Sign-Page {
-    font-size: 20px;
+    font-size: 40px;
   }
   .topRight .btn {
     font-size: 18px;
@@ -350,8 +357,6 @@
     font-weight: 400;
   }
   .SecondWrapper .topLeft .form-group input {
-    width: 200px;
-    height: 40px;
     font-size: 20px;
     font-weight: 400;
     border: 1px solid black;
@@ -404,7 +409,7 @@
     align-items: center;
   }
   .Sign-Page {
-    font-size: 20px;
+    font-size: 40px;
   }
   .topRight .btn {
     font-size: 18px;

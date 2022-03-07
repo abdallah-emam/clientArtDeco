@@ -66,7 +66,7 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : emailValidator.test(event.target.value) === false
-                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                ? "Email must be like that (uuuwwwaaa@Example.com)"
                 : null,
         });
         break;
@@ -121,7 +121,7 @@ const ClientSignUp = () => {
         .then((response) => {
           console.log(response.data);
           MySwal.fire(
-            `Signed-Up Successfully , Welcome ${response.data.data.user.name} , At Shatably.com`
+            `Registered Successfully , Welcome ${response.data.data.user.name} , At ArtDeco.com`
           ).then(result => {
             if (result.isConfirmed) {
               window.location.replace('/');
@@ -132,7 +132,7 @@ const ClientSignUp = () => {
         .catch((err) => {
           console.log(err);
           MySwal.fire(
-            `Invalid Register , Please Enter Your Personal Data in Right Way , This Data Already Exist`
+            `Invalid Register , Please Enter Your Personal Data in Right Way`
           );
         });
     }

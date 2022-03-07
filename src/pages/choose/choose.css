@@ -1,60 +1,106 @@
 .Choose {
-  text-align: center;
+    text-align: center;
 }
 
 .Choose .btn-1 {
-  background-color: rgb(188, 188, 192);
-  color: black;
-  font-size: 30px;
-  font-size: 4rem;
-  height: 300px;
-  width: 400px;
-  border: 2px white solid;
+    background-color: rgb(188, 188, 192);
+    color: black;
+    font-size: 4rem;
+    height: 300px;
+    width: 400px;
+    border: 2px white solid;
 }
 
 .Choose .btn-1:hover {
-  background-color: #ff8a00;
-  color: white;
+    background-color: #ff8a00;
+    color: white;
 }
 
 .Choose .btn-2 {
-  background-color: rgb(80, 85, 83);
-  color: white;
-  font-size: 30px;
-  font-size: 4rem;
-  height: 300px;
-  width: 400px;
-  border: 2px white solid;
+    background-color: rgb(80, 85, 83);
+    color: white;
+    font-size: 4rem;
+    height: 300px;
+    width: 400px;
+    border: 2px white solid;
 }
 
 .Choose .btn-2:hover {
-  background-color: #ff8a00;
-  color: rgb(0, 0, 0);
+    background-color: #ff8a00;
+    color: rgb(0, 0, 0);
 }
 
 .btn-xxl a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
-.Choose img {
-  border-radius: 50px;
+
+/* Responsive  */
+
+
+/* @media (max-width: 1104px) {
 }
 
-/* title  */
-
-/* If the screen size is 1200px wide or more, set the font-size to 80px */
-
-@media (min-width: 1200px) {
-  .responsive-font-example {
-    font-size: 80px;
-  }
+@media (max-width: 991px) {
 }
 
-/* If the screen size is smaller than 1200px, set the font-size to 80px */
+@media (max-width: 947px) {
+} */
 
-@media (max-width: 1199.98px) {
-  .responsive-font-example {
-    font-size: 30px;
-  }
+@media (max-width: 768px) {
+    .Choose .btn-1 {
+        background-color: rgb(188, 188, 192);
+        color: black;
+        font-size: 3rem;
+        height: 200px;
+        width: 300px;
+        border: 2px white solid;
+    }
+    .Choose .btn-2 {
+        background-color: rgb(80, 85, 83);
+        color: white;
+        font-size: 3rem;
+        height: 200px;
+        width: 300px;
+        border: 2px white solid;
+    }
+}
+
+@media (max-width: 690px) {
+    .Choose .btn-1 {
+        background-color: rgb(188, 188, 192);
+        color: black;
+        font-size: 3rem;
+        height: 200px;
+        width: 300px;
+        border: 2px white solid;
+    }
+    .Choose .btn-2 {
+        background-color: rgb(80, 85, 83);
+        color: white;
+        font-size: 3rem;
+        height: 200px;
+        width: 300px;
+        border: 2px white solid;
+    }
+}
+
+@media (max-width: 500px) {
+    .Choose .btn-1 {
+        background-color: rgb(188, 188, 192);
+        color: black;
+        font-size: 2rem;
+        height: 200px;
+        width: 200px;
+        border: 2px white solid;
+    }
+    .Choose .btn-2 {
+        background-color: rgb(80, 85, 83);
+        color: white;
+        font-size: 2rem;
+        height: 200px;
+        width: 200px;
+        border: 2px white solid;
+    }
 }

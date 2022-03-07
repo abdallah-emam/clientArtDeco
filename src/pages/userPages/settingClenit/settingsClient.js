@@ -58,13 +58,13 @@ export default function SettingsPageUser() {
     axiosInstace
       .get("users/getMe")
       .then((res) => {
-        setUserDetails(res.data.data.data);
-        console.log("result", res.data.data.data);
+        setUserDetails(res.data.data.user);
+        console.log("result", res);
         setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        // window.location.replace("/clientLogin");        
+        window.location.replace("/clientLogin");
       });
   }, []);
 
@@ -111,7 +111,7 @@ export default function SettingsPageUser() {
                           {...a11yProps(1)}
                           className="Tab"
                         />
-                        <Tab label='Profile Image' {...a11yProps(2)} />
+                        <Tab label="Profile Image" {...a11yProps(2)} />
                       </Tabs>
                     </Grid>
                   </Grid>

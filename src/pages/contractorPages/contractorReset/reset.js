@@ -73,15 +73,19 @@ const ContractorReset = () => {
         .patch(`contractors/resetPassword/${params.resetToken}`, formValues)
         .then((response) => {
           console.log(response);
-          navigate("/company_login");
+
           MySwal.fire(
-            `Password Rested Successfully,Please Login With Your New Password`
-          );
+            `Password Rested Successfully , Please Login With Your New Password`
+          ).then(result => {
+            if (result.isConfirmed) {
+              window.location.replace('/ContractorLogin');
+            }
+          });
         })
         .catch((err) => {
           console.log(err);
           MySwal.fire(
-            `Invalid Password , Please Enter Your Email and Password in Right Way`
+            `Invalid Password , Please Enter Your New Password in Right Way`
           );
         });
     }

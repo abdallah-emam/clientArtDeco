@@ -24,6 +24,8 @@ import Navbar from "./components/navbar/navbar";
 import AboutUs from "./pages/about/about-us";
 import JobsPage from "./pages/Home/JobsPage/JobsPage";
 import Footer from "./components/Footer/Footer";
+import OnGoingJob from "./pages/userPages/onGoingJob/onGoingJob";
+import JobRate from "./pages/userPages/onGoingJob/JobRate";
 
 function App() {
   return (
@@ -88,6 +90,8 @@ function App() {
         <Route path={"/JobsPage"} exact element={<JobsPage />}></Route>
         <Route path={"/Contact"} exact element={<Contact />}></Route>
         <Route path={"/AboutUs"} exact element={<AboutUs />}></Route>
+        <Route path={"/onGoingJob"} exact element={<OnGoingJob />}></Route>
+        <Route path={"/jobRate"} exact element={<JobRate />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

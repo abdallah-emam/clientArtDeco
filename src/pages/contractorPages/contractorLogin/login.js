@@ -45,7 +45,7 @@ const ContractorLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validEmail.test(event.target.value) === false
-                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                ? "Email must be like that (uuuwwwaaa@Example.com)"
                 : null,
         });
         break;
@@ -79,7 +79,7 @@ const ContractorLogin = () => {
         .then((response) => {
           console.log(response.data);
           MySwal.fire(
-            `Logged-IN Successfully,Welcome ${response.data.data.contractor.name} , At Shatably.com`
+            `Logged-IN Successfully , Welcome ${response.data.data.contractor.name} , at ArtDeco.com`
           ).then(result => {
             if (result.isConfirmed) {
               window.location.replace('/');
@@ -90,7 +90,7 @@ const ContractorLogin = () => {
         .catch((err) => {
           console.log(err);
           MySwal.fire(
-            `Invalid Login , Please Enter Your Email and Password Right`
+            `Invalid Login , Please Enter Your Email and Password in Right Way`
           );
         });
     }
@@ -109,6 +109,7 @@ const ContractorLogin = () => {
         })
         .catch((err) => {
           console.log(err);
+          MySwal.fire(`Can't Find This Email , Please Right Your Email In Right Way`);
         });
     }
   };

@@ -4,14 +4,48 @@ import PaidIcon from "@mui/icons-material/Paid";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { axiosInstace } from "../../../network/axiosConfig";
-import { useNavigate, useParams } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
+import ClientLogin from './../clientLogin/login';
+// useNavigate,
 const MySwal = withReactContent(Swal);
 
 export default function JobUpdate() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const [Governorates, setGovernorates] = useState([
+    "Cairo",
+    "Giza",
+    "Alexandria",
+    "Aswan",
+    "Asyut",
+    "Beheira",
+    "Beni Suef",
+    "Dakahlia",
+    "Damietta",
+    "Faiyum",
+    "Gharbia",
+    "Ismailia",
+    "Kafr El Sheikh",
+    "Matruh",
+    "Minya",
+    "Monufia",
+    "New Valley",
+    "North Sinai",
+    "Port Said",
+    "Qalyubia",
+    "Qena",
+    "Red Sea",
+    "Sharqia",
+    "Sohag",
+    "South Sinai",
+    "Suez",
+  ]);
+  const [Times, setTimes] = useState([
+    "one month",
+    "two months",
+    "three months",
+    "more than three months",
+  ]);
   const params = useParams();
-  // console.log(params.id);
 
   const [job, setJob] = useState([]);
 
@@ -20,6 +54,7 @@ export default function JobUpdate() {
     description: "",
     budget: "",
     estimatedTime: "",
+    location: "",
   });
 
   const handleFormChange = (event) => {
@@ -52,6 +87,13 @@ export default function JobUpdate() {
         });
         break;
 
+      case "location":
+        setFormValues({
+          ...formValues,
+          location: event.target.value,
+        });
+        break;
+
       default:
         break;
     }
@@ -62,13 +104,12 @@ export default function JobUpdate() {
     axiosInstace
       .get(`job/${params.id}`)
       .then((response) => {
-        // console.log(response.data.data.job);
         const myJob = response.data.data.job;
         setJob(myJob);
       })
       .catch((err) => {
         console.log(err);
-        MySwal.fire(`Can't Get This Job`);
+        // MySwal.fire(`Can't Get This Job`);
       });
   };
   useEffect(() => GetSpecificJob(), [])
@@ -77,130 +118,148 @@ export default function JobUpdate() {
   // Update With BAckEND 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(formValues);
+
     axiosInstace
       .patch(`job/${params.id}`, formValues)
       .then((response) => {
         console.log(response.data);
-        MySwal.fire(`Job Updateed Successfully`);
+        MySwal.fire(`Job Updated Successfully`).then(result => {
+          if (result.isConfirmed) {
+            window.location.replace('/ClientProfile');
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
-        MySwal.fire(`Can't Update This Job`);
+        MySwal.fire(`Can't Update This Job , Enter Valid Date`);
       });
   };
 
   return (
-    <>
-      <br />
-      <br />
-      <div className="MainDiv container">
-        <div className="FirstWrapper">
-          <div className="topLeft">
-            <span className="Sign-Page">Job Update</span>
-          </div>
-          <div className="topRight">
-            <button
-              onClick={(e) => handleSubmitForm(e)}
-              type="button"
-              className="btn"
-            >
-              Update Job
-            </button>
-          </div>
-        </div>
-        <hr />
-        <div className="SecondWrapper">
-          <div className="topLeft">
-            <div className="form-group m-2">
-              <label>HeadLine</label>
-              <input
-                type="text"
-                className="form-control"
-                name="headLine"
-                value={formValues.headLine}
-                placeholder={job.headLine}
-                onChange={(e) => handleFormChange(e)}
-              ></input>
+    localStorage.getItem("user_token") ? (
+      <>
+        <br />
+        <br />
+        <div className="MainDiv container">
+          <div className="FirstWrapper">
+            <div className="topLeft">
+              <span className="Sign-Page">Job Update</span>
             </div>
-            <small>
-              Your Headline Must Be Descriptive to help the companies to
-              understand what you really want
-            </small>
-          </div>
-        </div>
-        <hr />
-        <div className="ThirdWrapper">
-          <div className="topLeft">
-            <h5>Describe Your Job</h5>
-            <div className="form-group m-2">
-              <textarea
-                className="form-control"
-                id="exampleFormControlTextarea1"
-                rows="10"
-                name="description"
-                placeholder={job.description}
-                value={formValues.description}
-                onChange={(e) => handleFormChange(e)}
-              ></textarea>
-              <br />
-              <input
-                className="form-control file-Attach"
-                type="file"
-                id="formFileMultiple"
-                multiple
-              />
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="button"
+                className="btn"
+              >
+                Update Job
+              </button>
             </div>
           </div>
-        </div>
-        <hr />
-        <div className="ForthWrapper">
-          <div className="topLeft">
-            <h5>Details</h5>
-            <div className="form-group">
-              <label>Budget</label>
-              <div className="input-group mb-3 ">
-                <span className="input-group-text">
-                  <PaidIcon />
-                </span>
+          <hr />
+          <div className="SecondWrapper">
+            <div className="topLeft">
+              <div className="form-group m-2">
+                <label>HeadLine</label>
                 <input
-                  type="number"
-                  min={0}
-                  name="budget"
-                  value={formValues.budget}
-                  onChange={(e) => handleFormChange(e)}
-                  placeholder={job.budget}
+                  type="text"
+                  maxLength={100}
                   className="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                ></input>
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Estimated Date</label>
-              <div className="input-group mb-3">
-                <input
-                  type="date"
-                  className="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                  name="estimatedTime"
-                  placeholder={job.estimatedTime}
-                  value={formValues.estimatedTime}
+                  name="headLine"
+                  value={formValues.headLine}
+                  placeholder={job.headLine}
                   onChange={(e) => handleFormChange(e)}
                 ></input>
               </div>
+              <small>
+                Your Headline Must Be Descriptive to help the companies to
+                understand what you really want
+              </small>
             </div>
           </div>
-          <div className="topRight">
-            <div className="Special container">
+          <hr />
+          <div className="ThirdWrapper">
+            <div className="topLeft">
+              <h5>Describe Your Job</h5>
               <h6>
-                Enter The Details Of Your Work To be Updated to make It Clear To the Companies
-                to know everything you need to finish your work in right way.
+                This is how companies will figure out what you need and why they
+                should make an offer to you.
               </h6>
+              <div className="form-group m-2">
+                <textarea
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="10"
+                  name="description"
+                  placeholder={job.description}
+                  value={formValues.description}
+                  onChange={(e) => handleFormChange(e)}
+                ></textarea>
+                <br />
+                <h5>Location</h5>
+                <select
+                  name="location"
+                  value={formValues.location}
+                  onChange={(e) => handleFormChange(e)}
+                  placeholder={job.location}
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  {Governorates.map((item) => (
+                    <option value={item}>{item}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className="ForthWrapper">
+            <div className="topLeft">
+              <h5>Details</h5>
+              <div className="form-group">
+                <label>Budget</label>
+                <div className="input-group mb-3 ">
+                  <span className="input-group-text">
+                    <PaidIcon />
+                  </span>
+                  <input
+                    type="number"
+                    min={0}
+                    name="budget"
+                    value={formValues.budget}
+                    onChange={(e) => handleFormChange(e)}
+                    placeholder={job.budget}
+                    className="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  ></input>
+                </div>
+              </div>
+              <div className="form-group">
+                <label>Estimated Time</label>
+                <select
+                  name="estimatedTime"
+                  value={formValues.estimatedTime}
+                  placeholder={job.estimatedTime}
+                  onChange={(e) => handleFormChange(e)}
+                  class="form-select"
+                >
+                  {Times.map((item) => (
+                    <option value={item}>{item}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="topRight">
+              <div className="Special container">
+                <h6>
+                  Enter The Details Of Your Work To be Updated to make It Clear To the Companies
+                  to know everything you need to finish your work in right way.
+                </h6>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <br />
-    </>
+        <br />
+      </>
+    ) : (<ClientLogin />)
   );
 }
