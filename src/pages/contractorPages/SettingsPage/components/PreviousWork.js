@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { Grid } from "@mui/material";
 import { Button } from "react-bootstrap";
+import { CardActionArea } from "@mui/material";
 
 const MySwal = withReactContent(Swal);
 
@@ -25,7 +26,7 @@ function PreviousWork(props) {
   const handleSubmitForm = formValues => {
     console.log("formValues", formValues);
     const formData = new FormData();
-    for(const value of formValues){
+    for (const value of formValues) {
       formData.append("gallery", value);
       console.log(value);
     }
@@ -59,37 +60,67 @@ function PreviousWork(props) {
     // }
   };
 
+  const openImg = event => {
+    console.log(event.target.currentSrc);
+    Swal.fire({
+      html: `<img src="${event.target.currentSrc}" style="width:100%" crossOrigin="anonymous" alt='image' /> `,
+      showCloseButton: true,
+      width: 600,
+    });
+  };
   return (
     <div className='w-100'>
       <Box className='w-100' sx={{ display: "flex" }}>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            className='imageSettings'
-            component='img'
-            // height='194'
-            image='https://media.istockphoto.com/vectors/dentist-logo-vector-id1168571396?b=1&k=20&m=1168571396&s=612x612&w=0&h=I5Jm19L_NXbZHCbOYBLdMeyAwbR86XTT-L3GIVSdFVM='
-            alt='profile image'
-          />
-          <CardActions disableSpacing>
-            <input
-              className='form-control file-Attach w-100'
-              type='file'
-              id='formFileMultiple'
-              name='photo'
-              multiple
-              onChange={e => handleFormChange(e)}
-            />
-            <br />
-          </CardActions>
-          <Grid item xs={12} className='text-center p-2'>
-            <Button
-              onClick={() => handleSubmitForm(formValues)}
-              className='site_btn'
-            >
-              <span className='button_text'>Update Data</span>
-            </Button>
+        <Grid container spacing={2} item xs={12} className=''>
+          <Grid
+            item
+            style={{ display: "block" }}
+            className='section_title top_30 d-block mb-4'
+          >
+            <span></span>
+            <h2> Change Your Gallery Images :</h2>
           </Grid>
-        </Card>
+
+          {props.contractorDetails.gallery.length <= 0 ? (
+            <h6>No Gallery Added Yet !</h6>
+          ) : (
+            <Grid container spacing={2} className=''>
+              {props.contractorDetails.gallery.map(img => (
+                <Grid key={img} item lg={4} md={6} sm={12} xs={12}>
+                  <Card className='job-card'>
+                    <CardActionArea>
+                      <figure className='card_image'>
+                        <img
+                          onClick={e => openImg(e)}
+                          src={img}
+                          crossOrigin='anonymous'
+                          alt=''
+                        />
+                      </figure>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+              ))}
+              <Grid item xs={12} className='text-center p-2'>
+                <input
+                  className='form-control file-Attach w-100'
+                  type='file'
+                  id='formFileMultiple'
+                  name='photo'
+                  multiple
+                  onChange={e => handleFormChange(e)}
+                />
+                <br />
+                <Button
+                  onClick={() => handleSubmitForm(formValues)}
+                  className='site_btn'
+                >
+                  <span className='button_text'>Update Data</span>
+                </Button>
+              </Grid>
+            </Grid>
+          )}
+        </Grid>
       </Box>
     </div>
   );
