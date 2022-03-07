@@ -13,10 +13,12 @@ const MySwal = withReactContent(Swal);
 
 function ProfileImage(props) {
   const [formValues, setFormValues] = useState({});
+  const [ isUploaded , setisUploaded] = useState(false);
 
   const handleFormChange = event => {
     console.log(event.target.files[0]);
     setFormValues(event.target.files[0]);
+    setisUploaded(true)
   };
   const handleSubmitForm = formValues => {
     console.log("formValues", formValues);
@@ -28,12 +30,12 @@ function ProfileImage(props) {
       },
     };
 
-    // if(formValues.photo){
+    if(isUploaded){
     axiosInstace
       .patch("contractors/updateMe", formData, config)
       .then(res => {
-        console.log(res.data.data.user);
-        console.log("formData", formData);
+        // console.log(res.data.data.user);
+        console.log("formData", formData.name);
         MySwal.fire(`Data changed Successfully`).then(result => {
           if (result.isConfirmed) {
             window.location.reload();
@@ -48,7 +50,7 @@ function ProfileImage(props) {
         });
         console.log(err);
       });
-    // }
+    }
   };
 
   console.log("photo", props.contractorDetails.photo);

@@ -14,12 +14,11 @@ const MySwal = withReactContent(Swal);
 
 function PreviousWork(props) {
   const [formValues, setFormValues] = useState([]);
+  const [ isUploaded , setisUploaded] = useState(false);
 
   const handleFormChange = event => {
     console.log("file2", event.target.files[2]);
-    // setFormValues(
-    //   event.target.files
-    // );
+    setisUploaded(true)
     setFormValues(oldArray => [...oldArray, ...event.target.files]);
   };
 
@@ -37,7 +36,7 @@ function PreviousWork(props) {
       },
     };
 
-    // if(formValues.photo){
+    if(isUploaded){
     axiosInstace
       .patch("contractors/updateMe", formData, config)
       .then(res => {
@@ -57,7 +56,7 @@ function PreviousWork(props) {
         });
         console.log(err);
       });
-    // }
+    }
   };
 
   const openImg = event => {

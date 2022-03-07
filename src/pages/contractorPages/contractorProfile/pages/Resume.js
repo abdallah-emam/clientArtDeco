@@ -125,14 +125,14 @@ function Resume(props) {
                         </TimelineSeparator>
                         <TimelineContent className='timeline_content'>
                           <Typography className='timeline_title'>
-                            {job.headLine}HeadLine
+                            {job.headLine}
                           </Typography>
                           <Typography
                             variant='body3'
                             className='timeline_title'
                           >
                             <FontAwesomeIcon icon={faLocationDot} />
-                            &nbsp;{job.location}Cairo
+                            &nbsp;{job.location}
                           </Typography>
                           <Typography
                             variant='body2'
