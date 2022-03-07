@@ -17,15 +17,16 @@ Frequently viewed docs:
 
 - [Word Document](https://docs.google.com/document/d/17LJi41KrPDV3944QibJrNGnKMLY1iwFaXpu1FiRqwY4/edit#heading=h.gjdgxs)
 - [Project Management Tool](https://trello.com/b/1rlBmYww/artdeco)
+- [Outline Demo](https://docs.google.com/document/d/112AJfxMnqZGrdAdplxwxSAPYgRj9zOdP2p6x6GZXTAY/edit)
 - [API Reference](https://documenter.getpostman.com/view/18880020/UVkvHXu1)
-- [feasibility study](https://react-cool-form.netlify.app/docs/examples/basic)
+- [Feasibility study](https://react-cool-form.netlify.app/docs/examples/basic)
 
 
 ## [Technologies]
 
 Technologies used:
 
-- Html, jsx
+- Html, JSX
 - Css, Bootrstrap, Material Ui, Tailwind css
 - Javascripy, ES6 
 - React Js and many React libraries(router-dim, axious, toastify, etc..)
@@ -69,7 +70,7 @@ Thanks goes to these wonderful people
 Backend:
 - [Abdallah Emam] (https://github.com/abdallah-emam)
 - [Mostafa Ahmed] (https://github.com/mostafa3537)
-- 
+
 Frontend:
 - [Raheem Emad] (https://github.com/RaheemAmer)
 - [AbdelrahmanEhab] (https://github.com/AbdelrahmanEhab20)
