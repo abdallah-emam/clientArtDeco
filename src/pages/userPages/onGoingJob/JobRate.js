@@ -22,12 +22,12 @@ const HandleClick = () => {
         title: 'Your Review has been sent',
         showConfirmButton: false,
         timer: 1500
-    }).then((result) =>{
-        window.location='/'
+    }).then((result) => {
+        window.location = '/'
     })
 };
 export default function JobRate() {
-
+    const [value, setValue] = useState(2);
     const params = useParams()
     const [jobDetails, setJobDetails] = useState([]);
     useEffect(() => {
@@ -67,9 +67,20 @@ export default function JobRate() {
                                 </div>
                                 <div className="col-6 col-md-3 mt-2 mt-md-0">
                                     <h5> Rate the contractor</h5>
-                                    <Stack spacing={1}>
-                                        <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-                                    </Stack>
+                               
+
+                                        <Stack spacing={1}>
+                                            <Rating name="half-rating"
+                                                defaultValue={2.5}
+                                                precision={0.5}
+                                                value={value}
+                                                onChange={(event, newValue) => {
+                                                    setValue(newValue);
+                                                    console.log(newValue)
+                                                  }}
+                                                
+                                                 />
+                                        </Stack>
                                 </div>
                             </div>
                         </div>
