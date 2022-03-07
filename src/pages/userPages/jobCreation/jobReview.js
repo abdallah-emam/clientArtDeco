@@ -17,7 +17,12 @@ export default function JobCreation() {
     headLine: "",
     description: "",
     budget: "",
+<<<<<<< HEAD
     estimatedTime: "",
+=======
+    estimatedTime: "one month",
+    location: "Cairo",
+>>>>>>> c03350906ce9287031c36892549892c6a9df22ef
   });
 
   const handleFormChange = (event) => {
@@ -85,7 +90,11 @@ export default function JobCreation() {
               type="button"
               className="btn"
             >
+<<<<<<< HEAD
               Save Job Post
+=======
+              Submit Job
+>>>>>>> c03350906ce9287031c36892549892c6a9df22ef
             </button>
           </div>
         </div>
