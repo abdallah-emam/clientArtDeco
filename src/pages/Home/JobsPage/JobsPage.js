@@ -125,7 +125,20 @@ function JobsPage() {
         ) : (
           <>
             {/* Search bar */}
-            <Grid item xs={12} sm={12} className="mb-4">
+            <div className="input-group d-flex justify-content-center mb-4 searchBar">
+              <div className="form-outline w-75">
+                <input
+                  placeholder="Search"
+                  type="search"
+                  id="form1"
+                  className="form-control"
+                />
+              </div>
+              <button type="button" className="btn">
+                <i className="fas fa-search"></i>
+              </button>
+            </div>
+            {/* <Grid item xs={12} sm={12} className='mb-4'>
               <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
@@ -145,7 +158,7 @@ function JobsPage() {
                   </Select>
                 </FormControl>
               </Box>
-            </Grid>
+            </Grid> */}
 
             {/* Jobs */}
             <div className="jobsContainer border-bottom row">
