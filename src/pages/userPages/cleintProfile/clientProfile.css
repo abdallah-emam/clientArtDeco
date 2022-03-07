@@ -154,6 +154,10 @@ body {
   right: -27px;
   top: 30%;
 }
+.acceptProposalButton {
+  background-color: rgb(102, 187, 106);
+  color: white;
+}
 @media (max-width: 992px) {
   /* .dashboardContainer {
     max-width: 90% !important;

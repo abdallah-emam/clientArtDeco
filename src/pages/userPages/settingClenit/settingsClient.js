@@ -58,13 +58,13 @@ export default function SettingsPageUser() {
     axiosInstace
       .get("users/getMe")
       .then((res) => {
-        setUserDetails(res.data.data.data);
-        console.log("result", res.data.data.data);
+        setUserDetails(res.data.data.user);
+        console.log("result", res);
         setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        // window.location.replace("/clientLogin");        
+        window.location.replace("/clientLogin");        
       });
   }, []);
 
