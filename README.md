@@ -65,11 +65,17 @@ $ npm start
 ✨ Pretty easy right?
 
 ## Contributors ✨
+Thanks goes to these wonderful people
+Backend:
+- [Abdallah Emam] (https://github.com/abdallah-emam)
+- [Mostafa Ahmed] (https://github.com/mostafa3537)
+- 
+Frontend:
+- [Raheem Emad] (https://github.com/RaheemAmer)
+- [AbdelrahmanEhab] (https://github.com/AbdelrahmanEhab20)
+- [Ahmed Abd-Elzaher ] (https://github.com/Ahmed-AbdElzaher)
+- [DoaaEldesoki] (https://github.com/DoaaEldesoki)
 
-Thanks goes to these wonderful people ([emoji key]
-(https://github.com/abdallah-emam/clientArtDeco/graphs/contributors)
-(https://github.com/mostafa3537/ArtDeco-DackEnd)
-):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
