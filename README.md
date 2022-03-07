@@ -74,14 +74,5 @@ Thanks goes to these wonderful people ([emoji key]
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://wellyshen.com"><img src="https://avatars.githubusercontent.com/u/21308003?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Welly</b></sub></a><br /><a href="#ideas-wellyshen" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/wellyshen/react-cool-form/commits?author=wellyshen" title="Code">💻</a> <a href="https://github.com/wellyshen/react-cool-form/commits?author=wellyshen" title="Documentation">📖</a> <a href="#infra-wellyshen" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-wellyshen" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://github.com/Chris-James"><img src="https://avatars.githubusercontent.com/u/4596428?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Chris</b></sub></a><br /><a href="https://github.com/wellyshen/react-cool-form/issues?q=author%3AChris-James" title="Bug reports">🐛</a></td>
-  </tr>
-</table>
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
