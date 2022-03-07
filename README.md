@@ -1,138 +1,81 @@
-# ArtDeco - Project ( ITI  Intensive Code Camp -  Graduation Project) <br>
+##  ArtDeco - Project ( ITI  Intensive Code Camp -  Graduation Project) <br>
 ------------------------------------------------------- 
 
-Who are we ?
+## Who are we ?
 ------------------------------------------------------- 
 ArtDeco is a promising startup that aims to solve one of the main problems we face when we try to decorate our home, apartment, or even our company. We get frustrated and overwhelmed by the offers, the marketplace, the quality of material, etc. Here comes our part, which is to create a place where the customer can finally fulfill his/her dreams by just picking the best offers made to him/her by the available companies. So, we help the customer to have the luxury and the variety of options to choose from and have a satisfying experience.<br>
-
-GOALS:
--------------------------------------------------------
-1- Create an engaging marketplace similar to freelance sites. <br>
-2- Verified customers and companies.<br>
-3- Setting some boundaries and limitations such as Quality Insurance, etc.<br>
-4- Comfortable and attractive Ui&UX for the users. <br>
 
 <p align="center">
   <br/><br/>
 </p>
 
-<p align="center"># ArtDeco - Project ( ITI  Intensive Code Camp -  Graduation Project) <br>
-.</p>
-
-<div align="center">
-
-[![npm version](https://img.shields.io/npm/v/react-cool-form?style=flat-square)](https://www.npmjs.com/package/react-cool-form)
-[![npm downloads](https://img.shields.io/npm/dt/react-cool-form?style=flat-square)](https://www.npmtrends.com/react-cool-form)
-[![coverage status](https://img.shields.io/coveralls/github/wellyshen/react-cool-form?style=flat-square)](https://coveralls.io/github/wellyshen/react-cool-form?branch=master)
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-[![netlify deploy](https://img.shields.io/netlify/3c201e27-b611-4512-b827-9523af7a1ae5?style=flat-square)](https://app.netlify.com/sites/react-cool-form/deploys)
-
-</div>
 
 ## Features
 
-- 🎣 [Easy to use](https://react-cool-form.netlify.app/docs/getting-started/integration-an-existing-form), React Cool Form is [a set of React hooks](https://react-cool-form.netlify.app/docs/api-reference/use-form) that helps you conquer all kinds of forms.
-- 🗃 Manages [dynamic](https://react-cool-form.netlify.app/docs/examples/conditional-fields) and [complex](https://react-cool-form.netlify.app/docs/getting-started/complex-structures) form data without hassle.
-- 🪄 Manages [arrays and lists](https://react-cool-form.netlify.app/docs/getting-started/arrays-and-lists) data like a master.
-- 🚦 Supports [built-in](https://react-cool-form.netlify.app/docs/getting-started/validation-guide#built-in-validation), [form-level](https://react-cool-form.netlify.app/docs/getting-started/validation-guide#form-level-validation), and [field-level](https://react-cool-form.netlify.app/docs/getting-started/validation-guide#field-level-validation) validation.
-- 🚀 Highly performant, [minimizes the number of re-renders](https://react-cool-form.netlify.app#performance-matters) for you.
-- 🧱 Seamless integration with existing HTML form inputs or [3rd-party UI libraries](https://react-cool-form.netlify.app/docs/getting-started/3rd-party-ui-libraries).
-- 🎛 Super flexible [API](https://react-cool-form.netlify.app/docs/api-reference/use-form) design, built with [DX and UX](https://react-cool-form.netlify.app/docs) in mind.
-- 🔩 Provides useful [utility functions](https://react-cool-form.netlify.app/docs/api-reference/utility-functions) to boost forms development.
-- 📜 Supports [TypeScript](https://react-cool-form.netlify.app/docs/getting-started/typescript-support) type definition.
-- ☁️ Server-side rendering compatibility.
-- 🦔 A [tiny size](https://react-cool-form.netlify.app/docs/getting-started/bundle-size-overview) ([~ 7.1kB gizpped](https://bundlephobia.com/result?p=react-cool-form)) library but powerful.
+- 🎣 Create an engaging marketplace in realestate. 
+- 🗃 Verified customers and companies.
+- 🚦 Setting some boundaries and limitations such as Quality Insurance, etc.
+- 🚀 Comfortable and attractive Ui&UX for the users.
 
-## [Docs](https://react-cool-form.netlify.app)
-
-See the documentation at [react-cool-form.netlify.app](https://react-cool-form.netlify.app) for more information about using React Cool Form!
+## [Docs]
 
 Frequently viewed docs:
 
-- [Getting Started](https://react-cool-form.netlify.app/docs)
-- [Examples](https://react-cool-form.netlify.app/docs/examples/basic)
-- [API Reference](https://react-cool-form.netlify.app/docs/api-reference/use-form)
+- [Word Document](https://docs.google.com/document/d/17LJi41KrPDV3944QibJrNGnKMLY1iwFaXpu1FiRqwY4/edit#heading=h.gjdgxs)
+- [Project Management Tool](https://trello.com/b/1rlBmYww/artdeco)
+- [API Reference](https://documenter.getpostman.com/view/18880020/UVkvHXu1)
+- [feasibility study](https://react-cool-form.netlify.app/docs/examples/basic)
 
-## Quick Start
 
-To use React Cool Form, you must use `react@16.8.0` or greater which includes hooks. This package is distributed via [npm](https://www.npmjs.com/package/react-cool-form).
+## [Technologies]
 
-```sh
-$ yarn add react-cool-form
-# or
-$ npm install --save react-cool-form
+Technologies used:
+
+- Html, jsx
+- Css, Bootrstrap, Material Ui, Tailwind css
+- Javascripy, ES6 
+- React Js and many React libraries(router-dim, axious, toastify, etc..)
+- Node js for backend
+- No Sql mongo for database
+- postman for api testing
+- service control mainly github
+- package managers (Yarn and Npm)
+- Canva for illustrations, animations and logo design
+
+## [Project Structure]
+
+Frontend and Backend repos:
+
+- [Frontend] => (https://github.com/abdallah-emam/clientArtDeco)
+- [Backend] => (https://github.com/mostafa3537/ArtDeco-DackEnd)
+- [API Reference] => (https://documenter.getpostman.com/view/18880020/UVkvHXu1)
+
+
+
+## Quick Start (download project packages)
+We are using React for our project , you must use `react@17.0.2` in order to run this project requirments.
+
+```for yarn
+$ yarn install 
+```for npm
+$ npm install
 ```
 
-Here's the basic concept of how it rocks:
-
-[![Edit RCF - Quick start](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/rcf-quick-start-j8p1l?fontsize=14&hidenavigation=1&theme=dark)
-
-```js
-import { useForm } from "react-cool-form";
-
-const Field = ({ label, id, error, ...rest }) => (
-  <div>
-    <label htmlFor={id}>{label}</label>
-    <input id={id} {...rest} />
-    {error && <p>{error}</p>}
-  </div>
-);
-
-const App = () => {
-  const { form, use } = useForm({
-    // (Strongly advise) Provide the default values
-    defaultValues: { username: "", email: "", password: "" },
-    // The event only triggered when the form is valid
-    onSubmit: (values) => console.log("onSubmit: ", values),
-  });
-  // We can enable the "errorWithTouched" option to filter the error of an un-blurred field
-  // Which helps the user focus on typing without being annoyed by the error message
-  const errors = use("errors", { errorWithTouched: true }); // Default is "false"
-
-  return (
-    <form ref={form} noValidate>
-      <Field
-        label="Username"
-        id="username"
-        name="username"
-        // Support built-in validation
-        required
-        error={errors.username}
-      />
-      <Field
-        label="Email"
-        id="email"
-        name="email"
-        type="email"
-        required
-        error={errors.email}
-      />
-      <Field
-        label="Password"
-        id="password"
-        name="password"
-        type="password"
-        required
-        minLength={8}
-        error={errors.password}
-      />
-      <input type="submit" />
-    </form>
-  );
-};
+To run the project, head to both the frontend and the backend file structure and run this commands:
+```for yarn
+$ yarn start 
+```for npm
+$ npm start
 ```
 
-✨ Pretty easy right? React Cool Form is more powerful than you think. Let's [explore it](https://react-cool-form.netlify.app) now!
-
-## Articles / Blog Posts 
-
-> 💡 If you have written any blog post or article about React Cool Form, please open a PR to add it here.
-
-- Featured on [React Status #245](https://react.statuscode.com/issues/245).
+✨ Pretty easy right?
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people ([emoji key]
+(https://github.com/abdallah-emam/clientArtDeco/graphs/contributors)
+(https://github.com/mostafa3537/ArtDeco-DackEnd)
+):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -148,5 +91,3 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
