@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { axiosInstace } from "../../../network/axiosConfig";
 import { useNavigate } from "react-router-dom";
+import ClientLogin from './../clientLogin/login';
 
 const MySwal = withReactContent(Swal);
 
@@ -115,131 +116,131 @@ export default function JobCreation() {
   };
 
   return (
-    <>
-      <br />
-      <br />
-      <div className="MainDiv container">
-        <div className="FirstWrapper">
-          <div className="topLeft">
-            <span className="Sign-Page">Create a Job</span>
-          </div>
-          <div className="topRight">
-            <button
-              onClick={(e) => handleSubmitForm(e)}
-              type="button"
-              className="btn"
-            >
-              Submit Job
-            </button>
-          </div>
-        </div>
-        <hr />
-        <div className="SecondWrapper">
-          <div className="topLeft">
-            <div className="form-group">
-              <label>HeadLine</label>
-              <input
-                required
-                maxLength={100}
-                type="text"
-                className="form-control"
-                name="headLine"
-                value={formValues.headLine}
-                onChange={(e) => handleFormChange(e)}
-                placeholder="Enter a Descriptive HeadLine"
-              ></input>
+    localStorage.getItem("user_token") ? (
+      <>
+        <br />
+        <br />
+        <div className="MainDiv container">
+          <div className="FirstWrapper">
+            <div className="topLeft">
+              <span className="Sign-Page">Create a Job</span>
             </div>
-            <small>
-              Your Headline Must Be Descriptive to help the companies to
-              understand what you really want
-            </small>
-          </div>
-        </div>
-        <hr />
-        <div className="ThirdWrapper">
-          <div className="topLeft">
-            <h5>Describe Your Job</h5>
-            <h6>
-              This is how companies will figure out what you need and why they
-              should make an offer to you.
-            </h6>
-            <div className="form-group">
-              <textarea
-                required
-                className="form-control"
-                id="exampleFormControlTextarea1"
-                rows="10"
-                name="description"
-                placeholder="Enter a Description for your Job"
-                value={formValues.description}
-                onChange={(e) => handleFormChange(e)}
-              ></textarea>
+            <div className="topRight">
+              <button
+                onClick={(e) => handleSubmitForm(e)}
+                type="button"
+                className="btn"
+              >
+                Submit Job
+              </button>
             </div>
-            <br />
-            <h5>Location</h5>
-            <select
-              name="location"
-              value={formValues.location}
-              onChange={(e) => handleFormChange(e)}
-              class="form-select"
-              aria-label="Default select example"
-            >
-              {Governorates.map((item) => (
-                <option value={item}>{item}</option>
-              ))}
-            </select>
           </div>
-        </div>
-        <hr />
-        <div className="ForthWrapper">
-          <div className="topLeft">
-            <h5>Details</h5>
-            <div className="form-group">
-              <label>Budget</label>
-              <div className="input-group mb-3">
-                <span className="input-group-text">
-                  <PaidIcon />
-                </span>
+          <hr />
+          <div className="SecondWrapper">
+            <div className="topLeft">
+              <div className="form-group">
+                <label>HeadLine</label>
                 <input
                   required
-                  type="number"
-                  min={0}
-                  name="budget"
-                  value={formValues.budget}
-                  onChange={(e) => handleFormChange(e)}
+                  maxLength={100}
+                  type="text"
                   className="form-control"
-                  aria-label="Amount (to the nearest dollar)"
+                  name="headLine"
+                  value={formValues.headLine}
+                  onChange={(e) => handleFormChange(e)}
+                  placeholder="Enter a Descriptive HeadLine"
                 ></input>
               </div>
+              <small>
+                Your Headline Must Be Descriptive to help the companies to
+                understand what you really want
+              </small>
             </div>
-            <div className="form-group">
-              <label>Estimated Time</label>
+          </div>
+          <hr />
+          <div className="ThirdWrapper">
+            <div className="topLeft">
+              <h5>Describe Your Job</h5>
+              <h6>
+                This is how companies will figure out what you need and why they
+                should make an offer to you.
+              </h6>
+              <div className="form-group">
+                <textarea
+                  required
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="10"
+                  name="description"
+                  placeholder="Enter a Description for your Job"
+                  value={formValues.description}
+                  onChange={(e) => handleFormChange(e)}
+                ></textarea>
+              </div>
+              <br />
+              <h5>Location</h5>
               <select
-                required
-                name="estimatedTime"
-                value={formValues.estimatedTime}
+                name="location"
+                value={formValues.location}
                 onChange={(e) => handleFormChange(e)}
                 class="form-select"
+                aria-label="Default select example"
               >
-                {Times.map((item) => (
+                {Governorates.map((item) => (
                   <option value={item}>{item}</option>
                 ))}
               </select>
             </div>
           </div>
-          <div className="topRight">
-            <div className="Special container">
-              <h6>
-                Enter The Details Of Your Work To make It Clear To the Companies
-                to know everything you need to finish your work in right way.
-              </h6>
+          <hr />
+          <div className="ForthWrapper">
+            <div className="topLeft">
+              <h5>Details</h5>
+              <div className="form-group">
+                <label>Budget</label>
+                <div className="input-group mb-3">
+                  <span className="input-group-text">
+                    <PaidIcon />
+                  </span>
+                  <input
+                    required
+                    type="number"
+                    min={0}
+                    name="budget"
+                    value={formValues.budget}
+                    onChange={(e) => handleFormChange(e)}
+                    className="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  ></input>
+                </div>
+              </div>
+              <div className="form-group">
+                <label>Estimated Time</label>
+                <select
+                  required
+                  name="estimatedTime"
+                  value={formValues.estimatedTime}
+                  onChange={(e) => handleFormChange(e)}
+                  class="form-select"
+                >
+                  {Times.map((item) => (
+                    <option value={item}>{item}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="topRight">
+              <div className="Special container">
+                <h6>
+                  Enter The Details Of Your Work To make It Clear To the Companies
+                  to know everything you need to finish your work in right way.
+                </h6>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <br />
-      <br />
-      {/* <Footer /> */}
-    </>
+        <br />
+        <br />
+      </>) : (<ClientLogin />)
   );
 }

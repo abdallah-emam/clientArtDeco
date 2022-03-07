@@ -51,10 +51,6 @@ function App() {
         <Route path={"/JobsPage"} exact element={<JobsPage />}></Route>
         <Route path={"/onGoingJob"} exact element={<OnGoingJob />}></Route>
         <Route path={"/jobRate"} exact element={<JobRate />}></Route>
-
-
-
-
       </Routes>
       <Footer />
 
