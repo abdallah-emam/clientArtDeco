@@ -64,7 +64,7 @@ export default function SettingsPageUser() {
       })
       .catch((err) => {
         console.log(err);
-        window.location.replace("/clientLogin");        
+        window.location.replace("/clientLogin");
       });
   }, []);
 
@@ -111,7 +111,7 @@ export default function SettingsPageUser() {
                           {...a11yProps(1)}
                           className="Tab"
                         />
-                        <Tab label='Profile Image' {...a11yProps(2)} />
+                        <Tab label="Profile Image" {...a11yProps(2)} />
                       </Tabs>
                     </Grid>
                   </Grid>

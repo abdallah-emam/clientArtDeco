@@ -122,6 +122,14 @@ function Navbar() {
                   About
                 </Link>
                 {/* public */}
+                <Link to="/AboutUs" className={classes.link}>
+                  How we work?
+                </Link>
+                {/* public */}
+                <Link to="/Contact" className={classes.link}>
+                  Contact Us
+                </Link>
+                {/* public */}
                 <Link to="/Choose" className={classes.link}>
                   Login/Register
                 </Link>
