@@ -116,18 +116,6 @@ function DrawerComponent() {
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
                 <Link
-                  to="/JobUpdate/622216d2cac0a0058f6d8dfa"
-                  className={classes.link}
-                >
-                  UpdateJob
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-            {/* Private */}
-            <ListItem onClick={() => setOpenDrawer(false)}>
-              <ListItemText>
-                <Link
                   to=""
                   onClick={(e) => LogOUTClient(e)}
                   className={classes.link}
