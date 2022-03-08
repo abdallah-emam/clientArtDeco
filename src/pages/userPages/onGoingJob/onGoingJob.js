@@ -3,7 +3,7 @@ import React from "react";
 import "./onGoingJob.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import BTN from "../../../components/button/btn";
+// import BTN from "../../../components/button/btn";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { axiosInstace } from "../../../network/axiosConfig";
@@ -28,21 +28,23 @@ import Box from "@mui/material/Box";
 
 const MySwal = withReactContent(Swal);
 
-const HandleClick = () => {
-  MySwal.fire({
-    title: "End The Job!",
-    text: "Are You Sure To End This Job?",
-    type: "success",
-    showCancelButton: true,
-  }).then(result => {
-    if (result.isConfirmed) window.location = "/jobRate";
-  });
-};
+
+// const HandleClick = () => {
+//   MySwal.fire({
+//     title: "End The Job!",
+//     text: "Please Review The Contractor To End This Job ...",
+//     type: "success",
+//     showCancelButton: true,
+//   }).then(result => {
+//     if (result.isConfirmed) window.location = `/jobRate`;
+//   });
+// };
+
 export default function OnGoingJob() {
   const params = useParams();
 
   const [jobDetails, setJobDetails] = useState([]);
-  const [ProposalDetails, setProposalDetails] = useState([]);
+  // const [ProposalDetails, setProposalDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function OnGoingJob() {
         console.log(res);
         setJobDetails(res.data.data.currentJob);
         console.log("result", res.data.data.currentJob);
-        setProposalDetails(res.data.data.currentJob.proposals[0]);
+        // setProposalDetails(res.data.data.currentJob.proposals[0]);
         setIsLoading(false);
       })
       .catch(err => console.log(err));
@@ -87,7 +89,7 @@ export default function OnGoingJob() {
                 {new Date(Date.parse(jobDetails.createdAt)).toDateString()}
               </span>
               <span className='border-end border-warning border-3 px-3'>
-                Estimited Time:&nbsp;{jobDetails.estimatedTime}
+                Estimated Time:&nbsp;{jobDetails.estimatedTime}
               </span>
               <span className='px-3'>
                 <FontAwesomeIcon icon={faLocationDot} />
@@ -116,57 +118,53 @@ export default function OnGoingJob() {
                   </TimelineSeparator>
                   <TimelineContent>
                     <Typography variant='h6' className='timeline_header'>
-                      Contractors Proposals : ({jobDetails.proposals.length})
+                      Accepted Proposal
                     </Typography>
                   </TimelineContent>
                 </TimelineItem>
-                {jobDetails.proposals.map(proposal => (
-                  <TimelineItem  key={proposal.id}>
-                    <TimelineSeparator className='separator_padding'>
-                      <TimelineDot
-                        variant='outlined'
-                        className='timeline_dot'
-                      />
-                      <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent className='timeline_content'>
-                      <Typography className='timeline_title'>
-                        Financial Offer :&nbsp;
-                        {proposal.financialOffer}
-                      </Typography>
-                      <Typography
-                        variant='body2'
-                        className='timeline_description'
-                      >
-                        Estimated time :&nbsp;{proposal.estimatedTime}
-                      </Typography>
-                      <Typography
-                        variant='body2'
-                        className='timeline_description'
-                      >
-                        Cover letter :&nbsp;{proposal.coverLetter}
-                      </Typography>
-                      <Typography
-                        variant='body2'
-                        className='timeline_description'
-                      >
-                        Created at :&nbsp;
-                        {new Date(
-                          Date.parse(proposal.createdAt)
-                        ).toDateString()}
-                      </Typography>
-                    </TimelineContent>
-                  </TimelineItem>
-                ))}
+
+                <TimelineItem key={jobDetails.acceptedProposal.contractor._id}>
+                  <TimelineSeparator className='separator_padding'>
+                    <TimelineDot
+                      variant='outlined'
+                      className='timeline_dot'
+                    />
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent className='timeline_content'>
+                    <Typography className='timeline_title'>
+                      Company Name :&nbsp;
+                      {jobDetails.acceptedProposal.contractor.name}
+                    </Typography>
+                    <Typography
+                      variant='body2'
+                      className='timeline_description'
+                    >
+                      Estimated time :&nbsp;{jobDetails.acceptedProposal.estimatedTime}
+                    </Typography>
+                    <Typography
+                      variant='body2'
+                      className='timeline_description'
+                    >
+                      Cover letter :&nbsp;{jobDetails.acceptedProposal.coverLetter}
+                    </Typography>
+                    <Typography className='timeline_description'>
+                      Financial Offer :&nbsp;
+                      {jobDetails.acceptedProposal.financialOffer}
+                    </Typography>
+                  </TimelineContent>
+                </TimelineItem>
+
                 <div className='w-100 text-center d-flex justify-content-center px-5 mt-4'>
-                  <Button
-                    onClick={HandleClick}
-                    className='endJobButton mt-2'
-                    variant='contained'
-                    color='success'
-                  >
-                    End Job
-                  </Button>
+                  <Link to={`/${jobDetails.id}/jobRate/${jobDetails.acceptedProposal.contractor._id}`}>
+                    <Button
+                      className='endJobButton mt-2'
+                      variant='contained'
+                      color='success'
+                    >
+                      End Job
+                    </Button>
+                  </Link>
                 </div>
               </Timeline>
             </Grid>

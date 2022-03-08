@@ -91,7 +91,7 @@ function App() {
         <Route path={"/Contact"} exact element={<Contact />}></Route>
         <Route path={"/AboutUs"} exact element={<AboutUs />}></Route>
         <Route path={"/onGoingJob/:id"} exact element={<OnGoingJob />}></Route>
-        <Route path={"/jobRate"} exact element={<JobRate />}></Route>
+        <Route path={"/:jobID/jobRate/:contractorID"} exact element={<JobRate />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

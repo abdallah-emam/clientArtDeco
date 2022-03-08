@@ -21,7 +21,6 @@ import { axiosInstace } from "../../../network/axiosConfig";
 const MySwal = withReactContent(Swal);
 const ContractorLogin = () => {
   const navigate = useNavigate();
-  // console.log(navigate);
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",

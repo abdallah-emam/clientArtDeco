@@ -96,6 +96,7 @@ export default function JobCreation() {
         break;
     }
   };
+  
   const handleSubmitForm = (e) => {
     e.preventDefault();
 
