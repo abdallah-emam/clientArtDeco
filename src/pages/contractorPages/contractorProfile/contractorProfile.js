@@ -63,7 +63,7 @@ export default function ContactorProfile() {
               </Col>
               <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
                 <div className='content'>
-                  <Resume contractorDetails={contractorDetails} inProgressJobs={inProgressJobs} {...resume} />
+                  <Resume contractorDetails={contractorDetails} inProgressJobs={inProgressJobs} staticData={resume} />
                 </div>
               </div>
             </Row>

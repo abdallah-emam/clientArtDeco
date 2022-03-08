@@ -21,16 +21,16 @@ function Resume(props) {
   return (
     <Grid container>
       <Grid item xs={12}>
-        {/* About Us */}
+        {/* About Me */}
         <Grid container className='section pb_45 hstack gap-3 w-100'>
           <Grid item className='section_title top_30'>
             <span></span>
-            <h2>About Us</h2>
+            <h2>About Me</h2>
           </Grid>
           <Grid container className='top_30'>
             <Grid item>
               <Typography variant='body2' className='aboutme_text'>
-                {props.about}
+                {props.contractorDetails.aboutMe || 'No About Me Added !'}
               </Typography>
             </Grid>
           </Grid>
@@ -60,7 +60,7 @@ function Resume(props) {
                     </Typography>
                   </TimelineContent>
                 </TimelineItem>
-                {props.experiences.map(experience => (
+                {props.staticData.experiences.map(experience => (
                   <TimelineItem>
                     <TimelineSeparator className='separator_padding'>
                       <TimelineDot

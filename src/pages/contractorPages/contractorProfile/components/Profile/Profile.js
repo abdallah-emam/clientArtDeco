@@ -69,7 +69,7 @@ const Profile = props => {
           </p>
         </li>
       </ul>
-      <Grid xs={12} className='button_container'>
+      <Grid item xs={12} className='button_container'>
         <Link to={`/contractorSettings`}>
           <CustomButton text={"Settings"} icon={<EditIcon />} />
         </Link>

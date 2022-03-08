@@ -14,11 +14,11 @@ const MySwal = withReactContent(Swal);
 
 function PreviousWork(props) {
   const [formValues, setFormValues] = useState([]);
-  const [ isUploaded , setisUploaded] = useState(false);
+  const [isUploaded, setisUploaded] = useState(false);
 
   const handleFormChange = event => {
     console.log("file2", event.target.files[2]);
-    setisUploaded(true)
+    setisUploaded(true);
     setFormValues(oldArray => [...oldArray, ...event.target.files]);
   };
 
@@ -36,26 +36,26 @@ function PreviousWork(props) {
       },
     };
 
-    if(isUploaded){
-    axiosInstace
-      .patch("contractors/updateMe", formData, config)
-      .then(res => {
-        console.log(res.data.data.user);
-        console.log("formData", formData);
-        MySwal.fire(`Data changed Successfully`).then(result => {
-          if (result.isConfirmed) {
-            window.location.reload();
-          }
+    if (isUploaded) {
+      axiosInstace
+        .patch("contractors/updateMe", formData, config)
+        .then(res => {
+          console.log(res.data.data.user);
+          console.log("formData", formData);
+          MySwal.fire(`Data changed Successfully`).then(result => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
+        })
+        .catch(err => {
+          MySwal.fire(`Error , Try again`).then(result => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
+          console.log(err);
         });
-      })
-      .catch(err => {
-        MySwal.fire(`Error , Try again`).then(result => {
-          if (result.isConfirmed) {
-            window.location.reload();
-          }
-        });
-        console.log(err);
-      });
     }
   };
 
@@ -83,42 +83,46 @@ function PreviousWork(props) {
           {props.contractorDetails.gallery.length <= 0 ? (
             <h6>No Gallery Added Yet !</h6>
           ) : (
-            <Grid container spacing={2} className=''>
-              {props.contractorDetails.gallery.map(img => (
-                <Grid key={img} item lg={4} md={6} sm={12} xs={12}>
-                  <Card className='job-card'>
-                    <CardActionArea>
-                      <figure className='card_image'>
-                        <img
-                          onClick={e => openImg(e)}
-                          src={img}
-                          crossOrigin='anonymous'
-                          alt=''
-                        />
-                      </figure>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              ))}
-              <Grid item xs={12} className='text-center p-2'>
-                <input
-                  className='form-control file-Attach w-100'
-                  type='file'
-                  id='formFileMultiple'
-                  name='photo'
-                  multiple
-                  onChange={e => handleFormChange(e)}
-                />
-                <br />
-                <Button
-                  onClick={() => handleSubmitForm(formValues)}
-                  className='site_btn'
-                >
-                  <span className='button_text'>Update Data</span>
-                </Button>
+            <>
+              <Grid container spacing={2} className=''>
+                {props.contractorDetails.gallery.map(img => (
+                  <Grid key={img} item lg={4} md={6} sm={12} xs={12}>
+                    <Card className='job-card'>
+                      <CardActionArea>
+                        <figure className='card_image'>
+                          <img
+                            onClick={e => openImg(e)}
+                            src={img}
+                            crossOrigin='anonymous'
+                            alt=''
+                          />
+                        </figure>
+                      </CardActionArea>
+                    </Card>
+                  </Grid>
+                ))}
               </Grid>
-            </Grid>
+            </>
           )}
+          <Grid container spacing={2} className='mt-2 px-2'>
+            <Grid item xs={12} className='text-center p-2'>
+              <input
+                className='form-control file-Attach w-100'
+                type='file'
+                id='formFileMultiple'
+                name='photo'
+                multiple
+                onChange={e => handleFormChange(e)}
+              />
+              <br />
+              <Button
+                onClick={() => handleSubmitForm(formValues)}
+                className='site_btn'
+              >
+                <span className='button_text'>Update Data</span>
+              </Button>
+            </Grid>
+          </Grid>
         </Grid>
       </Box>
     </div>
