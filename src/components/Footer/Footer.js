@@ -35,7 +35,7 @@ const Footer = () => {
               <br />
               <ul className="footer-ul">
                 <li>
-                  <Link to="/Home">Home</Link>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
                   <Link to="/about">About</Link>
