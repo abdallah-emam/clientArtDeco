@@ -17,9 +17,10 @@ Frequently viewed docs:
 
 - [Word Document](https://docs.google.com/document/d/17LJi41KrPDV3944QibJrNGnKMLY1iwFaXpu1FiRqwY4/edit#heading=h.gjdgxs)
 - [Project Management Tool](https://trello.com/b/1rlBmYww/artdeco)
-- [Outline Demo](https://docs.google.com/document/d/112AJfxMnqZGrdAdplxwxSAPYgRj9zOdP2p6x6GZXTAY/edit)
 - [API Reference](https://documenter.getpostman.com/view/18880020/UVkvHXu1)
-- [Feasibility study](https://react-cool-form.netlify.app/docs/examples/basic)
+- [Feasibility study](https://docs.google.com/document/d/1gIIogXj7wVUCfnW0yCGLMw7OQKRZV1vtUAyjxHLvBeY/edit#)
+- [Outline Demo](https://docs.google.com/document/d/112AJfxMnqZGrdAdplxwxSAPYgRj9zOdP2p6x6GZXTAY/edit)
+
 
 
 ## [Technologies]
