@@ -11,28 +11,23 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { useParams } from "react-router-dom";
+
 const MySwal = withReactContent(Swal);
 
-export default function ContactorProfile() {
+export default function ViewContactorProfile() {
   const [contractorDetails, setContractorDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [inProgressJobs, setinProgressJobs] = useState([]);
+  const params = useParams();
+console.log(params.contractorID);
 
   useEffect(() => {
     axiosInstace
-    .get("contractors/MyAllJobs", {})
-    .then(res => {
-      setinProgressJobs(res.data.data.jobs);
-      console.log("inProgressJobs", res.data.data.jobs);
-    })
-    .catch(err => {
-    });
-
-    axiosInstace
-      .get("contractors/getMe", {})
+      .get(`contractors/${params.contractorID}`, {})
       .then(res => {
         setContractorDetails(res.data.data);
-        console.log("getMe", res.data.data);
+        console.log("res", res);
         console.log("contractorDetails", contractorDetails);
         setIsLoading(false);
       })
@@ -40,7 +35,6 @@ export default function ContactorProfile() {
         console.log(err);
         // window.location.replace("/contractorLogin");
       });
-
   }, []);
 
   return (
@@ -63,7 +57,7 @@ export default function ContactorProfile() {
               </Col>
               <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
                 <div className='content'>
-                  <Resume contractorDetails={contractorDetails} inProgressJobs={inProgressJobs} staticData={resume} />
+                  <Resume contractorDetails={contractorDetails} staticData={resume} />
                 </div>
               </div>
             </Row>

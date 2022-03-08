@@ -26,6 +26,7 @@ import JobsPage from "./pages/Home/JobsPage/JobsPage";
 import Footer from "./components/Footer/Footer";
 import OnGoingJob from "./pages/userPages/onGoingJob/onGoingJob";
 import JobRate from "./pages/userPages/onGoingJob/JobRate";
+import ViewContactorProfile from './pages/contractorPages/viewContractorProfile/contractorProfile';
 
 function App() {
   return (
@@ -92,6 +93,7 @@ function App() {
         <Route path={"/AboutUs"} exact element={<AboutUs />}></Route>
         <Route path={"/onGoingJob/:id"} exact element={<OnGoingJob />}></Route>
         <Route path={"/:jobID/jobRate/:contractorID"} exact element={<JobRate />}></Route>
+        <Route path={"/ViewContactorProfile/:contractorID"} exact element={<ViewContactorProfile />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

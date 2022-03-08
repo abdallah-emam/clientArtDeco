@@ -1,0 +1,126 @@
+/* .profile {
+  background: #fff;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  width: 100%;
+  display: inline-block;
+}
+
+.profile_name {
+  line-height: 18px;
+  padding: 20px;
+}
+
+.profile .name {
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.profile .title {
+  font-size: 13px;
+  color: #777777;
+}
+
+.profile_image {
+  margin-top: -18px;
+  -webkit-clip-path: polygon(0 9%, 100% 0, 100% 94%, 0% 100%);
+  clip-path: polygon(0 9%, 100% 0, 100% 94%, 0% 100%);
+}
+.profile_image img {
+  width: 100%;
+}
+
+ul.profile_information {
+  list-style: none;
+  margin: 8px 5px 8px 35px;
+}
+
+ul.profile_information li {
+  border-left: solid 2px #eee;
+  padding: 0 0 23px 20px;
+  font-size: 14px;
+  color: #787878;
+}
+
+ul.profile_information li p {
+  font-size: 13.5px;
+  color: #7f7f7f;
+  line-height: 12px;
+}
+
+ul.profile_information li:last-child {
+  border: 0;
+  margin-left: 2px;
+  margin-top: -2px;
+}
+
+ul.profile_information li:before {
+  content: "";
+  border: solid 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  font-size: 8px;
+  margin-left: -25px;
+  margin-top: 2px;
+  font-weight: 400;
+  background: #fff;
+  display: block;
+  position: absolute;
+  border-color: var(--main-color);
+}
+
+ul.profile_information li span {
+  color: #000;
+}
+
+ul.profile_information li:first-child {
+  padding-bottom: 10px;
+  padding-left: 30px;
+  position: relative;
+}
+
+ul.profile_information li:first-child img {
+  margin: -44px -44px;
+  display: inline-block;
+  position: absolute;
+  width: 25px;
+}
+
+ul.profile_information li:first-child:before {
+  margin-left: -51px;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  position: relative;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  padding: 11px 14px;
+  box-shadow: 0px 2px 32px 0px rgba(4, 123, 248, 0.3);
+  color: #000;
+  background-color: var(--main-color);
+}
+
+ul.profile_information li:first-child:after {
+  background: url(../../assets/images/glasses.png) no-repeat;
+  content: "";
+  width: 30px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 16px -15px;
+  background-size: 27px 10px;
+}
+
+
+.profile .button_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+} */

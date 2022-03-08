@@ -254,7 +254,7 @@ export default function ClientDashboard() {
                                       ).toDateString()}
                                     </Typography>
                                     <Button
-                                      // onClick={() => window.location.assign(proposal.contractor)}
+                                      onClick={() => window.location.assign(`/ViewContactorProfile/${proposal.contractor}`)}
                                       className='viewContractorProfileButton mt-2 mx-2'
                                       variant='contained'
                                     >
