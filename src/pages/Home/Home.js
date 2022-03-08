@@ -64,7 +64,7 @@ function Home() {
                 <div className="whyItemBox">
                   <div className="row whyItem">
                     <div className="d-flex">
-                      <div className="mx-3 mt-2">
+                      <div className="me-3 mt-2">
                         <i class="fas fa-star"></i>
                       </div>
                       <div className="">
@@ -78,7 +78,7 @@ function Home() {
                   </div>
                   <div className="row whyItem">
                     <div className="d-flex">
-                      <div className="mx-3 mt-2">
+                      <div className="me-3 mt-2">
                         <i class="fas fa-money-bill-alt"></i>
                       </div>
                       <div className="">
@@ -92,7 +92,7 @@ function Home() {
                   </div>
                   <div className="row whyItem">
                     <div className="d-flex">
-                      <div className="mx-3 mt-2">
+                      <div className="me-3 mt-2">
                         <i class="fas fa-check-circle"></i>
                       </div>
                       <div className="">
@@ -137,7 +137,10 @@ function Home() {
                       <h2>
                         Post a job <br /> and hire pro
                       </h2>
-                      <Link to="/clientLogin"> Talent market place &#x2192;</Link>
+                      <Link to="/clientLogin">
+                        {" "}
+                        Talent market place &#x2192;
+                      </Link>
                     </button>
                   </div>
                   <div className="col-md-4 mt-3  pt-10">
@@ -191,21 +194,15 @@ function Home() {
                     </p>
                   </div>
                   <div className="col-6 col-md-4">
-                    <p>
-                      Find opportunities for every stage of your freelance
-                      career
-                    </p>
+                    <p>Control when, where, and how you work</p>
                   </div>
                   <div className="col-6 mt-4 mt-md-0 col-md-4">
-                    <p>
-                      Find opportunities for every stage of your freelance
-                      career
-                    </p>
+                    <p>Explore different ways to earn</p>
                   </div>
                 </div>
                 <div className="row mt-5">
                   <div className="col-sm-7 col-md-12 col-lg-7">
-                    <BTN URL="/" text="find property" type="outline" />
+                    <BTN URL="/ContractorLogin" text="find opportunity" type="outline" />
                   </div>
                 </div>
               </div>
