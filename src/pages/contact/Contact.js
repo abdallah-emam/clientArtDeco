@@ -8,7 +8,7 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <section className="Material-contact-section section-dark mt-3">
       <br />
@@ -16,7 +16,7 @@ const Contact = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
-            <div className="form-image-side">
+            <div className="form-image-side container">
               <img src={contact} alt="" className="form-image" />
             </div>
           </div>
@@ -92,11 +92,11 @@ const Contact = () => {
 
                 <div className="form-submit mt-5 text-center">
                   <button
-                    className="btn btn-success"
+                    className="btn btn-warning"
                     type="submit"
                     id="form-submit"
                   >
-                    <i className="material-icons mdi mdi-message-outline"></i>
+
                     Send
                   </button>
                   <div id="msgSubmit" className="h3 text-center hidden "></div>
