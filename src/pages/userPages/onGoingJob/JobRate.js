@@ -46,7 +46,7 @@ export default function JobRate() {
         }
     };
 
-    const [rating, setRatingvalue] = useState(2);
+    const [rating, setRatingvalue] = useState(3);
     const params = useParams();
 
 
