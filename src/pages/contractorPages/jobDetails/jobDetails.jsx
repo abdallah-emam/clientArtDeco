@@ -36,7 +36,11 @@ export default function JobDetails() {
         setIsLoading(false);
         // console.log("result", res.data.data.job);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        window.location.replace("/contractorLogin");
+
+        });
   }, []);
   return (
     <div className='container m-md-5 JobsPage-container'>
