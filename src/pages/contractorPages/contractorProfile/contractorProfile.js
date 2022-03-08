@@ -2,7 +2,6 @@ import React from "react";
 // import Footer from "../../";
 import "./contractorProfile.css";
 import Profile from "./components/Profile/Profile";
-import resume from "./utils/resume";
 import { Col, Row } from "react-bootstrap";
 import Resume from "./pages/Resume";
 import { axiosInstace } from "../../../network/axiosConfig";
@@ -17,30 +16,36 @@ export default function ContactorProfile() {
   const [contractorDetails, setContractorDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [inProgressJobs, setinProgressJobs] = useState([]);
+  const [jobsRating, setjobsRating] = useState([]);
 
   useEffect(() => {
-    axiosInstace
-    .get("contractors/MyAllJobs", {})
-    .then(res => {
-      setinProgressJobs(res.data.data.jobs);
-      console.log("inProgressJobs", res.data.data.jobs);
-    })
-    .catch(err => {
-    });
-
     axiosInstace
       .get("contractors/getMe", {})
       .then(res => {
         setContractorDetails(res.data.data);
-        console.log("getMe", res.data.data);
-        console.log("contractorDetails", contractorDetails);
-        setIsLoading(false);
+        axiosInstace
+          .get("contractors/MyAllJobs", {})
+          .then(res => {
+            setinProgressJobs(res.data.data.jobs);
+            axiosInstace
+              .get(`jobHistory/contractorDetails._id`, {})
+              .then(res => {
+                setjobsRating(res.data.data);
+                console.log(res.data.data);
+                setIsLoading(false);
+              })
+              .catch(err => {
+                console.log(err);
+              });
+          })
+          .catch(err => {
+            console.log(err);
+          });
       })
       .catch(err => {
         console.log(err);
         // window.location.replace("/contractorLogin");
       });
-
   }, []);
 
   return (
@@ -63,7 +68,11 @@ export default function ContactorProfile() {
               </Col>
               <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
                 <div className='content'>
-                  <Resume contractorDetails={contractorDetails} inProgressJobs={inProgressJobs} staticData={resume} />
+                  <Resume
+                    contractorDetails={contractorDetails}
+                    inProgressJobs={inProgressJobs}
+                    jobsRating={jobsRating}
+                  />
                 </div>
               </div>
             </Row>

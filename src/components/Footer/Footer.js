@@ -14,7 +14,7 @@ const Footer = () => {
               <span className="footer-other-text d-block mt-3 mb-3">
                 ArtDeco is a promising startup that aims to solve one of the
                 main problems we face when we try to decorate our home,
-                apartment, or even our company.
+                apartment, or any property.
               </span>
               <div className="footer-social">
                 <div className="footer-social-item">

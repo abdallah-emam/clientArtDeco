@@ -56,11 +56,11 @@ function Resume(props) {
                   </TimelineSeparator>
                   <TimelineContent>
                     <Typography variant='h6' className='timeline_header'>
-                      Completed jobs (5)
+                      Completed jobs ({props.jobsRating.length})
                     </Typography>
                   </TimelineContent>
                 </TimelineItem>
-                {props.staticData.experiences.map(experience => (
+                {props.jobsRating.map(job => (
                   <TimelineItem>
                     <TimelineSeparator className='separator_padding'>
                       <TimelineDot
@@ -71,23 +71,23 @@ function Resume(props) {
                     </TimelineSeparator>
                     <TimelineContent className='timeline_content'>
                       <Typography className='timeline_title'>
-                        {experience.title}
+                        {job.jobName}
                       </Typography>
                       <Typography variant='caption' className='timeline_date'>
                         <Rating
                           className='timeline_rating'
                           name='read-only'
-                          value={5}
+                          value={job.rating}
                           readOnly
                           size='small'
                         />
-                        {experience.date}
+                        {/* {job.date} */}
                       </Typography>
                       <Typography
                         variant='body2'
                         className='timeline_description'
                       >
-                        {experience.description}
+                        {job.jobRatingReview}
                       </Typography>
                     </TimelineContent>
                   </TimelineItem>

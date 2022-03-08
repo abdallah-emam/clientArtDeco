@@ -17,7 +17,7 @@ export default function NavBar() {
             <div className="container">
               <div className="row">
                 <div className="col-lg-12">
-                  <h1 className="title text-center m-5 text-muted ">
+                  <h1 className="text-center m-5 text-muted ">
                     About Us
                   </h1>
                   <br /> <br />
