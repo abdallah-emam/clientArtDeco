@@ -21,6 +21,9 @@ import Timeline from "@mui/lab/Timeline";
 import DoneOutlineRoundedIcon from "@mui/icons-material/DoneOutlineRounded";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import { Button } from "react-bootstrap";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function ClientDashboard() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,12 +33,12 @@ export default function ClientDashboard() {
   useEffect(() => {
     axiosInstace
       .get("users/getMe")
-      .then((res) => {
+      .then(res => {
         setUserDetails(res.data.data.user);
         setJobs(res.data.data.user.jobs);
         setIsLoading(false);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
         window.location.replace("/clientLogin");
       });
@@ -50,14 +53,14 @@ export default function ClientDashboard() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
+    }).then(result => {
       if (result.isConfirmed) {
         axiosInstace
           .delete(`job/${id}`)
-          .then((res) => {
+          .then(res => {
             window.location.reload();
           })
-          .catch((err) => {
+          .catch(err => {
             console.log(err);
             window.location.replace("/clientLogin");
           });
@@ -83,23 +86,23 @@ export default function ClientDashboard() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, Confirm this proposal !",
-    }).then((result) => {
+    }).then(result => {
       if (result.isConfirmed) {
         axiosInstace
           .patch(`job/${jobId}/proposal/${contractorId}`)
-          .then((res) => {
+          .then(res => {
             // window.location.replace(`/onGoingJob/${jobId}`);
             Swal.fire(
               "Confirmed!",
               `We will notify the contractor and contact you soon on ${UserDetails.email}`,
               "success"
-            ).then((result) => {
+            ).then(result => {
               if (result.isConfirmed) {
                 window.location.reload();
               }
             });
           })
-          .catch((err) => {
+          .catch(err => {
             console.log(err);
           });
       }
@@ -107,11 +110,11 @@ export default function ClientDashboard() {
   };
   return (
     <div>
-      <div className="container my-5 dashboardContainer">
-        <div className="container my-3">
-          <div className="row">
-            <div className="col-6 ">
-              <Grid item className="section_title top_30">
+      <div className='container my-5 dashboardContainer'>
+        <div className='container my-3'>
+          <div className='row'>
+            <div className='col-6 '>
+              <Grid item className='section_title top_30'>
                 <span></span>
                 <h2>Your Dashboard</h2>
               </Grid>
@@ -124,15 +127,15 @@ export default function ClientDashboard() {
 
         {Jobs?.length === 0 ? (
           <div>
-            <div className="container">
-              <div className="d-flex justify-content-center">
+            <div className='container'>
+              <div className='d-flex justify-content-center'>
                 <img src={fileimg} alt={"no jops"} />
               </div>
-              <div className="d-flex justify-content-center">
+              <div className='d-flex justify-content-center'>
                 <p> You don't have a Posts Yet</p>
               </div>
-              <div className="d-flex justify-content-center">
-                <div className="d-flex justify-content-center align-items-center col-12 col-md-4">
+              <div className='d-flex justify-content-center'>
+                <div className='d-flex justify-content-center align-items-center col-12 col-md-4'>
                   {/* <div >
                   <BTN URL="/" text="Post a Job" type="defult" />
                 </div> */}
@@ -144,146 +147,164 @@ export default function ClientDashboard() {
           Jobs?.length > 0 &&
           Jobs.slice(0)
             .reverse()
-            .map((job) => {
+            .map(job => {
               return (
                 <section
                   key={job.id}
-                  className="jobsSection border p-sm-3 p-xs-5 col-12"
+                  className='jobsSection border p-sm-3 p-xs-5 col-12'
                 >
-                  <div className="d-flex justify-content-between">
-                    <h5 className="d-inline-block  w-auto">{job.headLine}</h5>
+                  <div className='d-flex justify-content-between'>
+                    <h5 className='d-inline-block  w-auto'>{job.headLine}</h5>
                   </div>
                   {job.status === "pending" ? (
-                    <div className="jobIcons d-inline-block w-auto float-end">
+                    <div className='jobIcons d-inline-block w-auto float-end'>
                       <FontAwesomeIcon
                         onClick={() => editJob(job.id)}
-                        className="fa-xl icon  mr-1 rounded-circle p-2 mx-md-2"
+                        className='fa-xl icon  mr-1 rounded-circle p-2 mx-md-2'
                         icon={faPenToSquare}
                       />
                       <br />
                       <FontAwesomeIcon
                         onClick={() => deleteJob(job.id)}
-                        className="fa-xl icon mt-3 mr-1 rounded-circle p-2 mx-md-2"
+                        className='fa-xl icon mt-3 mr-1 rounded-circle p-2 mx-md-2'
                         icon={faTrashCan}
                       />
                     </div>
                   ) : null}
-                  <div className="jobInfoLine my-2">
-                    <span className="border-end border-warning border-3 px-3">
+                  <div className='jobInfoLine my-2'>
+                    <span className='border-end border-warning border-3 px-3'>
                       Budget:&nbsp;{job.budget}
                     </span>
-                    <span className="border-end border-warning border-3 px-3">
+                    <span className='border-end border-warning border-3 px-3'>
                       {new Date(Date.parse(job.createdAt)).toDateString()}
                     </span>
-                    <span className="border-end border-warning border-3 px-3">
+                    <span className='border-end border-warning border-3 px-3'>
                       Estimited Time:&nbsp;{job.estimatedTime}
                     </span>
-                    <span className="px-3">
+                    <span className='px-3'>
                       <FontAwesomeIcon icon={faLocationDot} />
                       &nbsp;{job.location}
                     </span>
                   </div>
-                  <div className="jobDescription my-3">
+                  <div className='jobDescription my-3'>
                     <p>{job.description}</p>
                   </div>
-                  <div className="Proposals my-3">
+                  <div className='Proposals my-3'>
                     <p>
                       Proposals :&nbsp;
-                      <span className="jobKeyWord rounded-pill p-1 me-2">
+                      <span className='jobKeyWord rounded-pill p-1 me-2'>
                         {job.totalProposal}
                       </span>
                     </p>
                   </div>
-                  <Grid item lg={6} md={12} className="experience pb_30">
-                    <Timeline className="timeline">
-                      {job.status === "pending" ? (
-                        <>
-                          <TimelineItem>
-                            <TimelineSeparator>
-                              <TimelineDot className="timeline_dot_header">
-                                <LocalOfferIcon />
-                              </TimelineDot>
-                              <TimelineConnector />
-                            </TimelineSeparator>
-                            <TimelineContent>
-                              <Typography
-                                variant="h6"
-                                className="timeline_header"
+                  <Grid item lg={6} md={12} className='experience pb_30'>
+                    <Timeline className='timeline'>
+                      {(() => {
+                        if (job.status === "pending") {
+                          return (
+                            <>
+                              <TimelineItem>
+                                <TimelineSeparator>
+                                  <TimelineDot className='timeline_dot_header'>
+                                    <LocalOfferIcon />
+                                  </TimelineDot>
+                                  <TimelineConnector />
+                                </TimelineSeparator>
+                                <TimelineContent>
+                                  <Typography
+                                    variant='h6'
+                                    className='timeline_header'
+                                  >
+                                    Contractors Proposals : (
+                                    {job.proposals.length})
+                                  </Typography>
+                                </TimelineContent>
+                              </TimelineItem>
+                              {job.proposals.map(proposal => (
+                                <TimelineItem key={proposal.id}>
+                                  <TimelineSeparator className='separator_padding'>
+                                    <TimelineDot
+                                      variant='outlined'
+                                      className='timeline_dot'
+                                    />
+                                    <TimelineConnector />
+                                  </TimelineSeparator>
+                                  <TimelineContent className='timeline_content'>
+                                    <Typography className='timeline_title'>
+                                      Financial Offer :&nbsp;
+                                      {proposal.financialOffer}
+                                    </Typography>
+                                    <Typography
+                                      variant='body2'
+                                      className='timeline_description'
+                                    >
+                                      Estimated time :&nbsp;
+                                      {proposal.estimatedTime}
+                                    </Typography>
+                                    <Typography
+                                      variant='body2'
+                                      className='timeline_description'
+                                    >
+                                      Cover letter :&nbsp;{proposal.coverLetter}
+                                    </Typography>
+                                    <Typography
+                                      variant='body2'
+                                      className='timeline_description'
+                                    >
+                                      Created at :&nbsp;
+                                      {new Date(
+                                        Date.parse(proposal.createdAt)
+                                      ).toDateString()}
+                                    </Typography>
+                                    <Button
+                                      onClick={() =>
+                                        acceptProposal(
+                                          job.id,
+                                          proposal.contractor
+                                        )
+                                      }
+                                      className='acceptProposalButton mt-2'
+                                      variant='contained'
+                                      color='success'
+                                    >
+                                      Accept Proposal
+                                    </Button>
+                                  </TimelineContent>
+                                </TimelineItem>
+                              ))}
+                            </>
+                          );
+                        } else if (job.status === "ongoing") {
+                          return (
+                            <Link to={`/onGoingJob/${job.id}`}>
+                              <Button
+                                className='acceptProposalButton mt-2'
+                                variant='contained'
+                                color='success'
                               >
-                                Contractors Proposals : ({job.proposals.length})
-                              </Typography>
-                            </TimelineContent>
-                          </TimelineItem>
-                          {job.proposals.map((proposal) => (
-                            <TimelineItem key={proposal.id}>
-                              <TimelineSeparator className="separator_padding">
-                                <TimelineDot
-                                  variant="outlined"
-                                  className="timeline_dot"
-                                />
-                                <TimelineConnector />
-                              </TimelineSeparator>
-                              <TimelineContent className="timeline_content">
-                                <Typography className="timeline_title">
-                                  Financial Offer :&nbsp;
-                                  {proposal.financialOffer}
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  className="timeline_description"
-                                >
-                                  Estimated time :&nbsp;{proposal.estimatedTime}
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  className="timeline_description"
-                                >
-                                  Cover letter :&nbsp;{proposal.coverLetter}
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  className="timeline_description"
-                                >
-                                  Created at :&nbsp;
-                                  {new Date(
-                                    Date.parse(proposal.createdAt)
-                                  ).toDateString()}
-                                </Typography>
-                                <Button
-                                  onClick={() =>
-                                    acceptProposal(job.id, proposal.contractor)
-                                  }
-                                  className="acceptProposalButton mt-2"
-                                  variant="contained"
-                                  color="success"
-                                >
-                                  Accept Proposal
-                                </Button>
-                              </TimelineContent>
-                            </TimelineItem>
-                          ))}
-                        </>
-                      ) : (
-                        <Link to={`/onGoingJob/${job.id}`}>
-                          <Button
-                            className="acceptProposalButton mt-2"
-                            variant="contained"
-                            color="success"
-                          >
-                            On Going
-                          </Button>
-                        </Link>
-                      )}
+                                On Going
+                              </Button>
+                            </Link>
+                          );
+                        } else if (job.status === "done") {
+                          return (
+                            <div class='p-3 mb-2 bg-success text-white rounded'>
+                              <FontAwesomeIcon className='fa-2xl' icon={faCircleCheck} />
+                              <span className='mx-3 fs-5'>Job has been Done !</span>
+                            </div>
+                          );
+                        }
+                      })()}
                     </Timeline>
                   </Grid>
                 </section>
               );
             })
         )}
-        <div className="d-flex justify-content-center row">
-          <div className="d-flex justify-content-center align-items-center col-12">
-            <div className="my-3">
-              <BTN URL="/JobCreation" text="Post a new Job" type="defult" />
+        <div className='d-flex justify-content-center row'>
+          <div className='d-flex justify-content-center align-items-center col-12'>
+            <div className='my-3'>
+              <BTN URL='/JobCreation' text='Post a new Job' type='defult' />
               <br />
               <br />
             </div>
