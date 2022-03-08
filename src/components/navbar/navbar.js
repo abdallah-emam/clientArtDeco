@@ -53,7 +53,7 @@ function Navbar() {
     navigate("/");
   };
   return (
-    <AppBar color=" navlinks.link" elevation={2} position="static">
+    <AppBar color="navlinks.link" elevation={2} position="static">
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>

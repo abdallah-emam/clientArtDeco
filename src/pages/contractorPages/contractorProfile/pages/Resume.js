@@ -22,7 +22,7 @@ function Resume(props) {
     <Grid container>
       <Grid item xs={12}>
         {/* About Us */}
-        <Grid container className='section p_30 pb_45 hstack gap-3 w-100'>
+        <Grid container className='section pb_45 hstack gap-3 w-100'>
           <Grid item className='section_title top_30'>
             <span></span>
             <h2>About Us</h2>

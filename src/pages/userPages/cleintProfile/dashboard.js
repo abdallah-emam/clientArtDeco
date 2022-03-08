@@ -18,10 +18,8 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineItem from "@mui/lab/TimelineItem";
 import Timeline from "@mui/lab/Timeline";
-import DoneOutlineRoundedIcon from "@mui/icons-material/DoneOutlineRounded";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import { Button } from "react-bootstrap";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -91,7 +89,6 @@ export default function ClientDashboard() {
         axiosInstace
           .patch(`job/${jobId}/proposal/${contractorId}`)
           .then(res => {
-            // window.location.replace(`/onGoingJob/${jobId}`);
             Swal.fire(
               "Confirmed!",
               `We will notify the contractor and contact you soon on ${UserDetails.email}`,
@@ -257,15 +254,21 @@ export default function ClientDashboard() {
                                       ).toDateString()}
                                     </Typography>
                                     <Button
+                                      // onClick={() => window.location.assign(proposal.contractor)}
+                                      className='viewContractorProfileButton mt-2 mx-2'
+                                      variant='contained'
+                                    >
+                                      View Profile
+                                    </Button>
+                                    <Button
                                       onClick={() =>
                                         acceptProposal(
                                           job.id,
                                           proposal.contractor
                                         )
                                       }
-                                      className='acceptProposalButton mt-2'
+                                      className='acceptProposalButton mt-2 mx-2'
                                       variant='contained'
-                                      color='success'
                                     >
                                       Accept Proposal
                                     </Button>
@@ -280,7 +283,6 @@ export default function ClientDashboard() {
                               <Button
                                 className='acceptProposalButton mt-2'
                                 variant='contained'
-                                color='success'
                               >
                                 On Going
                               </Button>
@@ -288,7 +290,7 @@ export default function ClientDashboard() {
                           );
                         } else if (job.status === "done") {
                           return (
-                            <div class='p-3 mb-2 bg-success text-white rounded'>
+                            <div className='p-3 mb-2 bg-success text-white rounded'>
                               <FontAwesomeIcon className='fa-2xl' icon={faCircleCheck} />
                               <span className='mx-3 fs-5'>Job has been Done !</span>
                             </div>

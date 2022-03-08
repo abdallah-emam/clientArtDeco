@@ -85,7 +85,9 @@ body {
     font-weight: 100;
     line-height: 7px;
 }
-
+.dashboardContainer{
+    margin-top: 0 !important;
+}
 .dashboardContainer .defult {
     margin-right: 0 !important;
 }
@@ -169,6 +171,10 @@ body {
 
 .acceptProposalButton {
     background-color: rgb(102, 187, 106);
+    color: white;
+}
+.viewContractorProfileButton {
+    background-color: #0d6efd;
     color: white;
 }
 
