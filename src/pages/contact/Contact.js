@@ -22,7 +22,7 @@ const Contact = () => {
           </div>
           <div className="col-lg-6">
             <div className="form-header mb-5 text-center">
-              <h1 className="contact section-title text-muted">Contact Us</h1>
+              <h1 className="contact text-muted">Contact Us</h1>
             </div>
             <div className="form-wrapper">
               <form

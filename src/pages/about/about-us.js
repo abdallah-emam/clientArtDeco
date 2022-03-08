@@ -21,7 +21,7 @@ function AboutUs() {
   return (
     <div>
       <br /> <br />
-      <h1 className="title text-center m-5 text-muted">How ArtDeco works?</h1>
+      <h1 className="text-center m-5 text-muted">How ArtDeco works?</h1>
       <br /> <br />
       <VerticalTimeline>
         {timelineElements.map((element) => {

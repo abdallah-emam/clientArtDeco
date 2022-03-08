@@ -1,8 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// import svg from '../../images/svg/undraw_ideas_re_7twj'
 import { ReactComponent as YourSvg } from "../../images/svg/undraw_certificate_re_yadi.svg";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import BTN from "../../components/button/btn";
 import "./Home.css";
@@ -22,13 +19,13 @@ function Home() {
             <div className="row">
               <div className="col-12 col-md-6">
                 <h1>
-                  How Work <br />
+                  How work <br />
                   should be?
                 </h1>
                 <div className="home-about  text-secondary">
                   <p>
                     Forget the old rules. You can choose the best contractor to
-                    make your Home fantastic
+                    make your home fantastic
                   </p>
                   <p>Right now. Right here.</p>
                 </div>
@@ -58,7 +55,7 @@ function Home() {
               <div className="col-sm-12 col-md-8">
                 <div className="row">
                   <div className="col-12 col-lg-10">
-                    <h1>Why should you turn to Art Deco?</h1>
+                    <h1>Why Art Deco?</h1>
                   </div>
                 </div>
                 <div className="whyItemBox">
@@ -175,7 +172,7 @@ function Home() {
                 <div className="row for-contractor-about">
                   <div className="col-sm-12 col-md-10 col-lg-10 ">
                     <h1>
-                      Find Greet <br /> work
+                      Find valuable <br /> work
                     </h1>
                     <p>
                       Meet clients you’re excited to work with and take your
@@ -207,7 +204,6 @@ function Home() {
           </div>
         </div>
       </section>
-      {/* footer */}
     </>
   );
 }

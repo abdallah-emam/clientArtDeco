@@ -109,6 +109,25 @@ function JobsPage() {
         break;
     }
   };
+  
+  const handleSearch = (e) => {
+    setIsLoading(true);
+    console.log()
+    const searchWord = document.getElementById("form1").value
+    axiosInstace
+    .get(`job?search=${searchWord}`, {})
+    .then((res) => {
+      setallJobsDetails(res.data.data.jobs);
+      setPagesCount(Math.ceil(res.data.fullLength / 10));
+      window.scrollTo(0, 0);
+      setIsLoading(false);
+    })
+    .catch((err) => {
+      console.log(err);
+      // window.location.replace("http://localhost:3000/contractorLogin");
+    });
+
+  }
 
   return (
     <>
@@ -134,7 +153,7 @@ function JobsPage() {
                   className="form-control"
                 />
               </div>
-              <button type="button" className="btn">
+              <button onClick={(e) => {handleSearch(e)}} type="button" className="btn">
                 <i className="fas fa-search"></i>
               </button>
             </div>

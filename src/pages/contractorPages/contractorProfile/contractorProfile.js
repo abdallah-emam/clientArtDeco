@@ -32,6 +32,7 @@ export default function ContactorProfile() {
               .then(res => {
                 setjobsRating(res.data.data);
                 console.log(res.data.data);
+                setIsLoading(false);
               })
               .catch(err => {
                 console.log(err);
@@ -40,7 +41,6 @@ export default function ContactorProfile() {
           .catch(err => {
             console.log(err);
           });
-        setIsLoading(false);
       })
       .catch(err => {
         console.log(err);
