@@ -6,7 +6,7 @@ function BTN(props) {
   return (
     <>
       {type === "outline" ? (
-        <Link  to={props.URL} className="Btn outline">
+        <Link to={props.URL} className="Btn outline">
           {props.text}
         </Link>
       ) : (

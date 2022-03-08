@@ -53,12 +53,9 @@ const Contact = (props) => {
   };
 
   const handleSubmitForm = (formValues) => {
-    console.log("formValues", formValues);
-    // console.log(data)
     axiosInstace
       .patch("users/updateMe", formValues)
       .then((res) => {
-        console.log(res.data.data.user);
         MySwal.fire(`Data changed Successfully`).then((result) => {
           if (result.isConfirmed) {
             window.location.reload();
@@ -71,7 +68,6 @@ const Contact = (props) => {
             window.location.reload();
           }
         });
-        console.log(err);
       });
   };
 

@@ -8,84 +8,77 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import Portfolio from "../components/Portfolio";
 import { Typography, Rating } from "@mui/material";
 import DoneOutlineRoundedIcon from "@mui/icons-material/DoneOutlineRounded";
-import HandymanRoundedIcon from "@mui/icons-material/HandymanRounded";
 import { Grid } from "@mui/material";
-import CustomButton from "../components/Button/Button";
-import EditIcon from "@mui/icons-material/Edit";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function Resume(props) {
-
   return (
     <Grid container>
       <Grid item xs={12}>
         {/* About Me */}
-        <Grid container className='section pb_45 hstack gap-3 w-100'>
-          <Grid item className='section_title top_30'>
+        <Grid container className="section pb_45 hstack gap-3 w-100">
+          <Grid item className="section_title top_30">
             <span></span>
             <h2>About Me</h2>
           </Grid>
-          <Grid container className='top_30'>
+          <Grid container className="top_30">
             <Grid item>
-              <Typography variant='body2' className='aboutme_text'>
-                {props.contractorDetails.aboutMe || 'No About Me Added !'}
+              <Typography variant="body2" className="aboutme_text">
+                {props.contractorDetails.aboutMe || "No About Me Added !"}
               </Typography>
             </Grid>
           </Grid>
         </Grid>
 
         {/*Experiences */}
-        <Grid container className='section'>
-          <Grid item className='section_title top_30'>
+        <Grid container className="section">
+          <Grid item className="section_title top_30">
             <span></span>
             <h2>Work History</h2>
           </Grid>
 
-          <Grid container className='top_30'>
+          <Grid container className="top_30">
             {/*Experiences*/}
-            <Grid item lg={12} md={12} className='experience pb_30'>
-              <Timeline className='timeline'>
+            <Grid item lg={12} md={12} className="experience pb_30">
+              <Timeline className="timeline">
                 <TimelineItem>
                   <TimelineSeparator>
-                    <TimelineDot className='timeline_dot_header'>
+                    <TimelineDot className="timeline_dot_header">
                       <DoneOutlineRoundedIcon />
                     </TimelineDot>
                     <TimelineConnector />
                   </TimelineSeparator>
                   <TimelineContent>
-                    <Typography variant='h6' className='timeline_header'>
+                    <Typography variant="h6" className="timeline_header">
                       Completed jobs ({props.jobsRating.length})
                     </Typography>
                   </TimelineContent>
                 </TimelineItem>
-                {props.jobsRating.map(job => (
+                {props.jobsRating.map((job) => (
                   <TimelineItem>
-                    <TimelineSeparator className='separator_padding'>
+                    <TimelineSeparator className="separator_padding">
                       <TimelineDot
-                        variant='outlined'
-                        className='timeline_dot'
+                        variant="outlined"
+                        className="timeline_dot"
                       />
                       <TimelineConnector />
                     </TimelineSeparator>
-                    <TimelineContent className='timeline_content'>
-                      <Typography className='timeline_title'>
+                    <TimelineContent className="timeline_content">
+                      <Typography className="timeline_title">
                         {job.jobName}
                       </Typography>
-                      <Typography variant='caption' className='timeline_date'>
+                      <Typography variant="caption" className="timeline_date">
                         <Rating
-                          className='timeline_rating'
-                          name='read-only'
+                          className="timeline_rating"
+                          name="read-only"
                           value={job.rating}
                           readOnly
-                          size='small'
+                          size="small"
                         />
                         {/* {job.date} */}
                       </Typography>
                       <Typography
-                        variant='body2'
-                        className='timeline_description'
+                        variant="body2"
+                        className="timeline_description"
                       >
                         {job.jobRatingReview}
                       </Typography>

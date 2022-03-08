@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import {
   emailValidator,
   passwordValidator,
@@ -7,22 +7,13 @@ import {
 } from "./Register-regex";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import {
-  Grid,
-  Paper,
-  Avatar,
-  Typography,
-  TextField,
-  Button
-} from "@material-ui/core";
+import { Grid, Paper, Avatar, Typography, TextField } from "@material-ui/core";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
-import BTN from "../../../components/button/btn";
 
 const MySwal = withReactContent(Swal);
 
 const ClientSignUp = () => {
-  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -50,8 +41,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : nameValidator.test(event.target.value) === false
-                ? "name must be in right format to be a real name"
-                : null,
+              ? "name must be in right format to be a real name"
+              : null,
         });
         break;
 
@@ -66,8 +57,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : emailValidator.test(event.target.value) === false
-                ? "Email must be like that (uuuwwwaaa@Example.com)"
-                : null,
+              ? "Email must be like that (uuuwwwaaa@Example.com)"
+              : null,
         });
         break;
 
@@ -82,8 +73,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : passwordValidator.test(event.target.value) === false
-                ? "Password must be like that (Pass12345)"
-                : null,
+              ? "Password must be like that (Pass12345)"
+              : null,
         });
         break;
 
@@ -98,8 +89,8 @@ const ClientSignUp = () => {
             event.target.value.length === 0
               ? "This field is required"
               : (formValues.passwordConfirm === formValues.password) === true
-                ? "Password Confirm doesn't Match"
-                : null,
+              ? "Password Confirm doesn't Match"
+              : null,
         });
         break;
 
@@ -119,18 +110,16 @@ const ClientSignUp = () => {
       axiosInstace
         .post("users/signup", formValues)
         .then((response) => {
-          console.log(response.data);
           MySwal.fire(
             `Registered Successfully , Welcome ${response.data.data.user.name} , At ArtDeco.com`
-          ).then(result => {
+          ).then((result) => {
             if (result.isConfirmed) {
-              window.location.replace('/');
+              window.location.replace("/");
             }
           });
           localStorage.setItem("user_token", response.data.token);
         })
         .catch((err) => {
-          console.log(err);
           MySwal.fire(
             `Invalid Register , Please Enter Your Personal Data in Right Way`
           );
@@ -139,7 +128,6 @@ const ClientSignUp = () => {
   };
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
   const headerStyle = { margin: 0 };
-  const btnStyle = { margin: "15px 0", width: "200px" };
   const avatarStyle = { backgroundColor: "#ff8a00" };
   return (
     <div className="SignUp text-center m-5">

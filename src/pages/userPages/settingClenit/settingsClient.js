@@ -12,6 +12,7 @@ import { axiosInstace } from "../../../network/axiosConfig";
 import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProfileImage from "./components/ProfileImage";
+
 export function ClientSetting(props) {
   const { children, value, index, ...other } = props;
 
@@ -59,11 +60,9 @@ export default function SettingsPageUser() {
       .get("users/getMe")
       .then((res) => {
         setUserDetails(res.data.data.user);
-        console.log("result", res);
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         window.location.replace("/clientLogin");
       });
   }, []);

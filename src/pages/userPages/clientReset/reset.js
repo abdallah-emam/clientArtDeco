@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import { validPassword } from "./regex.js";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { Grid, Paper, Avatar, TextField} from "@material-ui/core";
+import { Grid, Paper, Avatar, TextField } from "@material-ui/core";
 import LockResetIcon from "@mui/icons-material/LockReset";
 import { axiosInstace } from "../../../network/axiosConfig";
-
 
 const MySwal = withReactContent(Swal);
 const ClientReset = () => {
   const params = useParams();
 
-  // const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     password: "",
     passwordConfirm: "",
@@ -37,8 +34,8 @@ const ClientReset = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validPassword.test(event.target.value) === false
-                ? "Password must be like that (Pass12345)"
-                : null,
+              ? "Password must be like that (Pass12345)"
+              : null,
         });
         break;
       case "passwordConfirm":
@@ -52,8 +49,8 @@ const ClientReset = () => {
             event.target.value.length === 0
               ? "This field is required"
               : (formValues.passwordConfirm === formValues.password) === true
-                ? "Password Confirm doesn't Match"
-                : null,
+              ? "Password Confirm doesn't Match"
+              : null,
         });
         break;
 
@@ -68,15 +65,15 @@ const ClientReset = () => {
       axiosInstace
         .patch(`users/resetPassword/${params.resetToken}`, formValues)
         .then((response) => {
-          console.log(response);
-          MySwal.fire(`Password Rested Successfully , Please Login With Your New Password`).then(result => {
+          MySwal.fire(
+            `Password Rested Successfully , Please Login With Your New Password`
+          ).then((result) => {
             if (result.isConfirmed) {
-              window.location.replace('/clientLogin');
+              window.location.replace("/clientLogin");
             }
           });
         })
         .catch((err) => {
-          console.log(err);
           MySwal.fire(
             `Invalid Password , Please Enter Your New Password in Right Way`
           );
@@ -91,7 +88,6 @@ const ClientReset = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
-  // const btnStyle = { margin: "8px 0" };
   return (
     <div className="text-center m-5">
       <Grid>
@@ -133,13 +129,7 @@ const ClientReset = () => {
                 {formValuesErrors.passwordConfirmErr}
               </div>
             )}
-            {/* <div className="m-5 ">
-                <BTN 
-                  URL="/company_signup"
-                  text="Reset"
-                  type="defult"
-                />
-            </div> */}
+
             <div className="topRight">
               <button
                 onClick={(e) => handleSubmitForm(e)}
@@ -154,20 +144,6 @@ const ClientReset = () => {
                 Reset
               </button>
             </div>
-            {/* <Button
-              type="submit"
-              color="primary"
-              variant="contained"
-              style={btnStyle}
-              fullWidth
-              disabled={
-                formValuesErrors.passErr ||
-                formValuesErrors.passwordConfirmErr ||
-                (formValues.password && formValues.passwordConfirm) === ""
-              }
-            >
-              Reset
-            </Button> */}
           </form>
         </Paper>
       </Grid>

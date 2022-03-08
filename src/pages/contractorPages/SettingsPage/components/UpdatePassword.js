@@ -35,12 +35,9 @@ export default function UpdatePassword(props) {
     }
   };
   const handleSubmitForm = (formValues) => {
-    console.log("formValues", formValues);
-    // console.log(data)
     axiosInstace
       .patch("contractors/updateMyPassword", formValues)
       .then((res) => {
-        // console.log(res.data);
         localStorage.setItem("company_token", res.data.token);
         MySwal.fire(`Data changed Successfully`).then((result) => {
           if (result.isConfirmed) {
@@ -54,7 +51,6 @@ export default function UpdatePassword(props) {
             // window.location.reload()
           }
         });
-        console.log(err);
       });
   };
 

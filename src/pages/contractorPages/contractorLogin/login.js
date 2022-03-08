@@ -1,26 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { validEmail, validPassword } from "./regex.js";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import BTN from "../../../components/button/btn";
 
-import {
-  Grid,
-  Paper,
-  Avatar,
-  TextField,
-  Typography,
-  Button,
-} from "@material-ui/core";
+import { Grid, Paper, Avatar, TextField, Typography } from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
 
-
 const MySwal = withReactContent(Swal);
 const ContractorLogin = () => {
-  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -44,8 +35,8 @@ const ContractorLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validEmail.test(event.target.value) === false
-                ? "Email must be like that (uuuwwwaaa@Example.com)"
-                : null,
+              ? "Email must be like that (uuuwwwaaa@Example.com)"
+              : null,
         });
         break;
 
@@ -60,8 +51,8 @@ const ContractorLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validPassword.test(event.target.value) === false
-                ? "Password must be like that (Pass12345)"
-                : null,
+              ? "Password must be like that (Pass12345)"
+              : null,
         });
         break;
 
@@ -76,18 +67,16 @@ const ContractorLogin = () => {
       axiosInstace
         .post("contractors/login", formValues)
         .then((response) => {
-          console.log(response.data);
           MySwal.fire(
             `Logged-in Successfully , Welcome ${response.data.data.contractor.name} , at ArtDeco.com`
-          ).then(result => {
+          ).then((result) => {
             if (result.isConfirmed) {
-              window.location.replace('/');
+              window.location.replace("/");
             }
           });
           localStorage.setItem("company_token", response.data.token);
         })
         .catch((err) => {
-          console.log(err);
           MySwal.fire(
             `Invalid Login , Please Enter Your Email and Password in Right Way`
           );
@@ -98,17 +87,14 @@ const ContractorLogin = () => {
     e.preventDefault();
     if (!formValuesErrors.emailErr) {
       axiosInstace
-        .post(
-          "contractors/forgotPassword",
-          formValues
-        )
+        .post("contractors/forgotPassword", formValues)
         .then((response) => {
-          console.log(response);
           MySwal.fire(`Please Check Your Email To Reset Your Password`);
         })
         .catch((err) => {
-          console.log(err);
-          MySwal.fire(`Can't Find This Email , Please Right Your Email In Right Way`);
+          MySwal.fire(
+            `Can't Find This Email , Please Right Your Email In Right Way`
+          );
         });
     }
   };
@@ -119,7 +105,7 @@ const ContractorLogin = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
-  const btnStyle = { margin: "8px 0" };
+
   return (
     <div className="Login text-center m-5">
       <Grid>
@@ -208,11 +194,7 @@ const ContractorLogin = () => {
             {" "}
             Do you have an account ? <br />
             <div className="m-3 ">
-              <BTN
-                URL="/ContractorSignUp"
-                text="Sign Up"
-                type="outline"
-              />
+              <BTN URL="/ContractorSignUp" text="Sign Up" type="outline" />
             </div>
           </Typography>
         </Paper>

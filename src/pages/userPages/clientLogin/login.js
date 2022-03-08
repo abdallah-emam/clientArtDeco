@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { validEmail, validPassword } from "./regex.js";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import {
-  Grid,
-  Paper,
-  Avatar,
-  TextField,
-  Typography,
-  Button
-} from "@material-ui/core";
-import './login.css'
+import { Grid, Paper, Avatar, TextField, Typography } from "@material-ui/core";
+import "./login.css";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { axiosInstace } from "../../../network/axiosConfig";
 import BTN from "../../../components/button/btn";
@@ -19,7 +12,6 @@ import BTN from "../../../components/button/btn";
 const MySwal = withReactContent(Swal);
 
 const ClientLogin = () => {
-  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -43,8 +35,8 @@ const ClientLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validEmail.test(event.target.value) === false
-                ? "Email must be like that (uuuuwwwwaaa@example.com)"
-                : null,
+              ? "Email must be like that (exmple@example.com)"
+              : null,
         });
         break;
 
@@ -59,8 +51,8 @@ const ClientLogin = () => {
             event.target.value.length === 0
               ? "This field is required"
               : validPassword.test(event.target.value) === false
-                ? "Password must be like that (Pass12345)"
-                : null,
+              ? "Password must be like that (Pass12345)"
+              : null,
         });
         break;
       default:
@@ -74,16 +66,16 @@ const ClientLogin = () => {
       axiosInstace
         .post("users/login", formValues)
         .then((response) => {
-          console.log(response.data);
-          MySwal.fire(`Logged-in Successfully , Welcome ${response.data.data.user.name} , at ArtDeco.com`).then(result => {
+          MySwal.fire(
+            `Logged-in Successfully , Welcome ${response.data.data.user.name} , at ArtDeco.com`
+          ).then((result) => {
             if (result.isConfirmed) {
-              window.location.replace('/');
+              window.location.replace("/");
             }
           });
           localStorage.setItem("user_token", response.data.token);
         })
         .catch((err) => {
-          console.log(err);
           MySwal.fire(
             `Invalid Login , Please Enter Your Email and Password Right`
           );
@@ -97,12 +89,12 @@ const ClientLogin = () => {
       axiosInstace
         .post("users/forgotPassword", formValues)
         .then((response) => {
-          console.log(response);
           MySwal.fire(`Please Check Your Email To Reset Your Password`);
         })
         .catch((err) => {
-          console.log(err);
-          MySwal.fire(`Can't Find This Email , Please Right Your Email In Right Way`);
+          MySwal.fire(
+            `Can't Find This Email , Please Right Your Email In Right Way`
+          );
         });
     }
   };
@@ -114,7 +106,7 @@ const ClientLogin = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff8a00" };
-  const btnStyle = { margin: "8px 0" };
+
   return (
     <div className="Login text-center m-5">
       <Grid>
@@ -204,11 +196,7 @@ const ClientLogin = () => {
             Do you have an account ? <br />
             {/* <Link to={"/user_signup"}>Sign Up</Link> */}
             <div className="m-3 ">
-              <BTN
-                URL="/ClientSignUp"
-                text="Sign up"
-                type="outline"
-              />
+              <BTN URL="/ClientSignUp" text="Sign up" type="outline" />
             </div>
           </Typography>
         </Paper>

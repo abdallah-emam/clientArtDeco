@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-// import Footer from "../Footer/Footer";
 import "./jobReview.css";
 import PaidIcon from "@mui/icons-material/Paid";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { axiosInstace } from "../../../network/axiosConfig";
 import { useNavigate } from "react-router-dom";
-import ClientLogin from './../clientLogin/login';
+import ClientLogin from "./../clientLogin/login";
 
 const MySwal = withReactContent(Swal);
 
@@ -70,9 +69,7 @@ export default function JobCreation() {
         setFormValuesErrors({
           ...formValuesErrors,
           headLineErr:
-            event.target.value.length === 0
-              ? "This field is required"
-              : null,
+            event.target.value.length === 0 ? "This field is required" : null,
         });
         break;
 
@@ -84,9 +81,7 @@ export default function JobCreation() {
         setFormValuesErrors({
           ...formValuesErrors,
           descriptionErr:
-            event.target.value.length === 0
-              ? "This field is required"
-              : null,
+            event.target.value.length === 0 ? "This field is required" : null,
         });
         break;
 
@@ -98,9 +93,7 @@ export default function JobCreation() {
         setFormValuesErrors({
           ...formValuesErrors,
           budgetErr:
-            event.target.value.length === 0
-              ? "This field is required"
-              : null,
+            event.target.value.length === 0 ? "This field is required" : null,
         });
         break;
 
@@ -125,167 +118,172 @@ export default function JobCreation() {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    if (!formValuesErrors.headLineErr && !formValuesErrors.descriptionErr && !formValuesErrors.budgetErr) {
+    if (
+      !formValuesErrors.headLineErr &&
+      !formValuesErrors.descriptionErr &&
+      !formValuesErrors.budgetErr
+    ) {
       axiosInstace
         .post("job", formValues)
         .then((response) => {
-          console.log(response.data);
-          MySwal.fire(`Job Added Successfully`).then(result => {
+          MySwal.fire(`Job Added Successfully`).then((result) => {
             if (result.isConfirmed) {
-              window.location.replace('/ClientProfile');
+              window.location.replace("/ClientProfile");
             }
           });
         })
         .catch((err) => {
-          console.log(err);
           MySwal.fire(`Can't Add This Job , Enter All The Date`);
         });
     }
   };
 
-  return (
-    localStorage.getItem("user_token") ? (
-      <>
-        <br />
-        <br />
-        <div className="MainDiv container">
-          <div className="FirstWrapper">
-            <div className="topLeft">
-              <span className="Sign-Page">Create a Job</span>
-            </div>
-            <div className="topRight">
-              <button
-                onClick={(e) => handleSubmitForm(e)}
-                type="button"
-                className="btn"
-                disabled={
-                  formValuesErrors.budgetErr ||
-                  formValuesErrors.descriptionErr ||
-                  formValuesErrors.headLineErr ||
-                  (formValues.description && formValues.budget && formValues.headLine) === ""
-                }
-              >
-                Submit Job
-              </button>
-            </div>
+  return localStorage.getItem("user_token") ? (
+    <>
+      <br />
+      <br />
+      <div className="MainDiv container">
+        <div className="FirstWrapper">
+          <div className="topLeft">
+            <span className="Sign-Page">Create a Job</span>
           </div>
-          <hr />
-          <div className="SecondWrapper">
-            <div className="topLeft">
-              <div className="form-group">
-                <label>HeadLine</label>
-                <input
-                  required
-                  maxLength={100}
-                  type="text"
-                  className="form-control"
-                  name="headLine"
-                  value={formValues.headLine}
-                  onChange={(e) => handleFormChange(e)}
-                  placeholder="Enter a Descriptive HeadLine"
-                ></input>
+          <div className="topRight">
+            <button
+              onClick={(e) => handleSubmitForm(e)}
+              type="button"
+              className="btn"
+              disabled={
+                formValuesErrors.budgetErr ||
+                formValuesErrors.descriptionErr ||
+                formValuesErrors.headLineErr ||
+                (formValues.description &&
+                  formValues.budget &&
+                  formValues.headLine) === ""
+              }
+            >
+              Submit Job
+            </button>
+          </div>
+        </div>
+        <hr />
+        <div className="SecondWrapper">
+          <div className="topLeft">
+            <div className="form-group">
+              <label>HeadLine</label>
+              <input
+                required
+                maxLength={100}
+                type="text"
+                className="form-control"
+                name="headLine"
+                value={formValues.headLine}
+                onChange={(e) => handleFormChange(e)}
+                placeholder="Enter a Descriptive HeadLine"
+              ></input>
+            </div>
+            {formValuesErrors.headLineErr && (
+              <div id="usernameHelp" className="form-text text-danger">
+                {formValuesErrors.headLineErr}
               </div>
-              {formValuesErrors.headLineErr && (
+            )}
+          </div>
+        </div>
+        <hr />
+        <div className="ThirdWrapper">
+          <div className="topLeft">
+            <h5>Describe Your Job</h5>
+            <h6>
+              This is how companies will figure out what you need and why they
+              should make an offer to you.
+            </h6>
+            <div className="form-group">
+              <textarea
+                required
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows="10"
+                name="description"
+                placeholder="Enter a Description for your Job"
+                value={formValues.description}
+                onChange={(e) => handleFormChange(e)}
+              ></textarea>
+              {formValuesErrors.descriptionErr && (
                 <div id="usernameHelp" className="form-text text-danger">
-                  {formValuesErrors.headLineErr}
+                  {formValuesErrors.descriptionErr}
                 </div>
               )}
             </div>
+            <br />
+            <h5>Location</h5>
+            <select
+              name="location"
+              value={formValues.location}
+              onChange={(e) => handleFormChange(e)}
+              class="form-select"
+              aria-label="Default select example"
+            >
+              {Governorates.map((item) => (
+                <option value={item}>{item}</option>
+              ))}
+            </select>
           </div>
-          <hr />
-          <div className="ThirdWrapper">
-            <div className="topLeft">
-              <h5>Describe Your Job</h5>
-              <h6>
-                This is how companies will figure out what you need and why they
-                should make an offer to you.
-              </h6>
-              <div className="form-group">
-                <textarea
+        </div>
+        <hr />
+        <div className="ForthWrapper">
+          <div className="topLeft">
+            <h5>Details</h5>
+            <div className="form-group mb-2">
+              <label>Budget</label>
+              <div className="input-group mb-1">
+                <span className="input-group-text">
+                  <PaidIcon />
+                </span>
+                <input
                   required
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="10"
-                  name="description"
-                  placeholder="Enter a Description for your Job"
-                  value={formValues.description}
+                  type="number"
+                  min={0}
+                  name="budget"
+                  value={formValues.budget}
                   onChange={(e) => handleFormChange(e)}
-                ></textarea>
-                {formValuesErrors.descriptionErr && (
-                  <div id="usernameHelp" className="form-text text-danger">
-                    {formValuesErrors.descriptionErr}
-                  </div>
-                )}
+                  className="form-control"
+                  aria-label="Amount (to the nearest dollar)"
+                ></input>
               </div>
-              <br />
-              <h5>Location</h5>
+              {formValuesErrors.budgetErr && (
+                <div id="usernameHelp" className="form-text text-danger">
+                  {formValuesErrors.budgetErr}
+                </div>
+              )}
+            </div>
+            <div className="form-group">
+              <label>Estimated Time</label>
               <select
-                name="location"
-                value={formValues.location}
+                required
+                name="estimatedTime"
+                value={formValues.estimatedTime}
                 onChange={(e) => handleFormChange(e)}
                 class="form-select"
-                aria-label="Default select example"
               >
-                {Governorates.map((item) => (
+                {Times.map((item) => (
                   <option value={item}>{item}</option>
                 ))}
               </select>
             </div>
           </div>
-          <hr />
-          <div className="ForthWrapper">
-            <div className="topLeft">
-              <h5>Details</h5>
-              <div className="form-group mb-2">
-                <label>Budget</label>
-                <div className="input-group mb-1">
-                  <span className="input-group-text">
-                    <PaidIcon />
-                  </span>
-                  <input
-                    required
-                    type="number"
-                    min={0}
-                    name="budget"
-                    value={formValues.budget}
-                    onChange={(e) => handleFormChange(e)}
-                    className="form-control"
-                    aria-label="Amount (to the nearest dollar)"
-                  ></input>
-                </div>
-                {formValuesErrors.budgetErr && (
-                  <div id="usernameHelp" className="form-text text-danger">
-                    {formValuesErrors.budgetErr}
-                  </div>
-                )}
-              </div>
-              <div className="form-group">
-                <label>Estimated Time</label>
-                <select
-                  required
-                  name="estimatedTime"
-                  value={formValues.estimatedTime}
-                  onChange={(e) => handleFormChange(e)}
-                  class="form-select"
-                >
-                  {Times.map((item) => (
-                    <option value={item}>{item}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div className="topRight">
-              <div className="Special container">
-                <h6>
-                  Enter The Details Of Your Work To make It Clear To the Companies
-                  to know everything you need to finish your work in right way.
-                </h6>
-              </div>
+          <div className="topRight">
+            <div className="Special container">
+              <h6>
+                Enter The Details Of Your Work To make It Clear To the Companies
+                to know everything you need to finish your work in right way.
+              </h6>
             </div>
           </div>
         </div>
-        <br />
-        <br />
-      </>) : (<ClientLogin />)
+      </div>
+      <br />
+      <br />
+    </>
+  ) : (
+    <ClientLogin />
   );
 }

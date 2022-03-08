@@ -1,7 +1,6 @@
 a {
   transition: all 0.2s ease;
   text-decoration: none;
-  /* margin-right: 20px; */
   cursor: pointer;
   display: inline-block;
 }
@@ -36,11 +35,11 @@ a {
   background-color: rgba(34, 34, 34, 1);
 }
 
-@media (min-width: 768px) and (max-width: 1279px) { 
+@media (min-width: 768px) and (max-width: 1279px) {
   .Btn {
     padding: 5px 20px;
   }
- }
+}
 
 @media (min-width: 0) and (max-width: 480px) {
   .Btn {

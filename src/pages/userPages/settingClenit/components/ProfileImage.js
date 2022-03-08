@@ -13,15 +13,13 @@ const MySwal = withReactContent(Swal);
 
 function ProfileImage(props) {
   const [formValues, setFormValues] = useState({});
-  const [ isUploaded , setisUploaded] = useState(false);
+  const [isUploaded, setisUploaded] = useState(false);
 
-  const handleFormChange = event => {
-    console.log(event.target.files[0]);
+  const handleFormChange = (event) => {
     setFormValues(event.target.files[0]);
-    setisUploaded(true)
+    setisUploaded(true);
   };
-  const handleSubmitForm = formValues => {
-    console.log("formValues", formValues);
+  const handleSubmitForm = (formValues) => {
     const formData = new FormData();
     formData.append("photo", formValues);
     const config = {
@@ -30,38 +28,34 @@ function ProfileImage(props) {
       },
     };
 
-    if(isUploaded){
-    axiosInstace
-      .patch("users/updateMe", formData, config)
-      .then(res => {
-        console.log(res.data.data.user);
-        console.log("formData", formData);
-        MySwal.fire(`Data changed Successfully`).then(result => {
-          if (result.isConfirmed) {
-            window.location.reload();
-          }
+    if (isUploaded) {
+      axiosInstace
+        .patch("users/updateMe", formData, config)
+        .then((res) => {
+          MySwal.fire(`Data changed Successfully`).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
+        })
+        .catch((err) => {
+          MySwal.fire(`Error , Try again`).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
         });
-      })
-      .catch(err => {
-        MySwal.fire(`Error , Try again`).then(result => {
-          if (result.isConfirmed) {
-            window.location.reload();
-          }
-        });
-        console.log(err);
-      });
     }
   };
 
-  console.log("photo", props.UserDetails.photo);
   return (
-    <div className='w-100'>
-      <Box className='w-100' sx={{ display: "flex" }}>
+    <div className="w-100">
+      <Box className="w-100" sx={{ display: "flex" }}>
         <Grid container spacing={2}>
           <Grid
             item
             style={{ display: "block" }}
-            className='section_title top_30 d-block'
+            className="section_title top_30 d-block"
           >
             <span></span>
             <h2> Change Profile Image :</h2>
@@ -69,30 +63,30 @@ function ProfileImage(props) {
           <Grid item xs={12} sm={12}>
             <Card sx={{ maxWidth: 345 }}>
               <CardMedia
-                className='imageSettings'
-                component='img'
+                className="imageSettings"
+                component="img"
                 // height='194'
                 image={props.UserDetails.photo}
-                crossOrigin='anonymous'
-                alt='profile image'
+                crossOrigin="anonymous"
+                alt="profile image"
               />
               <CardActions disableSpacing>
                 <input
-                  className='form-control file-Attach w-100'
-                  type='file'
-                  id='formFileMultiple'
-                  name='photo'
+                  className="form-control file-Attach w-100"
+                  type="file"
+                  id="formFileMultiple"
+                  name="photo"
                   //   multiple
-                  onChange={e => handleFormChange(e)}
+                  onChange={(e) => handleFormChange(e)}
                 />
                 <br />
               </CardActions>
-              <Grid item xs={12} className='text-center p-2'>
+              <Grid item xs={12} className="text-center p-2">
                 <Button
                   onClick={() => handleSubmitForm(formValues)}
-                  className='site_btn'
+                  className="site_btn"
                 >
-                  <span className='button_text'>Update Data</span>
+                  <span className="button_text">Update Data</span>
                 </Button>
               </Grid>
             </Card>

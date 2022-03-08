@@ -4,12 +4,10 @@ import { Grid } from "@mui/material";
 import { axiosInstace } from "./../../../../network/axiosConfig";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import BTN from "../../../../components/button/btn";
 import "../settingsPageStyle.css";
 const MySwal = withReactContent(Swal);
 
 export default function UpdatePassword(props) {
-  // const [Password, setPassword] = React.useState("");
   const [formValues, setFormValues] = useState({});
 
   const handleFormChange = (event) => {
@@ -37,12 +35,9 @@ export default function UpdatePassword(props) {
     }
   };
   const handleSubmitForm = (formValues) => {
-    console.log("formValues", formValues);
-    // console.log(data)
     axiosInstace
       .patch("users/updateMyPassword", formValues)
       .then((res) => {
-        console.log(res.data);
         localStorage.setItem("user_token", res.data.token);
         MySwal.fire(`Data changed Successfully`).then((result) => {
           if (result.isConfirmed) {
@@ -56,7 +51,6 @@ export default function UpdatePassword(props) {
             // window.location.reload()
           }
         });
-        console.log(err);
       });
   };
   return (
@@ -100,12 +94,6 @@ export default function UpdatePassword(props) {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  {/* <div id='BTN'>
-                <BTN URL="" text="Update Data" type="defult"
-                 onClick={() => handleSubmitForm(formValues)}
-                 className='site_btn'
-                 />
-              </div> */}
                   <Button
                     onClick={() => handleSubmitForm(formValues)}
                     className="site_btn"

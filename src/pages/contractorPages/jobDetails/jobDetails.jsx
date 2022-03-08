@@ -19,121 +19,121 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import { Button } from "react-bootstrap";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import BTN from './../../../components/button/btn';
+import BTN from "./../../../components/button/btn";
 
 export default function JobDetails() {
   const params = useParams();
   const [jobDetails, setJobDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
     axiosInstace
       .get(`job/contractor/${params.id}`)
-      .then(res => {
-        console.log(res)
+      .then((res) => {
         setJobDetails(res.data.data.job);
         window.scrollTo(0, 0);
         setIsLoading(false);
-        // console.log("result", res.data.data.job);
       })
-      .catch(err => {
-        console.log(err);
+      .catch((err) => {
         window.location.replace("/contractorLogin");
-
-        });
+      });
   }, []);
   return (
-    <div className='container m-md-5 JobsPage-container'>
-        {isLoading ? (
-          <div className='w-100 position-relative'>
-            <Box
-              className='position-absolute top-0 start-50 translate-middle-x'
-              sx={{ display: "flex" }}
-            >
-              <CircularProgress className='m-5' />
-            </Box>
-          </div>
-        ) : (
-          <section
+    <div className="container m-md-5 JobsPage-container">
+      {isLoading ? (
+        <div className="w-100 position-relative">
+          <Box
+            className="position-absolute top-0 start-50 translate-middle-x"
+            sx={{ display: "flex" }}
+          >
+            <CircularProgress className="m-5" />
+          </Box>
+        </div>
+      ) : (
+        <section
           key={jobDetails.id}
-          className='jobsSection border p-sm-3 p-xs-5 col-12'
+          className="jobsSection border p-sm-3 p-xs-5 col-12"
         >
-          <div className='d-flex justify-content-between'>
-            <h5 className='d-inline-block  w-auto'>{jobDetails.headLine}</h5>
+          <div className="d-flex justify-content-between">
+            <h5 className="d-inline-block  w-auto">{jobDetails.headLine}</h5>
           </div>
-          <div className='jobInfoLine my-2'>
-            <span className='border-end border-warning border-3 px-3'>
+          <div className="jobInfoLine my-2">
+            <span className="border-end border-warning border-3 px-3">
               Budget:&nbsp;{jobDetails.budget}
             </span>
-            <span className='border-end border-warning border-3 px-3'>
+            <span className="border-end border-warning border-3 px-3">
               {new Date(Date.parse(jobDetails.createdAt)).toDateString()}
             </span>
-            <span className='border-end border-warning border-3 px-3'>
+            <span className="border-end border-warning border-3 px-3">
               Estimited Time:&nbsp;{jobDetails.estimatedTime}
             </span>
-            <span className='px-3'>
+            <span className="px-3">
               <FontAwesomeIcon icon={faLocationDot} />
               &nbsp;{jobDetails.location}
             </span>
           </div>
-          <div className='jobDescription my-3'>
+          <div className="jobDescription my-3">
             <p>{jobDetails.description}</p>
           </div>
-          <div className='Proposals my-3'>
+          <div className="Proposals my-3">
             <p>
               Proposals :&nbsp;
-              <span className='jobKeyWord rounded-pill p-1 me-2'>
+              <span className="jobKeyWord rounded-pill p-1 me-2">
                 {jobDetails.totalProposal}
               </span>
             </p>
           </div>
-          <Grid item lg={6} md={12} className='experience pb_30'>
-            <Timeline className='timeline'>
+          <Grid item lg={6} md={12} className="experience pb_30">
+            <Timeline className="timeline">
               {jobDetails.status === "pending" ? (
                 <>
                   <TimelineItem>
                     <TimelineSeparator>
-                      <TimelineDot className='timeline_dot_header'>
+                      <TimelineDot className="timeline_dot_header">
                         <LocalOfferIcon />
                       </TimelineDot>
                       <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent>
-                      <Typography variant='h6' className='timeline_header'>
+                      <Typography variant="h6" className="timeline_header">
                         Contractors Proposals : ({jobDetails.proposals.length})
                       </Typography>
                     </TimelineContent>
                   </TimelineItem>
-                  {jobDetails.proposals.map(proposal => (
+                  {jobDetails.proposals.map((proposal) => (
                     <TimelineItem key={proposal.id}>
-                      <TimelineSeparator className='separator_padding'>
-                        <TimelineDot variant='outlined' className='timeline_dot' />
+                      <TimelineSeparator className="separator_padding">
+                        <TimelineDot
+                          variant="outlined"
+                          className="timeline_dot"
+                        />
                         <TimelineConnector />
                       </TimelineSeparator>
-                      <TimelineContent className='timeline_content'>
-                        <Typography className='timeline_title'>
+                      <TimelineContent className="timeline_content">
+                        <Typography className="timeline_title">
                           Financial Offer :&nbsp;
                           {proposal.financialOffer}
                         </Typography>
                         <Typography
-                          variant='body2'
-                          className='timeline_description'
+                          variant="body2"
+                          className="timeline_description"
                         >
                           Estimated time :&nbsp;{proposal.estimatedTime}
                         </Typography>
                         <Typography
-                          variant='body2'
-                          className='timeline_description'
+                          variant="body2"
+                          className="timeline_description"
                         >
                           Cover letter :&nbsp;{proposal.coverLetter}
                         </Typography>
                         <Typography
-                          variant='body2'
-                          className='timeline_description'
+                          variant="body2"
+                          className="timeline_description"
                         >
                           Created at :&nbsp;
-                          {new Date(Date.parse(proposal.createdAt)).toDateString()}
+                          {new Date(
+                            Date.parse(proposal.createdAt)
+                          ).toDateString()}
                         </Typography>
                       </TimelineContent>
                     </TimelineItem>
@@ -142,9 +142,9 @@ export default function JobDetails() {
               ) : (
                 <Link to={`/onGoingJob/${jobDetails.id}`}>
                   <Button
-                    className='acceptProposalButton mt-2'
-                    variant='contained'
-                    color='success'
+                    className="acceptProposalButton mt-2"
+                    variant="contained"
+                    color="success"
                   >
                     On Going
                   </Button>
@@ -153,12 +153,14 @@ export default function JobDetails() {
             </Timeline>
           </Grid>
           <div className="col-12 text-center my-4 jobDetailsBtn ">
-              <BTN URL={`/JobProposal/${jobDetails.id}`} text="Send a Proposal" type="defult" />
-            </div>
+            <BTN
+              URL={`/JobProposal/${jobDetails.id}`}
+              text="Send a Proposal"
+              type="defult"
+            />
+          </div>
         </section>
-    
-        )}
+      )}
     </div>
-
   );
 }

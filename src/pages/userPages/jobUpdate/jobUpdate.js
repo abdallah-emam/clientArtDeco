@@ -5,13 +5,13 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { axiosInstace } from "../../../network/axiosConfig";
 import { useParams } from "react-router-dom";
-import ClientLogin from './../clientLogin/login';
-// useNavigate,
+import ClientLogin from "./../clientLogin/login";
+
 const MySwal = withReactContent(Swal);
 
 export default function JobUpdate() {
   // const navigate = useNavigate();
-  const [Governorates, setGovernorates] = useState([
+  const [Governorates] = useState([
     "Cairo",
     "Giza",
     "Alexandria",
@@ -39,7 +39,7 @@ export default function JobUpdate() {
     "South Sinai",
     "Suez",
   ]);
-  const [Times, setTimes] = useState([
+  const [Times] = useState([
     "one month",
     "two months",
     "three months",
@@ -53,8 +53,8 @@ export default function JobUpdate() {
     headLine: "",
     description: "",
     budget: "",
-    estimatedTime: "",
-    location: "",
+    estimatedTime: "one month",
+    location: "Cairo",
   });
 
   const handleFormChange = (event) => {
@@ -99,167 +99,163 @@ export default function JobUpdate() {
     }
   };
 
-  //Get Specific Job 
+  //Get Specific Job
   const GetSpecificJob = () => {
     axiosInstace
       .get(`job/${params.id}`)
       .then((response) => {
         const myJob = response.data.data.job;
+        setFormValues(myJob);
         setJob(myJob);
       })
-      .catch((err) => {
-        console.log(err);
-        // MySwal.fire(`Can't Get This Job`);
-      });
+      .catch(() => {});
   };
-  useEffect(() => GetSpecificJob(), [])
+  useEffect(() => GetSpecificJob(), []);
 
-
-  // Update With BAckEND 
+  // Update With BAckEND
   const handleSubmitForm = (e) => {
     e.preventDefault();
 
     axiosInstace
       .patch(`job/${params.id}`, formValues)
       .then((response) => {
-        console.log(response.data);
-        MySwal.fire(`Job Updated Successfully`).then(result => {
+        MySwal.fire(`Job Updated Successfully`).then((result) => {
           if (result.isConfirmed) {
-            window.location.replace('/ClientProfile');
+            window.location.replace("/ClientProfile");
           }
         });
       })
       .catch((err) => {
-        console.log(err);
         MySwal.fire(`Can't Update This Job , Enter Valid Date`);
       });
   };
 
-  return (
-    localStorage.getItem("user_token") ? (
-      <>
-        <br />
-        <br />
-        <div className="MainDiv container">
-          <div className="FirstWrapper">
-            <div className="topLeft">
-              <span className="Sign-Page">Job Update</span>
+  return localStorage.getItem("user_token") ? (
+    <>
+      <br />
+      <br />
+      <div className="MainDiv container">
+        <div className="FirstWrapper">
+          <div className="topLeft">
+            <span className="Sign-Page">Job Update</span>
+          </div>
+          <div className="topRight">
+            <button
+              onClick={(e) => handleSubmitForm(e)}
+              type="button"
+              className="btn"
+            >
+              Update Job
+            </button>
+          </div>
+        </div>
+        <hr />
+        <div className="SecondWrapper">
+          <div className="topLeft">
+            <div className="form-group m-2">
+              <label>HeadLine</label>
+              <input
+                type="text"
+                maxLength={100}
+                className="form-control"
+                name="headLine"
+                value={formValues.headLine}
+                placeholder={job.headLine}
+                onChange={(e) => handleFormChange(e)}
+              ></input>
             </div>
-            <div className="topRight">
-              <button
-                onClick={(e) => handleSubmitForm(e)}
-                type="button"
-                className="btn"
+            <small>
+              Your Headline Must Be Descriptive to help the companies to
+              understand what you really want
+            </small>
+          </div>
+        </div>
+        <hr />
+        <div className="ThirdWrapper">
+          <div className="topLeft">
+            <h5>Describe Your Job</h5>
+            <h6>
+              This is how companies will figure out what you need and why they
+              should make an offer to you.
+            </h6>
+            <div className="form-group m-2">
+              <textarea
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows="10"
+                name="description"
+                placeholder={job.description}
+                value={formValues.description}
+                onChange={(e) => handleFormChange(e)}
+              ></textarea>
+              <br />
+              <h5>Location</h5>
+              <select
+                name="location"
+                value={formValues.location}
+                onChange={(e) => handleFormChange(e)}
+                placeholder={job.location}
+                class="form-select"
+                aria-label="Default select example"
               >
-                Update Job
-              </button>
-            </div>
-          </div>
-          <hr />
-          <div className="SecondWrapper">
-            <div className="topLeft">
-              <div className="form-group m-2">
-                <label>HeadLine</label>
-                <input
-                  type="text"
-                  maxLength={100}
-                  className="form-control"
-                  name="headLine"
-                  value={formValues.headLine}
-                  placeholder={job.headLine}
-                  onChange={(e) => handleFormChange(e)}
-                ></input>
-              </div>
-              <small>
-                Your Headline Must Be Descriptive to help the companies to
-                understand what you really want
-              </small>
-            </div>
-          </div>
-          <hr />
-          <div className="ThirdWrapper">
-            <div className="topLeft">
-              <h5>Describe Your Job</h5>
-              <h6>
-                This is how companies will figure out what you need and why they
-                should make an offer to you.
-              </h6>
-              <div className="form-group m-2">
-                <textarea
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="10"
-                  name="description"
-                  placeholder={job.description}
-                  value={formValues.description}
-                  onChange={(e) => handleFormChange(e)}
-                ></textarea>
-                <br />
-                <h5>Location</h5>
-                <select
-                  name="location"
-                  value={formValues.location}
-                  onChange={(e) => handleFormChange(e)}
-                  placeholder={job.location}
-                  class="form-select"
-                  aria-label="Default select example"
-                >
-                  {Governorates.map((item) => (
-                    <option value={item}>{item}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div className="ForthWrapper">
-            <div className="topLeft">
-              <h5>Details</h5>
-              <div className="form-group">
-                <label>Budget</label>
-                <div className="input-group mb-3 ">
-                  <span className="input-group-text">
-                    <PaidIcon />
-                  </span>
-                  <input
-                    type="number"
-                    min={0}
-                    name="budget"
-                    value={formValues.budget}
-                    onChange={(e) => handleFormChange(e)}
-                    placeholder={job.budget}
-                    className="form-control"
-                    aria-label="Amount (to the nearest dollar)"
-                  ></input>
-                </div>
-              </div>
-              <div className="form-group">
-                <label>Estimated Time</label>
-                <select
-                  name="estimatedTime"
-                  value={formValues.estimatedTime}
-                  placeholder={job.estimatedTime}
-                  onChange={(e) => handleFormChange(e)}
-                  class="form-select"
-                >
-                  {Times.map((item) => (
-                    <option value={item}>{item}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div className="topRight">
-              <div className="Special container">
-                <h6>
-                  Enter The Details Of Your Work To be Updated to make It Clear To the Companies
-                  to know everything you need to finish your work in right way.
-                </h6>
-              </div>
+                {Governorates.map((item) => (
+                  <option value={item}>{item}</option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
-        <br />
-      </>
-    ) : (<ClientLogin />)
+        <hr />
+        <div className="ForthWrapper">
+          <div className="topLeft">
+            <h5>Details</h5>
+            <div className="form-group">
+              <label>Budget</label>
+              <div className="input-group mb-3 ">
+                <span className="input-group-text">
+                  <PaidIcon />
+                </span>
+                <input
+                  type="number"
+                  min={0}
+                  name="budget"
+                  value={formValues.budget}
+                  onChange={(e) => handleFormChange(e)}
+                  placeholder={job.budget}
+                  className="form-control"
+                  aria-label="Amount (to the nearest dollar)"
+                ></input>
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Estimated Time</label>
+              <select
+                name="estimatedTime"
+                value={formValues.estimatedTime}
+                placeholder={job.estimatedTime}
+                onChange={(e) => handleFormChange(e)}
+                class="form-select"
+              >
+                {Times.map((item) => (
+                  <option value={item}>{item}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="topRight">
+            <div className="Special container">
+              <h6>
+                Enter The Details Of Your Work To be Updated to make It Clear To
+                the Companies to know everything you need to finish your work in
+                right way.
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </>
+  ) : (
+    <ClientLogin />
   );
 }

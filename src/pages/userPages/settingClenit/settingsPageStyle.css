@@ -1,17 +1,13 @@
 .css-1n3h4wo {
-    height: auto !important;
+  height: auto !important;
 }
 .section {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
 }
-.imageSettings {
-    
+.button_text {
+  color: white;
 }
-
-.button_text{
-    color: white;
-}
-.Tab:active{
-    color:#fdc236 !important;
+.Tab:active {
+  color: #fdc236 !important;
 }

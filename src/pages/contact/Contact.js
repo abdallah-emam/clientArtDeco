@@ -96,7 +96,6 @@ const Contact = () => {
                     type="submit"
                     id="form-submit"
                   >
-
                     Send
                   </button>
                   <div id="msgSubmit" className="h3 text-center hidden "></div>

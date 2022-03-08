@@ -4,12 +4,9 @@ import { useState, useEffect } from "react";
 import { axiosInstace } from "../../../network/axiosConfig";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import { Container, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import ClientData from "./clientData";
 import { Grid } from "@mui/material";
-import { Link } from "react-router-dom";
-import CustomButton from "./../settingClenit/components/Button";
-import EditIcon from "@mui/icons-material/Edit";
 import ClientDashboard from "./dashboard";
 
 export default function ClientProfile() {
@@ -23,12 +20,9 @@ export default function ClientProfile() {
       .then((res) => {
         setUserDetails(res.data.data.user);
         setJobs(res.data.data.user.jobs);
-        console.log("result", res.data.data.data);
-        console.log("jobs", res.data.data.user.jobs);
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         window.location.replace("/clientLogin");
       });
   }, []);

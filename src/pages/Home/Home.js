@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as YourSvg } from "../../images/svg/undraw_certificate_re_yadi.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BTN from "../../components/button/btn";
@@ -199,7 +200,11 @@ function Home() {
                 </div>
                 <div className="row mt-5">
                   <div className="col-sm-7 col-md-12 col-lg-7">
-                    <BTN URL="/ContractorLogin" text="find opportunity" type="outline" />
+                    <BTN
+                      URL="/ContractorLogin"
+                      text="find opportunity"
+                      type="outline"
+                    />
                   </div>
                 </div>
               </div>
