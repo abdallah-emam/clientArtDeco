@@ -31,6 +31,7 @@ export default function JobDetails() {
     axiosInstace
       .get(`job/contractor/${params.id}`)
       .then(res => {
+        console.log(res)
         setJobDetails(res.data.data.job);
         window.scrollTo(0, 0);
         setIsLoading(false);

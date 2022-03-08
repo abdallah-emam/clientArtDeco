@@ -54,6 +54,11 @@ export default function JobCreation() {
     estimatedTime: "one month",
     location: "Cairo",
   });
+  const [formValuesErrors, setFormValuesErrors] = useState({
+    headLineErr: null,
+    descriptionErr: null,
+    budgetErr: null,
+  });
 
   const handleFormChange = (event) => {
     switch (event.target.name) {
@@ -62,6 +67,13 @@ export default function JobCreation() {
           ...formValues,
           headLine: event.target.value,
         });
+        setFormValuesErrors({
+          ...formValuesErrors,
+          headLineErr:
+            event.target.value.length === 0
+              ? "This field is required"
+              : null,
+        });
         break;
 
       case "description":
@@ -69,12 +81,26 @@ export default function JobCreation() {
           ...formValues,
           description: event.target.value,
         });
+        setFormValuesErrors({
+          ...formValuesErrors,
+          descriptionErr:
+            event.target.value.length === 0
+              ? "This field is required"
+              : null,
+        });
         break;
 
       case "budget":
         setFormValues({
           ...formValues,
           budget: event.target.value,
+        });
+        setFormValuesErrors({
+          ...formValuesErrors,
+          budgetErr:
+            event.target.value.length === 0
+              ? "This field is required"
+              : null,
         });
         break;
 
@@ -96,24 +122,25 @@ export default function JobCreation() {
         break;
     }
   };
-  
+
   const handleSubmitForm = (e) => {
     e.preventDefault();
-
-    axiosInstace
-      .post("job", formValues)
-      .then((response) => {
-        console.log(response.data);
-        MySwal.fire(`Job Added Successfully`).then(result => {
-          if (result.isConfirmed) {
-            window.location.replace('/ClientProfile');
-          }
+    if (!formValuesErrors.headLineErr && !formValuesErrors.descriptionErr && !formValuesErrors.budgetErr) {
+      axiosInstace
+        .post("job", formValues)
+        .then((response) => {
+          console.log(response.data);
+          MySwal.fire(`Job Added Successfully`).then(result => {
+            if (result.isConfirmed) {
+              window.location.replace('/ClientProfile');
+            }
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          MySwal.fire(`Can't Add This Job , Enter All The Date`);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-        MySwal.fire(`Can't Add This Job , Enter All The Date`);
-      });
+    }
   };
 
   return (
@@ -131,6 +158,12 @@ export default function JobCreation() {
                 onClick={(e) => handleSubmitForm(e)}
                 type="button"
                 className="btn"
+                disabled={
+                  formValuesErrors.budgetErr ||
+                  formValuesErrors.descriptionErr ||
+                  formValuesErrors.headLineErr ||
+                  (formValues.description && formValues.budget && formValues.headLine) === ""
+                }
               >
                 Submit Job
               </button>
@@ -152,10 +185,11 @@ export default function JobCreation() {
                   placeholder="Enter a Descriptive HeadLine"
                 ></input>
               </div>
-              <small>
-                Your Headline Must Be Descriptive to help the companies to
-                understand what you really want
-              </small>
+              {formValuesErrors.headLineErr && (
+                <div id="usernameHelp" className="form-text text-danger">
+                  {formValuesErrors.headLineErr}
+                </div>
+              )}
             </div>
           </div>
           <hr />
@@ -177,6 +211,11 @@ export default function JobCreation() {
                   value={formValues.description}
                   onChange={(e) => handleFormChange(e)}
                 ></textarea>
+                {formValuesErrors.descriptionErr && (
+                  <div id="usernameHelp" className="form-text text-danger">
+                    {formValuesErrors.descriptionErr}
+                  </div>
+                )}
               </div>
               <br />
               <h5>Location</h5>
@@ -197,9 +236,9 @@ export default function JobCreation() {
           <div className="ForthWrapper">
             <div className="topLeft">
               <h5>Details</h5>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <label>Budget</label>
-                <div className="input-group mb-3">
+                <div className="input-group mb-1">
                   <span className="input-group-text">
                     <PaidIcon />
                   </span>
@@ -214,6 +253,11 @@ export default function JobCreation() {
                     aria-label="Amount (to the nearest dollar)"
                   ></input>
                 </div>
+                {formValuesErrors.budgetErr && (
+                  <div id="usernameHelp" className="form-text text-danger">
+                    {formValuesErrors.budgetErr}
+                  </div>
+                )}
               </div>
               <div className="form-group">
                 <label>Estimated Time</label>
