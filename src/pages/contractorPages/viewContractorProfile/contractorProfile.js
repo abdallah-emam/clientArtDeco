@@ -18,15 +18,24 @@ const MySwal = withReactContent(Swal);
 export default function ViewContactorProfile() {
   const [contractorDetails, setContractorDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [inProgressJobs, setinProgressJobs] = useState([]);
+  const [jobsRating, setjobsRating] = useState([]);
+
   const params = useParams();
-console.log(params.contractorID);
 
   useEffect(() => {
     axiosInstace
       .get(`contractors/${params.contractorID}`, {})
       .then(res => {
         setContractorDetails(res.data.data);
+        axiosInstace
+          .get(`jobHistory/contractorDetails._id`, {})
+          .then(res => {
+            setjobsRating(res.data.data);
+            console.log('jobsRating',res.data.data);
+          })
+          .catch(err => {
+            console.log(err);
+          });
         console.log("res", res);
         console.log("contractorDetails", contractorDetails);
         setIsLoading(false);
@@ -57,7 +66,11 @@ console.log(params.contractorID);
               </Col>
               <div className='col-xl-9 col-lg-8 col-md-8 col-sm-12 tab-container'>
                 <div className='content'>
-                  <Resume contractorDetails={contractorDetails} staticData={resume} />
+                  <Resume
+                    contractorDetails={contractorDetails}
+                    jobsRating={jobsRating}
+                    staticData={resume}
+                  />
                 </div>
               </div>
             </Row>
