@@ -29,7 +29,7 @@ const HandleClick = () => {
 
 export default function JobRate() {
     const [formValues, setFormValues] = useState({
-        jobRatingReview: "",
+        jobRatingReview: ""
     });
 
     const handleFormChange = (event) => {
@@ -49,25 +49,14 @@ export default function JobRate() {
     const [rating, setRatingvalue] = useState(2);
     const params = useParams();
 
-    // console.log(params);
-    // const [jobDetails, setJobDetails] = useState([]);
-    // console.log(Ratingvalue);
 
-    // useEffect(() => {
-    //     axiosInstace
-    //         .patch(`job/${params.jobID}/endJob/${params.contractorID}`)
-    //         .then((res) => {
-    //             setJobDetails(res.data.data.job);
-    //             console.log("result", res.data.data.job);
-    //         })
-    //         .catch((err) => console.log(err));
-    // }, []);
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
 
+        // console.log({ jobRatingReview: formValues.jobRatingReview, rating })
         axiosInstace
-            .patch(`job/${params.jobID}/endJob/${params.contractorID}`, formValues.jobRatingReview, rating)
+            .patch(`job/${params.jobID}/endJob/${params.contractorID}`, { jobRatingReview: formValues.jobRatingReview, rating })
             .then((response) => {
                 console.log(response.data);
                 MySwal.fire(`Job Ended Successfully , Thanks For WorkingWith ArtDeco.com`).then(result => {
@@ -113,7 +102,7 @@ export default function JobRate() {
                             </label>
                             <textarea
                                 name="jobRatingReview"
-                                placeholder="Enter a Description for your Job"
+                                placeholder="Enter a Review for this Contractor"
                                 value={formValues.jobRatingReview}
                                 onChange={(e) => handleFormChange(e)}
                                 class="form-control"
