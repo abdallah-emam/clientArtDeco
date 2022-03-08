@@ -132,31 +132,28 @@ function Home() {
             <div className="row">
               <div className="col-12 for-client-go-to">
                 <div className="row">
-                  <div className="col-md-4 mt-3 pt-10">
-                    <button className="card-link">
+                  <div className="col-lg-4 d-flex align-items-stretch mt-3 pt-10">
+                    <button onClick={() => window.location.assign('/clientLogin')} className="card-link">
                       <h2>
                         Post a job <br /> and hire pro
                       </h2>
-                      <Link to="/clientLogin">
-                        {" "}
                         Talent market place &#x2192;
-                      </Link>
                     </button>
                   </div>
-                  <div className="col-md-4 mt-3  pt-10">
-                    <button className="card-link">
+                  <div className="col-lg-4 d-flex align-items-stretch mt-3  pt-10">
+                    <button onClick={() => window.location.assign('/JobsPage')} className="card-link">
                       <h2>
                         Browse <br /> and buy project
                       </h2>
-                      <Link to="/JobsPage"> Project list &#x2192; </Link>
+                      Project list &#x2192;
                     </button>
                   </div>
-                  <div className="col-md-4  mt-3  pt-10">
-                    <button className="card-link">
+                  <div className="col-lg-4 d-flex align-items-stretch  mt-3  pt-10">
+                    <button onClick={() => window.location.assign('/Contact')} className="card-link">
                       <h2>
                         Countact us <br /> to help you in any problem
                       </h2>
-                      <Link to="/Contact"> contact us &#x2192; </Link>
+                      contact us &#x2192;
                     </button>
                   </div>
                 </div>
