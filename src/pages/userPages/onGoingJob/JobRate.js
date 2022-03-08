@@ -31,13 +31,22 @@ export default function JobRate() {
     const [formValues, setFormValues] = useState({
         jobRatingReview: ""
     });
-
+    const [formValuesErrors, setFormValuesErrors] = useState({
+        jobRatingReviewErr: null,
+    });
     const handleFormChange = (event) => {
         switch (event.target.name) {
             case "jobRatingReview":
                 setFormValues({
                     ...formValues,
                     jobRatingReview: event.target.value,
+                });
+                setFormValuesErrors({
+                    ...formValuesErrors,
+                    jobRatingReviewErr:
+                        event.target.value.length === 0
+                            ? "This field is required"
+                            : null,
                 });
                 break;
 
@@ -54,22 +63,24 @@ export default function JobRate() {
     const handleSubmitForm = (e) => {
         e.preventDefault();
 
-        // console.log({ jobRatingReview: formValues.jobRatingReview, rating })
-        axiosInstace
-            .patch(`job/${params.jobID}/endJob/${params.contractorID}`, { jobRatingReview: formValues.jobRatingReview, rating })
-            .then((response) => {
-                console.log(response.data);
-                MySwal.fire(`Job Ended Successfully , Thanks For Working With ArtDeco.com`).then(result => {
-                    if (result.isConfirmed) {
-                        window.location.replace('/');
-                    }
+        if (!formValuesErrors.jobRatingReviewErr) {
+            axiosInstace
+                .patch(`job/${params.jobID}/endJob/${params.contractorID}`, { jobRatingReview: formValues.jobRatingReview, rating })
+                .then((response) => {
+                    console.log(response.data);
+                    MySwal.fire(`Job Ended Successfully , Thanks For Working With ArtDeco.com`).then(result => {
+                        if (result.isConfirmed) {
+                            window.location.replace('/');
+                        }
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    MySwal.fire(`Can't End This Job , Please Try Again`);
                 });
-            })
-            .catch((err) => {
-                console.log(err);
-                MySwal.fire(`Can't End This Job , Please Try Again`);
-            });
+        }
     };
+
     return (
         <div>
             <div className="container my-5 w-75">
@@ -112,6 +123,11 @@ export default function JobRate() {
                                 rows="3"
                             ></textarea>
                         </div>
+                        {formValuesErrors.jobRatingReviewErr && (
+                            <div id="usernameHelp" className="form-text text-danger">
+                                {formValuesErrors.jobRatingReviewErr}
+                            </div>
+                        )}
                     </div>
                     <div className="row align-items-center">
                         <ul className="list-unstyled mb-0 col-12 col-md-8 text-dark-l1 text-90 text-left my-4 my-md-0">
@@ -123,9 +139,21 @@ export default function JobRate() {
                             </li>
                         </ul>
                         <div className="col-12 col-md-4 text-center my-2 my-md-0 jobDetailsBtn ">
-                            <Link to="" onClick={(e) => handleSubmitForm(e)}><BTN URL={``} text="End Job" type="defult" /></Link>
-                        </div>
+                            <div className="topRight">
+                                <button
+                                    onClick={(e) => handleSubmitForm(e)}
+                                    type="button"
+                                    className="btn"
+                                    disabled={
+                                        formValuesErrors.jobRatingReviewErr ||
+                                        (formValues.jobRatingReview) === ""
 
+                                    }
+                                >
+                                    End Job
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

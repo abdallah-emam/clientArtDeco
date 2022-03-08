@@ -13,7 +13,7 @@ const MySwal = withReactContent(Swal);
 export default function JobProposal() {
   const navigate = useNavigate();
   const params = useParams();
-  // console.log(params.id);
+
 
   const [Times, setTimes] = useState([
     "one month",
@@ -26,6 +26,11 @@ export default function JobProposal() {
     financialOffer: "",
     estimatedTime: "one month",
   });
+  const [formValuesErrors, setFormValuesErrors] = useState({
+    coverLetterErr: null,
+    financialOfferErr: null,
+  });
+
   const handleFormChange = (event) => {
     switch (event.target.name) {
       case "coverLetter":
@@ -33,12 +38,26 @@ export default function JobProposal() {
           ...formValues,
           coverLetter: event.target.value,
         });
+        setFormValuesErrors({
+          ...formValuesErrors,
+          coverLetterErr:
+            event.target.value.length === 0
+              ? "This field is required"
+              : null,
+        });
         break;
 
       case "financialOffer":
         setFormValues({
           ...formValues,
           financialOffer: event.target.value,
+        });
+        setFormValuesErrors({
+          ...formValuesErrors,
+          financialOfferErr:
+            event.target.value.length === 0
+              ? "This field is required"
+              : null,
         });
         break;
 
@@ -55,21 +74,23 @@ export default function JobProposal() {
   };
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    axiosInstace
-      .post(`job/${params.id}/proposal`, formValues)
-      .then((response) => {
-        console.log(formValues);
-        console.log(response.data);
-        MySwal.fire(`Proposal Sent To the Job Owner , Thanks For Working With Us`).then(result => {
-          if (result.isConfirmed) {
-            window.location.replace(`/JobDetails/${params.id}`);
-          }
+    if (!formValuesErrors.coverLetterErr && !formValuesErrors.financialOfferErr) {
+      axiosInstace
+        .post(`job/${params.id}/proposal`, formValues)
+        .then((response) => {
+          console.log(formValues);
+          console.log(response.data);
+          MySwal.fire(`Proposal Sent To the Job Owner , Thanks For Working With Us`).then(result => {
+            if (result.isConfirmed) {
+              window.location.replace(`/JobDetails/${params.id}`);
+            }
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          MySwal.fire(` Can't Send This Proposal , You Already add one , Check again before add Proposal `);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-        MySwal.fire(` Can't Send This Proposal, Please Check again before add Proposal`);
-      });
+    }
   };
 
   return (
@@ -87,6 +108,11 @@ export default function JobProposal() {
                 onClick={(e) => handleSubmitForm(e)}
                 type="button"
                 class="Proposal btn"
+                disabled={
+                  formValuesErrors.financialOfferErr ||
+                  formValuesErrors.coverLetterErr ||
+                  (formValues.coverLetter && formValues.financialOffer) === ""
+                }
               >
                 Send Proposal
               </button>
@@ -110,6 +136,11 @@ export default function JobProposal() {
                   id="exampleFormControlTextarea1"
                   rows="10"
                 ></textarea>
+                {formValuesErrors.coverLetterErr && (
+                  <div id="usernameHelp" className="form-text text-danger">
+                    {formValuesErrors.coverLetterErr}
+                  </div>
+                )}
                 <br />
 
               </div>
@@ -119,9 +150,9 @@ export default function JobProposal() {
           <div className="Proposal ForthWrapper">
             <div className="topLeft">
               <h5>Details</h5>
-              <div class="form-group">
+              <div class="form-group mb-2">
                 <label>Budget</label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-1">
                   <span class="input-group-text">
                     <PaidIcon />
                   </span>
@@ -135,6 +166,11 @@ export default function JobProposal() {
                     aria-label="Amount (to the nearest dollar)"
                   ></input>
                 </div>
+                {formValuesErrors.financialOfferErr && (
+                  <div id="usernameHelp" className="form-text text-danger">
+                    {formValuesErrors.financialOfferErr}
+                  </div>
+                )}
               </div>
               <div className="form-group">
                 <label>Estimated Time</label>
