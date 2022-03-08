@@ -1,224 +1,256 @@
 .container-edit-width {
-    padding: 10px;
+  padding: 10px;
 }
 
 .HomePage h1,
 .whyArtDeco-section h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .Btn {
-    margin-left: 5px;
+  margin-left: 5px;
 }
-
 
 /* section 1 */
 
 .HomePage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
 
 .HomePage h1 {
-    color: #ff8a00;
+  color: #ff8a00;
 }
 
 .HomePage h1:first-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .home-about {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .home-about p {
-    font-size: 17px;
-    font-weight: 500;
+  font-size: 17px;
+  font-weight: 500;
 }
 
 .svg {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 .YourSvg {
-    width: 10%;
-    height: 60%;
+  width: 10%;
+  height: 60%;
 }
 
 .TextStyle.BTN:first-child {
-    margin-left: 120px;
+  margin-left: 120px;
 }
-
 
 /* section 2 */
 
 .whyArtDeco-section {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .why-us-container {
-    padding: 20px 0;
-    background-color: #f1f2f4;
+  padding: 20px 0;
+  background-color: #f1f2f4;
 }
 
 .whyItem {
-    margin: 25px 0;
+  margin: 25px 0;
+}
+
+.whyItem i {
+  font-size: 20px;
 }
 
 .whyItem p {
-    margin-top: 7px;
+  margin-top: 7px;
 }
 
+.whyItem div div:first-child {
+  flex-basis: 5%;
+  align-self: stretch;
+}
 
 /* Section delivery-models-client */
 
 .delivery-models-client {
-    margin: 50px 0;
-    color: #f7f7f7;
+  margin: 50px 0;
+  color: #f7f7f7;
 }
 
 .delivery-models-client p,
 .delivery-models-client h2 {
-    color: #f7f7f7;
+  color: #f7f7f7;
 }
 
 .models-client-container {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://www.homedecoreidea.com/wp-content/uploads/2019/09/DIY-home-decoration.jpg);
-    background-size: cover;
-    background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://www.homedecoreidea.com/wp-content/uploads/2019/09/DIY-home-decoration.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .for-client-title p,
 .for-contractor-title p {
-    margin: 30px 0;
-    font-weight: 500;
+  margin: 30px 0;
+  font-weight: 500;
 }
 
 .for-client-about p,
 .for-contractor-about p {
-    margin: 30px 0;
-    font-size: 18px;
-    font-weight: 500;
+  margin: 30px 0;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .for-client-go-to {
-    margin: 0px 0 10px 0;
+  margin: 0px 0 10px 0;
 }
 
 .card-link {
-    display: inline-block;
-    background-color: #ff8a00;
-    border: none;
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: start;
+  display: inline-block;
+  background-color: #ff8a00;
+  border: none;
+  color: #f7f7f7;
+  width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: start;
+  transition: all 0.3 ease;
+}
+
+.card-link:hover {
+  background-color: #f7f7f7;
+  color: #ff8a00;
 }
 
 .card-link h2 {
-    font-size: 25px;
-    margin-bottom: 10px;
+  color: inherit !important;
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .card-link a {
-    color: #f7f7f7;
-    font-size: 16px;
+  color: inherit !important;
+  font-size: 16px;
 }
-
 
 /* delivery-models-contractor */
 
 .container-edit-width {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .delivery-models-contractor {
-    border-radius: 10px;
-    margin: 50px 0;
+  border-radius: 10px;
+  margin: 50px 0;
 }
 
 .delivery-models-contractor p,
 .delivery-models-contractor h1 {
-    color: #f7f7f7;
+  color: #f7f7f7;
 }
 
 .contractor-photo {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://www.jimersonfirm.com/wp-content/uploads/2017/11/find-contractor.jpg);
-    background-size: cover;
-    background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://www.jimersonfirm.com/wp-content/uploads/2017/11/find-contractor.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .contractor-details {
-    background-color: #222222;
+  background-color: #222222;
 }
 
 .for-contractor-title p {
-    margin: 30px 0;
-    font-weight: 500;
+  margin: 30px 0;
+  font-weight: 500;
 }
 
 .for-clinet-offers p {
-    margin: 0;
+  margin: 0;
 }
 
 .for-clinet-offers {
-    border-top: 1px solid #f7f7f7;
-    padding-top: 10px;
+  border-top: 1px solid #f7f7f7;
+  padding-top: 10px;
 }
 
 @media (min-width: 1297px) {
-    /* section 1 */
-    .container-edit-width {
-        padding: 30px;
-    }
-    .HomePage {
-        height: 70vh;
-    }
-    .HomePage h1,
-    .whyArtDeco-section h1 {
-        font-size: 80px;
-    }
-    .home-about {
-        margin: 40px 0;
-    }
-    .home-about p {
-        font-size: 19px;
-        font-weight: 500;
-    }
-    /* section 2 */
-    .whyItem h3 {
-        font-size: 33px;
-    }
-    .whyItem p {
-        font-size: 19px;
-    }
-    /* section 3 */
+  /* section 1 */
+  .container-edit-width {
+    padding: 30px;
+  }
+  .HomePage {
+    height: 70vh;
+  }
+  .HomePage h1,
+  .whyArtDeco-section h1 {
+    font-size: 80px;
+  }
+  .home-about {
+    margin: 40px 0;
+  }
+  .home-about p {
+    font-size: 19px;
+    font-weight: 500;
+  }
+  /* section 2 */
+  .whyItem h3 {
+    font-size: 33px;
+  }
+  .whyItem p {
+    font-size: 19px;
+  }
+  /* section 3 */
 }
 
 @media (min-width: 768px) {
-    /* section 3 */
-    .for-client-title p,
-    .for-contractor-title p {
-        margin: 30px 0;
-        font-weight: 500;
-        font-size: 19px;
-    }
-    .for-client-about h1 {
-        font-size: 50px;
-    }
-    .for-client-go-to {
-        margin: 0px 0 30px 0;
-    }
-    /* section 3 */
-    .for-contractor-about p {
-        margin: 30px 0 70px;
-    }
-    .for-clinet-offers p {
-        font-size: 17px;
-    }
+  /* section 2 */
+  .whyItem {
+    margin: 35px 0 0;
+  }
+  .whyItem i {
+    font-size: 25px;
+  }
+  /* section 3 */
+  .for-client-title p,
+  .for-contractor-title p {
+    margin: 30px 0;
+    font-weight: 500;
+    font-size: 19px;
+  }
+  .for-client-about h1 {
+    font-size: 50px;
+  }
+  .for-client-go-to {
+    margin: 0px 0 30px 0;
+  }
+  /* section 3 */
+  .for-contractor-about p {
+    margin: 30px 0 70px;
+  }
+  .for-clinet-offers p {
+    font-size: 17px;
+  }
+
+  .card-link h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .card-link a {
+    font-size: 18px;
+  }
 }
 
-@media (min-width: 0) and (max-width: 480px) {}
+@media (min-width: 0) and (max-width: 480px) {
+}

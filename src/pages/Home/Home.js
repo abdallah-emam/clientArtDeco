@@ -22,7 +22,8 @@ function Home() {
             <div className="row">
               <div className="col-12 col-md-6">
                 <h1>
-                  How we <br /> work?
+                  How Work <br />
+                  should be?
                 </h1>
                 <div className="home-about  text-secondary">
                   <p>
@@ -56,28 +57,54 @@ function Home() {
             <div className="row">
               <div className="col-sm-12 col-md-8">
                 <div className="row">
-                  <h1>Why ArtDeco..?</h1>
+                  <div className="col-12 col-lg-10">
+                    <h1>Why should you turn to Art Deco?</h1>
+                  </div>
                 </div>
-                <div className="row whyItem">
-                  <h3>Proof of quality</h3>
-                  <p className="text-secondary">
-                    Check any pro’s work samples, client reviews, and identity
-                    verification.
-                  </p>
-                </div>
-                <div className="row whyItem">
-                  <h3>No cost until you hire</h3>
-                  <p className="text-secondary">
-                    Interview potential fits for your job, negotiate rates, and
-                    only pay for work you approve.
-                  </p>
-                </div>
-                <div className=" row whyItem">
-                  <h3>Safe and secure</h3>
-                  <p className="text-secondary">
-                    Focus on your work knowing we help protect your data and
-                    privacy. We’re here with 24/7 support if you need it.
-                  </p>
+                <div className="whyItemBox">
+                  <div className="row whyItem">
+                    <div className="d-flex">
+                      <div className="mx-3 mt-2">
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <div className="">
+                        <h3>Proof of quality</h3>
+                        <p className="text-secondary">
+                          Check any pro’s work samples, client reviews, and
+                          identity verification.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row whyItem">
+                    <div className="d-flex">
+                      <div className="mx-3 mt-2">
+                        <i class="fas fa-money-bill-alt"></i>
+                      </div>
+                      <div className="">
+                        <h3>No cost until you hire</h3>
+                        <p className="text-secondary">
+                          Interview potential fits for your job, negotiate
+                          rates, and only pay for work you approve.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row whyItem">
+                    <div className="d-flex">
+                      <div className="mx-3 mt-2">
+                        <i class="fas fa-check-circle"></i>
+                      </div>
+                      <div className="">
+                        <h3>Safe and secure</h3>
+                        <p className="text-secondary">
+                          Focus on your work knowing we help protect your data
+                          and privacy. We’re here with 24/7 support if you need
+                          it.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -110,23 +137,23 @@ function Home() {
                       <h2>
                         Post a job <br /> and hire pro
                       </h2>
-                      <Link to="/"> Talent market place &#x2192;</Link>
+                      <Link to="/clientLogin"> Talent market place &#x2192;</Link>
                     </button>
                   </div>
                   <div className="col-md-4 mt-3  pt-10">
                     <button className="card-link">
                       <h2>
-                        Post a job <br /> and hire pro
+                        Browse <br /> and buy project
                       </h2>
-                      <Link to="/"> Talent market place &#x2192; </Link>
+                      <Link to="/"> Project list &#x2192; </Link>
                     </button>
                   </div>
                   <div className="col-md-4  mt-3  pt-10">
                     <button className="card-link">
                       <h2>
-                        Post a job <br /> and hire pro
+                        Countact us <br /> to help you in any problem
                       </h2>
-                      <Link to="#"> Talent market place &#x2192; </Link>
+                      <Link to="/Contact"> contact us &#x2192; </Link>
                     </button>
                   </div>
                 </div>
