@@ -75,7 +75,7 @@ const ClientLogin = () => {
         .post("users/login", formValues)
         .then((response) => {
           console.log(response.data);
-          MySwal.fire(`Logged-IN Successfully , Welcome ${response.data.data.user.name} , at ArtDeco.com`).then(result => {
+          MySwal.fire(`Logged-in Successfully , Welcome ${response.data.data.user.name} , at ArtDeco.com`).then(result => {
             if (result.isConfirmed) {
               window.location.replace('/');
             }

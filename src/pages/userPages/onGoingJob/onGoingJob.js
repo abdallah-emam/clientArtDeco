@@ -152,6 +152,10 @@ export default function OnGoingJob() {
                       Financial Offer :&nbsp;
                       {jobDetails.acceptedProposal.financialOffer}
                     </Typography>
+                    <Typography className='timeline_description'>
+                      Company Phone :&nbsp;
+                      {jobDetails.acceptedProposal.contractor.phone}
+                    </Typography>
                   </TimelineContent>
                 </TimelineItem>
 

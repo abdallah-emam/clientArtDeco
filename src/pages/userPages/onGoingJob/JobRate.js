@@ -59,7 +59,7 @@ export default function JobRate() {
             .patch(`job/${params.jobID}/endJob/${params.contractorID}`, { jobRatingReview: formValues.jobRatingReview, rating })
             .then((response) => {
                 console.log(response.data);
-                MySwal.fire(`Job Ended Successfully , Thanks For WorkingWith ArtDeco.com`).then(result => {
+                MySwal.fire(`Job Ended Successfully , Thanks For Working With ArtDeco.com`).then(result => {
                     if (result.isConfirmed) {
                         window.location.replace('/');
                     }
@@ -72,15 +72,16 @@ export default function JobRate() {
     };
     return (
         <div>
-            <div className="container my-5">
+            <div className="container my-5 w-75">
                 <div className=" border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 p-3 shadow-sm">
                     <div className="row my-4 jobDetailsContent">
                         <div className="col-12 col-md-6">
                             <div className="row">
                                 <div className="">
-                                    <h3> Rate the contractor</h3>
+                                    <h4> Rate the contractor</h4>
                                     <Stack spacing={1}>
                                         <Rating
+                                            required
                                             name="half-rating"
                                             defaultValue={2.5}
                                             precision={0.5}
@@ -95,17 +96,18 @@ export default function JobRate() {
                         </div>
                     </div>
                     <div className="row mb-4">
-                        <div className="form-group">
+                        <div className="form-group ReviewArea">
                             <label htmlFor="exampleFormControlTextarea1">
                                 {" "}
-                                <h4 className="m-2"> Add A Review For The Contractor</h4>
+                                <h5 className="m-2"> Add A Review For The Contractor</h5>
                             </label>
                             <textarea
+                                required
                                 name="jobRatingReview"
                                 placeholder="Enter a Review for this Contractor"
                                 value={formValues.jobRatingReview}
                                 onChange={(e) => handleFormChange(e)}
-                                class="form-control"
+                                class="form-control RatingArea w-75"
                                 id="exampleFormControlTextarea1"
                                 rows="3"
                             ></textarea>

@@ -121,7 +121,7 @@ const ContractorSignUp = () => {
         .then((response) => {
           console.log(response.data);
           MySwal.fire(
-            `Registered Successfully , Welcome ${response.data.data.contractor.name} , At ArtDeco.com`
+            `Registered Successfully , Welcome ${response.data.data.contractor.name} , at ArtDeco.com`
           ).then(result => {
             if (result.isConfirmed) {
               window.location.replace('/');

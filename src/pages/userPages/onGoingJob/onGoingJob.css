@@ -14,3 +14,7 @@
 .timeLineContainer ul {
   width: 100%;
 }
+
+.ReviewArea .RatingArea {
+  resize: none;
+}
