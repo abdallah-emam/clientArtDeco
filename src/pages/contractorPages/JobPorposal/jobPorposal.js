@@ -153,8 +153,8 @@ export default function JobProposal() {
             <div className="topRight">
               <div className="Special container">
                 <h6>
-                  Enter The Details Of Your Work To make It Clear To the Companies
-                  to know everything you need to finish your work in right way.
+                  Enter The Details Of Your Proposal To make It Clear To the Clients
+                  to know everything you need to offer to get this Job .
                 </h6>
               </div>
             </div>

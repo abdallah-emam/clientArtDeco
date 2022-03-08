@@ -79,7 +79,7 @@
 .Proposal .ThirdWrapper .topLeft .form-group textarea {
   resize: none;
   width: 600px;
-  border: 1px solid black;
+  border: 1px solid rgb(206, 199, 199);
   font-size: 20px;
   margin: 15px;
 }
@@ -112,7 +112,7 @@
     resize: none;
     width: 300px;
     font-size: 20px;
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
   }
 }
 @media (max-width: 991px) {
@@ -146,11 +146,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -158,7 +156,8 @@
     align-items: center;
   }
   .ForthWrapper .topRight .Special {
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
+
     width: 400px;
     height: 100px;
     background-color: rgb(255, 255, 255);
@@ -200,7 +199,7 @@
   .Proposal .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
   }
 
   .Proposal .ForthWrapper {
@@ -210,7 +209,8 @@
     align-items: center;
   }
   .Proposal .ForthWrapper .topRight .Special {
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
+
     width: 300px;
     height: 150px;
     background-color: rgb(255, 255, 255);
@@ -251,11 +251,9 @@
   .Proposal .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
   }
-  .Proposal .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .Proposal .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -263,7 +261,8 @@
     align-items: center;
   }
   .Proposal .ForthWrapper .topRight .Special {
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
+
     width: 300px;
     height: 150px;
     background-color: rgb(255, 255, 255);
@@ -305,11 +304,9 @@
   .Proposal .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
   }
-  .Proposal .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .Proposal .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -359,11 +356,9 @@
   .Proposal .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
   }
-  .Proposal .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .Proposal .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -371,7 +366,8 @@
     align-items: center;
   }
   .Proposal .ForthWrapper .topRight .Special {
-    border: 1px solid black;
+    border: 1px solid rgb(206, 199, 199);
+
     width: 300px;
     height: 150px;
     background-color: rgb(255, 255, 255);

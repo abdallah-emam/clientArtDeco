@@ -108,7 +108,7 @@
 .ThirdWrapper .topLeft .form-group textarea {
   resize: none;
   width: 600px;
-  border: 1px solid black;
+  border: 1px solid rgb(189, 183, 183);
   font-size: 20px;
   margin: 15px;
 }
@@ -143,7 +143,7 @@
     resize: none;
     width: 300px;
     font-size: 20px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
 }
 
@@ -179,7 +179,7 @@
     resize: none;
     width: 300px;
     font-size: 20px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper .topLeft .form-group .file-Attach {
     width: 300px;
@@ -230,7 +230,7 @@
   }
   .SecondWrapper .topLeft .form-group input {
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -244,7 +244,7 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper .topLeft .form-group .file-Attach {
     width: 300px;
@@ -295,7 +295,7 @@
   }
   .SecondWrapper .topLeft .form-group input {
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -309,7 +309,7 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
 
   .ForthWrapper {
@@ -358,7 +358,7 @@
   }
   .SecondWrapper .topLeft .form-group input {
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -372,11 +372,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+ 
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -425,7 +423,7 @@
     width: 300px;
     height: 40px;
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -439,11 +437,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;

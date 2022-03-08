@@ -69,7 +69,7 @@
   height: 60px;
   font-size: 20px;
   font-weight: 400;
-  border: 1px solid black;
+  border: 1px solid rgb(212, 204, 204);
 }
 
 .SecondWrapper .topLeft small {
@@ -104,11 +104,7 @@
 .ThirdWrapper .topLeft .form-group textarea {
   resize: none;
   width: 600px;
-  border: 1px solid black;
-}
-
-.ThirdWrapper .topLeft .form-group .file-Attach {
-  width: 500px;
+  border: 1px solid rgb(189, 183, 183);
 }
 
 /* ForthWrapper */
@@ -175,11 +171,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -227,7 +221,7 @@
   .SecondWrapper .topLeft .form-group input {
     font-size: 20px;
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -241,11 +235,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -293,7 +285,7 @@
   .SecondWrapper .topLeft .form-group input {
     font-size: 20px;
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -307,11 +299,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -359,7 +349,7 @@
   .SecondWrapper .topLeft .form-group input {
     font-size: 20px;
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -373,11 +363,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
@@ -427,7 +415,7 @@
     height: 40px;
     font-size: 20px;
     font-weight: 400;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
   .ThirdWrapper {
     height: 100%;
@@ -441,11 +429,9 @@
   .ThirdWrapper .topLeft .form-group textarea {
     resize: none;
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 183, 183);
   }
-  .ThirdWrapper .topLeft .form-group .file-Attach {
-    width: 300px;
-  }
+
   .ForthWrapper {
     height: 100%;
     padding: 0px 20px;
