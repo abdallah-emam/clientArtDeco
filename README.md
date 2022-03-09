@@ -50,7 +50,7 @@ Technologies used:
 Frontend and Backend repos:
 
 - [Frontend] => (https://github.com/abdallah-emam/clientArtDeco)
-- [Backend] => (https://github.com/mostafa3537/ArtDeco-DackEnd)
+- [Backend] => (https://github.com/mostafa3537/ArtDeco-BackEnd)
 - [API Reference] => (https://documenter.getpostman.com/view/18880020/UVkvHXu1)
 
 
@@ -82,7 +82,7 @@ Backend:
 
 Frontend:
 - [Raheem Emad] (https://github.com/RaheemAmer)
-- [Abdelrahman Ehab] (https://github.com/AbdelrahmanEhab20)
+- [Abdelrahman Ehab]  (https://github.com/AbdelrahmanEhab20)
 - [Ahmed Abd-Elzaher] (https://github.com/Ahmed-AbdElzaher)
 - [Doaa ElDesoki] (https://github.com/DoaaEldesoki)
 
