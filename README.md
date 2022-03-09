@@ -16,6 +16,7 @@ ArtDeco is a promising startup that aims to solve one of the main problems we fa
 Frequently viewed docs:
 
 - [Project Management Tool](https://trello.com/b/1rlBmYww/artdeco)
+- [Powerpoint presentation](https://1drv.ms/p/s!Aok8_f2-0BBLjUwm0ntBS5y_yp5t?e=BI4C22)
 - [Feasibility study](https://docs.google.com/document/d/1gIIogXj7wVUCfnW0yCGLMw7OQKRZV1vtUAyjxHLvBeY/edit#)
 - [Job Proposal](https://docs.google.com/document/d/17LJi41KrPDV3944QibJrNGnKMLY1iwFaXpu1FiRqwY4/edit#heading=h.gjdgxs)
 - [API Reference](https://documenter.getpostman.com/view/18880020/UVkvHXu1)
@@ -23,14 +24,15 @@ Frequently viewed docs:
 
 
 
+
 ## [Technologies]
 
 Technologies used:
 
-- Html, jsx
-- Css, Bootrstrap, Material Ui, Tailwind css
+- Html, JSX
+- Css, Bootstrap, Material Ui, Tailwind css
 - Javascript, ES6
-- React Js and many React libraries(router-dim, axious, toastify, etc..)
+- React Js and many React libraries(router-dom, axious, toastify, etc..)
 - Node js for backend
 - No SQL mongo for database
 - Postman for API testing
@@ -76,9 +78,9 @@ Backend:
 
 Frontend:
 - [Raheem Emad] (https://github.com/RaheemAmer)
-- [AbdelrahmanEhab] (https://github.com/AbdelrahmanEhab20)
+- [Abdelrahman Ehab] (https://github.com/AbdelrahmanEhab20)
 - [Ahmed Abd-Elzaher] (https://github.com/Ahmed-AbdElzaher)
-- [DoaaEldesoki] (https://github.com/DoaaEldesoki)
+- [Doaa ElDesoki] (https://github.com/DoaaEldesoki)
 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

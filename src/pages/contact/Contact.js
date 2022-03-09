@@ -27,7 +27,7 @@ const Contact = () => {
             <div className="form-wrapper">
               <form
                 className="shake"
-                method="post"
+                method="get"
                 id="contactForm"
                 name="contact-form"
                 data-toggle="validator"
