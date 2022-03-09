@@ -152,7 +152,7 @@ function Home() {
                   <div onClick={() => window.location.assign("/Contact")} className="col-lg-4 d-flex align-items-stretch mt-3 pt-10">
                     <button className="card-link">
                       <h2>
-                        Countact us <br /> to help you in any problem
+                        Contact us <br /> to help you in any problem
                       </h2>
                       <Link to="/Contact"> contact us &#x2192; </Link>
                     </button>
