@@ -22,7 +22,11 @@ Frequently viewed docs:
 - [API Reference](https://documenter.getpostman.com/view/18880020/UVkvHXu1)
 - [Outline Demo](https://docs.google.com/document/d/112AJfxMnqZGrdAdplxwxSAPYgRj9zOdP2p6x6GZXTAY/edit)
 
+## [Project]
 
+Frequently viewed docs:
+
+- [Link](https://iti-art-deco-react.netlify.app/)
 
 
 ## [Technologies]
