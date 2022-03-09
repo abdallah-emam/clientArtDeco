@@ -28,7 +28,7 @@ let timelineElements = [
     title: "Fourth Step",
     location: "Contractor Functionality",
     description:
-      "As a Contractor you have a variety options to accept a job, update job post, see your dashboard and browse the jobs listed in the marketplace.",
+      "As a Contractor you have a variety options to send proposal to a job, add work experience, see your dashboard and browse the jobs listed in the marketplace.",
     icon: "work",
   },
   {
