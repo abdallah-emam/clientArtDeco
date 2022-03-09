@@ -146,7 +146,7 @@ function Home() {
                       <h2>
                         Browse <br /> and buy project
                       </h2>
-                      <Link to="/"> Project list &#x2192; </Link>
+                      <Link to="/JobsPage"> Project list &#x2192; </Link>
                     </button>
                   </div>
                   <div className="col-lg-4 d-flex align-items-stretch mt-3 pt-10">
