@@ -14,6 +14,35 @@ const MySwal = withReactContent(Swal);
 
 const Contact = (props) => {
   const [formValues, setFormValues] = useState({});
+  const [Governorates] = useState([
+    "Cairo",
+    "Giza",
+    "Alexandria",
+    "Aswan",
+    "Asyut",
+    "Beheira",
+    "Beni Suef",
+    "Dakahlia",
+    "Damietta",
+    "Faiyum",
+    "Gharbia",
+    "Ismailia",
+    "Kafr El Sheikh",
+    "Matruh",
+    "Minya",
+    "Monufia",
+    "New Valley",
+    "North Sinai",
+    "Port Said",
+    "Qalyubia",
+    "Qena",
+    "Red Sea",
+    "Sharqia",
+    "Sohag",
+    "South Sinai",
+    "Suez",
+  ]);
+
 
   const handleFormChange = (event) => {
     switch (event.target.name) {
@@ -132,9 +161,9 @@ const Contact = (props) => {
                         label="Address"
                         onChange={(e) => handleFormChange(e)}
                       >
-                        <MenuItem value={"Cairo"}>Cairo</MenuItem>
-                        <MenuItem value={"Giza"}>Giza</MenuItem>
-                        <MenuItem value={"Menia"}>Menia</MenuItem>
+                        {Governorates.map((item) => (
+                          <MenuItem value={item}>{item}</MenuItem>
+                        ))}
                       </Select>
                     </FormControl>
                   </Box>
