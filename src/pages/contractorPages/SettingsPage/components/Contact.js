@@ -58,10 +58,16 @@ const Contact = (props) => {
         });
         break;
       case "phone":
-        setFormValues({
-          ...formValues,
-          phone: event.target.value,
-        });
+        if(!isNaN(event.target.value)){
+          setFormValues({
+            ...formValues,
+            phone: event.target.value,
+          });
+        }else{
+          event.preventDefault();
+          event.target.value = ""
+          alert('phone must be a number')
+        }
         break;
       case "address":
         setFormValues({
