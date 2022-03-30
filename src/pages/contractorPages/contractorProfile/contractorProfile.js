@@ -20,8 +20,7 @@ export default function ContactorProfile() {
       .get("contractors/getMe", {})
       .then((res) => {
         console.log(res.data.data);
-        console.log(res.data.data._id);
-        setContractorDetails(res.data.data);
+        setContractorDetails(res.data.data.data);
         console.log("contractorDetails", contractorDetails);
         axiosInstace
           .get(`jobHistory/${res.data.data.data._id}`, {})
