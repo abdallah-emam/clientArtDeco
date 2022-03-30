@@ -24,7 +24,7 @@ Frequently viewed docs:
 
 ## [Project]
 
-Link:
+Frequently viewed docs:
 
 - [Art Deco Website](https://iti-art-deco-react.netlify.app/)
 
