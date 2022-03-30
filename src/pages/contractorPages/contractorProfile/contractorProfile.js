@@ -24,7 +24,7 @@ export default function ContactorProfile() {
         setContractorDetails(res.data.data);
         console.log("contractorDetails", contractorDetails);
         axiosInstace
-          .get(`jobHistory/${res.data.data._id}`, {})
+          .get(`jobHistory/${res.data.data.data._id}`, {})
           .then((res) => {
             setjobsRating(res.data.data);
             console.log(res.data.data);
