@@ -34,7 +34,7 @@ function ProfileImage(props) {
         .then((res) => {
           MySwal.fire(`Data changed Successfully`).then((result) => {
             if (result.isConfirmed) {
-              window.location.reload();
+              window.location.assign("/ClientProfile");
             }
           });
         })
