@@ -26,7 +26,6 @@ export default function ViewContactorProfile() {
     axiosInstace
       .get(`contractors/${params.contractorID}`, {})
       .then((res) => {
-        console.log(res.data.data.data);
         setContractorDetails(res.data.data.data);
         axiosInstace
           .get(`jobHistory/${res.data.data.data.data_id}`, {})

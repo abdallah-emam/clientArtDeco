@@ -19,14 +19,14 @@ export default function ContactorProfile() {
     axiosInstace
       .get("contractors/getMe", {})
       .then((res) => {
-        console.log(res.data.data);
+        
         setContractorDetails(res.data.data.data);
-        console.log("contractorDetails", contractorDetails);
+      
         axiosInstace
           .get(`jobHistory/${res.data.data.data._id}`, {})
           .then((res) => {
             setjobsRating(res.data.data);
-            console.log(res.data.data);
+            
             setIsLoading(false);
           })
           .catch((err) => {

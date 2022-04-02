@@ -8,12 +8,14 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { Grid } from "@mui/material";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const MySwal = withReactContent(Swal);
 
 function ProfileImage(props) {
   const [formValues, setFormValues] = useState({});
   const [isUploaded, setisUploaded] = useState(false);
+  let navigate = useNavigate();
 
   const handleFormChange = (event) => {
     setFormValues(event.target.files[0]);
@@ -34,7 +36,8 @@ function ProfileImage(props) {
         .then((res) => {
           MySwal.fire(`Data changed Successfully`).then((result) => {
             if (result.isConfirmed) {
-              window.location.assign("/ClientProfile");
+              // window.location.assign("/ClientProfile");
+              navigate("/ClientProfile")
             }
           });
         })
