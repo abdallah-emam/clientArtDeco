@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function Resume(props) {
+  console.log('props',props)
   return (
     <Grid container>
       <Grid item xs={12}>

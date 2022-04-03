@@ -25,6 +25,7 @@ export default function ContactorProfile() {
         axiosInstace
           .get(`jobHistory/${res.data.data.data._id}`, {})
           .then((res) => {
+            console.log('jobHistory',res)
             setjobsRating(res.data.data);
             
             setIsLoading(false);

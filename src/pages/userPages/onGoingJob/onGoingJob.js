@@ -33,9 +33,11 @@ export default function OnGoingJob() {
 
     axiosInstace.get(`users/getMyOngoingJobs/${params.id}`).then((res) => {
       setJobDetails(res.data.data.currentJob);
+      console.log('JobDetails',res.data.data.currentJob)
       setIsLoading(false);
     });
   }, []);
+
   return (
     <div>
       <div className="container m-md-5 JobsPage-container">
@@ -140,7 +142,7 @@ export default function OnGoingJob() {
 
                 <div className="w-100 text-center d-flex justify-content-center px-5 mt-4">
                   <Link
-                    to={`/${jobDetails.id}/jobRate/${jobDetails.acceptedProposal.contractor._id}`}
+                    to={`/${jobDetails.id}/jobRate/${jobDetails.acceptedProposal.contractor}`}
                   >
                     <Button
                       className="endJobButton mt-2"

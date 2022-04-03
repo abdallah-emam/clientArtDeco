@@ -43,7 +43,9 @@ export default function JobRate() {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-
+    console.log(params.jobID)
+    console.log('params',params)
+    console.log(formValues.jobRatingReview)
     if (!formValuesErrors.jobRatingReviewErr) {
       axiosInstace
         .patch(`job/${params.jobID}/endJob/${params.contractorID}`, {
