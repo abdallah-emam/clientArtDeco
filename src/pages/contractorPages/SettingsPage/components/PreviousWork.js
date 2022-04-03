@@ -71,7 +71,7 @@ function PreviousWork(props) {
             <h2> Change Your Gallery Images :</h2>
           </Grid>
 
-          {props.contractorDetails.data.gallery.length <= 0 ? (
+          {props.contractorDetails.gallery.length <= 0 ? (
             <h6>No Gallery Added Yet !</h6>
           ) : (
             <>

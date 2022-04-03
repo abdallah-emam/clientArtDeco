@@ -60,7 +60,7 @@ export default function SettingsPage() {
     axiosInstace
       .get("contractors/getMe", {})
       .then((res) => {
-        // console.log(res.data.data.data)
+        console.log(res.data.data.data)
         setContractorDetails(res.data.data.data);
         setIsLoading(false);
       })
